@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled, { ThemeProvider } from 'styled-components'
+import './styling/global.css'
+import LogoIcon from './styling/icons/LogoIcon'
+import { GlobalStyles, lightTheme } from './styling/ThemeConfig'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+	return (
+		<ThemeProvider theme={lightTheme}>
+			<GlobalStyles />
+			<Container>
+				<LogoIcon width={200} height={200} />
+				<h1>Welcome to the SBP Cloud Styleguide</h1>
+			</Container>
+		</ThemeProvider>
+	)
 }
 
-export default App;
+const Container = styled.div`
+	width: 20em;
+	margin: 2em auto;
+	text-align: center;
+`
+
+export default App

@@ -90,13 +90,16 @@ const fonts: DefaultFonts = {
 }
 
 const lightStyle: DefaultStyle = {
-	fontSize: 16,
 	radius: 8,
+	fontSize: 16,
+	shadow: 'rgba(2, 12, 23, 0.25)',
 	colorBg: 'rgb(232, 242, 253)',
 	fontColor: 'rgb(2, 12, 23)',
 	colorPrimary: 'rgb(30, 128, 237)',
 	colorSecondary: 'rgb(30, 232, 237)',
-	colorCta: 'inherit'
+	colorCta: 'inherit',
+	borderColor: 'rgb(229, 230, 231)',
+	buttonActiveColor: 'rgba(2, 12, 23, .75)'
 }
 
 const darkStyle: DefaultStyle = {

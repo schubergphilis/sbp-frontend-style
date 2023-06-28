@@ -15,11 +15,14 @@ declare module 'styled-components' {
 	export interface DefaultStyle {
 		radius: number
 		fontSize: number
+		shadow: CssColorType
 		fontColor: CssColorType
 		colorBg: CssColorType
 		colorPrimary: CssColorType
 		colorSecondary: CssColorType
 		colorCta: CssColorType
+		borderColor: CssColorType
+		buttonActiveColor: CssColorType
 	}
 
 	export interface DefaultTheme {

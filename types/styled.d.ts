@@ -23,6 +23,7 @@ declare module 'styled-components' {
 		colorCta: CssColorType
 		borderColor: CssColorType
 		buttonActiveColor: CssColorType
+		cardColorBg: CssColorType
 	}
 
 	export interface DefaultTheme {

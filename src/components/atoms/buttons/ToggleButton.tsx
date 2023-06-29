@@ -1,15 +1,14 @@
+import { ButtonHTMLAttributes } from 'react'
 import styled from 'styled-components'
 
-interface Props {
-	$isActive: boolean
-	onClick?: VoidFunction
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+	isActive: boolean
 	icon?: JSX.Element
-	title?: string
 }
 
-const ToggleButton = ({ $isActive = false, onClick, icon, title }: Props) => {
+const ToggleButton = ({ isActive = false, icon, ...props }: Props) => {
 	return (
-		<Button $isActive={$isActive} onClick={onClick} title={title}>
+		<Button $isActive={isActive} {...props}>
 			<Toggle>{icon}</Toggle>
 		</Button>
 	)
@@ -34,6 +33,12 @@ const Button = styled.button<{ $isActive: boolean }>`
             float: right;
         }
     `}
+
+	&[disabled] {
+		cursor: hand;
+		opacity: 0.75;
+		pointer-events: none;
+	}
 `
 
 const Toggle = styled.div`

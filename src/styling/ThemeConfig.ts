@@ -93,13 +93,14 @@ const lightStyle: DefaultStyle = {
 	radius: 8,
 	fontSize: 16,
 	shadow: 'rgba(2, 12, 23, 0.25)',
-	colorBg: 'rgb(232, 242, 253)',
+	colorBg: 'rgb(255, 255, 255)', //'rgb(232, 242, 253)',
 	fontColor: 'rgb(2, 12, 23)',
 	colorPrimary: 'rgb(30, 128, 237)',
 	colorSecondary: 'rgb(30, 232, 237)',
 	colorCta: 'inherit',
-	borderColor: 'rgb(229, 230, 231)',
-	buttonActiveColor: 'rgba(2, 12, 23, .75)'
+	borderColor: 'rgba(22, 12, 23, .15)',
+	buttonActiveColor: 'rgba(22, 12, 23, .75)',
+	cardColorBg: 'rgba(232, 242, 253, .90)'
 }
 
 const darkStyle: DefaultStyle = {
@@ -107,8 +108,9 @@ const darkStyle: DefaultStyle = {
 	...{
 		fontColor: 'rgb(232, 242, 253)',
 		colorBg: 'rgb(2, 12, 23)',
-		borderColor: 'rgb(232, 242, 253)',
-		buttonActiveColor: 'rgba(232, 242, 253, .75)'
+		borderColor: 'rgba(232, 242, 253, .75)',
+		buttonActiveColor: 'rgba(232, 242, 253, .75)',
+		cardColorBg: 'rgba(232, 242, 253, .10)'
 	}
 }
 

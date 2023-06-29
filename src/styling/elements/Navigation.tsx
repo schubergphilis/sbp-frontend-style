@@ -17,7 +17,7 @@ const Navigation = () => {
 		<NavigationBar>
 			<span>test</span>
 			<ToggleButton
-				$isActive={isDarkTheme}
+				isActive={isDarkTheme}
 				icon={isDarkTheme ? <DarkModeIcon /> : <LightModeIcon />}
 				onClick={toggleDarkTheme}
 			/>

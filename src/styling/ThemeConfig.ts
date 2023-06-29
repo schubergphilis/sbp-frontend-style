@@ -104,7 +104,12 @@ const lightStyle: DefaultStyle = {
 
 const darkStyle: DefaultStyle = {
 	...lightStyle,
-	...{ colorBg: 'rgb(2, 12, 23)' }
+	...{
+		fontColor: 'rgb(232, 242, 253)',
+		colorBg: 'rgb(2, 12, 23)',
+		borderColor: 'rgb(232, 242, 253)',
+		buttonActiveColor: 'rgba(232, 242, 253, .75)'
+	}
 }
 
 export const lightTheme: DefaultTheme = {

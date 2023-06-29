@@ -1,24 +1,27 @@
 import PageSize from 'components/atoms/debugger/PageSize'
-import NavigationBar from 'components/organisms/NavigationBar'
 import { device, deviceSize } from 'helpers/DeviceHelper'
-import styled, { ThemeProvider } from 'styled-components'
+import { Provider } from 'react-redux'
+import { makeStore } from 'store/Store'
+import styled from 'styled-components'
+import Navigation from 'styling/elements/Navigation'
+import ThemeWrapper from 'styling/elements/ThemeWrapper'
 import 'styling/global.css'
 import LogoIcon from 'styling/icons/LogoIcon'
-import { GlobalStyles, lightTheme } from 'styling/ThemeConfig'
+import { GlobalStyles } from 'styling/ThemeConfig'
 
 const App = () => {
 	return (
-		<ThemeProvider theme={lightTheme}>
-			<GlobalStyles />
-			<MainContainer>
-				<NavigationBar>
-					<span></span>
-				</NavigationBar>
-				<LogoIcon width={200} height={200} />
-				<h1>Welcome to the SBP Cloud Styleguide</h1>
-			</MainContainer>
-			<PageSize />
-		</ThemeProvider>
+		<Provider store={makeStore()}>
+			<ThemeWrapper>
+				<GlobalStyles />
+				<MainContainer>
+					<Navigation />
+					<LogoIcon width={200} height={200} />
+					<h1>Welcome to the SBP Cloud Styleguide</h1>
+				</MainContainer>
+				<PageSize />
+			</ThemeWrapper>
+		</Provider>
 	)
 }
 

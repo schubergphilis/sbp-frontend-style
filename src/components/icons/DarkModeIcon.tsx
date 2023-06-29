@@ -1,5 +1,3 @@
-import styled from 'styled-components'
-
 const DarkModeIcon = () => {
 	return (
 		<svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -7,7 +5,5 @@ const DarkModeIcon = () => {
 		</svg>
 	)
 }
-
-const Container = styled.div``
 
 export default DarkModeIcon

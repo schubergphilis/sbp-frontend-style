@@ -100,14 +100,9 @@ const lightStyle: DefaultStyle = {
 	colorCta: 'inherit',
 	borderColor: 'rgba(22, 12, 23, .15)',
 	buttonActiveColor: 'rgba(22, 12, 23, .75)',
-	cardColorBg: 'rgba(232, 242, 253, .90)'
-}
-
-const largeLightStyle: DefaultStyle = {
-	...lightStyle,
-	...{
-		fontSize: 24
-	}
+	cardColorBg: 'rgba(232, 242, 253, .90)',
+	inputColorBg: 'rgb(255, 255, 255)',
+	inputPlaceholder: 'rgba(22, 12, 23, .15)'
 }
 
 const darkStyle: DefaultStyle = {
@@ -117,7 +112,15 @@ const darkStyle: DefaultStyle = {
 		colorBg: 'rgb(2, 12, 23)',
 		borderColor: 'rgba(232, 242, 253, .75)',
 		buttonActiveColor: 'rgba(232, 242, 253, .75)',
-		cardColorBg: 'rgba(232, 242, 253, .10)'
+		cardColorBg: 'rgba(232, 242, 253, .10)',
+		inputColorBg: 'rgba(232, 242, 253, .10)'
+	}
+}
+
+const largeLightStyle: DefaultStyle = {
+	...lightStyle,
+	...{
+		fontSize: 24
 	}
 }
 

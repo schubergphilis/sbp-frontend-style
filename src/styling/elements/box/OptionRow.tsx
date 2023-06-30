@@ -1,7 +1,9 @@
 import ToggleButton from 'components/atoms/buttons/ToggleButton'
+import { TextInput } from 'components/atoms/forms/TextInput'
 import { OptionType } from 'datatypes/OptionType'
 import { ValueType } from 'datatypes/ValueType'
-import styled from 'styled-components'
+import { ChangeEvent } from 'react'
+import { styled } from 'styled-components'
 
 interface Props {
 	title: string
@@ -9,10 +11,10 @@ interface Props {
 	type: OptionType
 	value: ValueType
 	state: ValueType | null
-	onClick: (name: string, value: ValueType | null) => void
+	handleEvent: (name: string, value: ValueType | null) => void
 }
 
-const OptionRow = ({ title, name, type, value, state, onClick }: Props) => {
+const OptionRow = ({ title, name, type, value, state, handleEvent }: Props) => {
 	return (
 		<Row>
 			<div>{title}</div>
@@ -20,16 +22,23 @@ const OptionRow = ({ title, name, type, value, state, onClick }: Props) => {
 				{type === 'boolean' ? (
 					<ToggleButton
 						isActive={state as boolean}
-						onClick={() => onClick(name, !state)}
+						onClick={() => handleEvent(name, !state)}
 					/>
 				) : type === 'element' ? (
 					<ToggleButton
 						isActive={!(state === null || state === undefined)}
 						onClick={() =>
-							onClick(
+							handleEvent(
 								name,
 								state === undefined || state === null ? value : null
 							)
+						}
+					/>
+				) : type === 'text' ? (
+					<TextInput
+						value={(state as string) ?? ''}
+						onChange={(event: ChangeEvent<HTMLInputElement>) =>
+							handleEvent(name, event.target.value)
 						}
 					/>
 				) : null}

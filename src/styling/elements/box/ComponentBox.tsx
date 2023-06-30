@@ -15,9 +15,13 @@ interface Props {
 }
 
 const ComponentBox = ({ options, title, description, children }: Props) => {
-	const [steps, setSteps] = useState<any>({})
+	const init = options.reduce(
+		(accumulator, { name, value }) => ({ ...accumulator, [name]: value }),
+		{}
+	)
+	const [steps, setSteps] = useState<any>(init)
 
-	const onClick = (name: string, value: ValueType | null): void => {
+	const handleEvent = (name: string, value: ValueType | null): void => {
 		setSteps({
 			...steps,
 			[name]: value
@@ -36,7 +40,7 @@ const ComponentBox = ({ options, title, description, children }: Props) => {
 					{options.map((props, index) => (
 						<OptionRow
 							key={index}
-							onClick={onClick}
+							handleEvent={handleEvent}
 							state={steps[props.name]}
 							{...props}
 						/>

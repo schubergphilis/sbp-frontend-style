@@ -1,0 +1,21 @@
+import { styled } from 'styled-components'
+
+export const TextInput = styled.input`
+	border: 1px solid ${({ theme }) => theme.style.borderColor};
+	border-radius: ${({ theme }) => theme.style.radius}px;
+	background-color: ${({ theme }) => theme.style.inputColorBg};
+	padding: 0.5em;
+	display: block;
+	width: 100%;
+	cursor: pointer;
+
+	&::placeholder {
+		color: ${({ theme }) => theme.style.inputPlaceholder};
+	}
+
+	&[disabled] {
+		cursor: hand;
+		opacity: 0.75;
+		pointer-events: none;
+	}
+`

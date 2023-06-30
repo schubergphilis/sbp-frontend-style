@@ -32,6 +32,12 @@ const App = () => {
 			name: 'disabled',
 			type: 'boolean',
 			value: false
+		},
+		{
+			title: 'Title description',
+			name: 'title',
+			type: 'text',
+			value: 'Nice description about the functionality'
 		}
 	]
 	return (

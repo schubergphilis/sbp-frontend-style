@@ -103,6 +103,13 @@ const lightStyle: DefaultStyle = {
 	cardColorBg: 'rgba(232, 242, 253, .90)'
 }
 
+const largeLightStyle: DefaultStyle = {
+	...lightStyle,
+	...{
+		fontSize: 24
+	}
+}
+
 const darkStyle: DefaultStyle = {
 	...lightStyle,
 	...{
@@ -114,12 +121,29 @@ const darkStyle: DefaultStyle = {
 	}
 }
 
+const largeDarkStyle: DefaultStyle = {
+	...darkStyle,
+	...{
+		fontSize: 24
+	}
+}
+
 export const lightTheme: DefaultTheme = {
 	style: lightStyle,
 	fonts: fonts
 }
 
+export const largeLightTheme: DefaultTheme = {
+	style: largeLightStyle,
+	fonts: fonts
+}
+
 export const darkTheme: DefaultTheme = {
 	style: darkStyle,
+	fonts: fonts
+}
+
+export const largeDarkTheme: DefaultTheme = {
+	style: largeDarkStyle,
 	fonts: fonts
 }

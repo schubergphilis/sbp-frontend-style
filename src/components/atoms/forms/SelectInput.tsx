@@ -1,6 +1,6 @@
 import { styled } from 'styled-components'
 
-export const TextInput = styled.input`
+export const SelectInput = styled.select`
 	border: 1px solid ${({ theme }) => theme.style.borderColor};
 	border-radius: ${({ theme }) => theme.style.radius}px;
 	background-color: ${({ theme }) => theme.style.inputColorBg};
@@ -8,10 +8,6 @@ export const TextInput = styled.input`
 	display: block;
 	width: 100%;
 	cursor: pointer;
-
-	&::placeholder {
-		color: ${({ theme }) => theme.style.inputPlaceholder};
-	}
 
 	&[disabled] {
 		cursor: default;

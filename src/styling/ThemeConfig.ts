@@ -99,7 +99,12 @@ const lightStyle: DefaultStyle = {
 	colorSecondary: 'rgb(30, 232, 237)',
 	colorCta: 'inherit',
 	borderColor: 'rgba(22, 12, 23, .15)',
+	buttonColor: 'rgb(255, 255, 255)',
+	buttonPrimaryColor: 'rgb(255, 255, 255)',
+	buttonSecondaryColor: 'rgb(2, 12, 23)',
 	buttonActiveColor: 'rgba(22, 12, 23, .75)',
+	buttonDisabledColor: 'rgb(255, 255, 255)',
+	buttonDisabledColorBg: 'rgba(22, 12, 23, .75)',
 	cardColorBg: 'rgba(232, 242, 253, .90)',
 	inputColorBg: 'rgb(255, 255, 255)',
 	inputPlaceholder: 'rgba(22, 12, 23, .15)'
@@ -112,6 +117,8 @@ const darkStyle: DefaultStyle = {
 		colorBg: 'rgb(2, 12, 23)',
 		borderColor: 'rgba(232, 242, 253, .75)',
 		buttonActiveColor: 'rgba(232, 242, 253, .75)',
+		buttonDisabledColor: 'rgba(232, 242, 253, .75)',
+		buttonDisabledColorBg: 'rgba(232, 242, 253, .75)',
 		cardColorBg: 'rgba(232, 242, 253, .10)',
 		inputColorBg: 'rgba(232, 242, 253, .10)'
 	}

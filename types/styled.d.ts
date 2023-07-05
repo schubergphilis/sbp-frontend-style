@@ -22,7 +22,12 @@ declare module 'styled-components' {
 		colorSecondary: CssColorType
 		colorCta: CssColorType
 		borderColor: CssColorType
+		buttonColor: CssColorType
+		buttonPrimaryColor: CssColorType
+		buttonSecondaryColor: CssColorType
 		buttonActiveColor: CssColorType
+		buttonDisabledColor: CssColorType
+		buttonDisabledColorBg: CssColorType
 		cardColorBg: CssColorType
 		inputColorBg: CssColorType
 		inputPlaceholder: CssColorType

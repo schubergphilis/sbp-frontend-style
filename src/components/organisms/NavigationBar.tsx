@@ -1,11 +1,12 @@
+import { HTMLAttributes } from 'react'
 import styled from 'styled-components'
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
 	children: JSX.Element | JSX.Element[]
 }
 
-const NavigationBar = ({ children }: Props) => {
-	return <NavBar>{children}</NavBar>
+const NavigationBar = ({ children, ...props }: Props) => {
+	return <NavBar {...props}>{children}</NavBar>
 }
 
 const NavBar = styled.div`

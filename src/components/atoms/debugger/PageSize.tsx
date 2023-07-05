@@ -21,12 +21,13 @@ const Size = styled.div`
 	padding: 0.5em;
 	background-color: ${({ theme }) => theme.style.fontColor};
 	color: #fff;
-	position: absolute;
+	position: sticky;
 	bottom: 0;
 	left: 0;
 	z-index: 2;
 	opacity: 0.8;
 	cursor: pointer;
+	width: 5em;
 
 	&::before {
 		@media ${device.mobile} {

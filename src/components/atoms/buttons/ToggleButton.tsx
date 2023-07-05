@@ -34,8 +34,12 @@ const Button = styled.button<{ $isActive: boolean }>`
         }
     `}
 
+	&:hover {
+		filter: hue-rotate(2deg) brightness(105%);
+	}
+
 	&[disabled] {
-		cursor: hand;
+		cursor: default;
 		opacity: 0.75;
 		pointer-events: none;
 	}

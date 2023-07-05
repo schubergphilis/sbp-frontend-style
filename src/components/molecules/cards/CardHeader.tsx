@@ -11,7 +11,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 const CardHeader = ({ onClick, isOpen, icon, children, ...props }: Props) => {
 	return (
 		<Container {...props}>
-			<div>{children}</div>
+			<TitleInfo>{children}</TitleInfo>
 			{onClick ? (
 				<CollapseButton onClick={onClick}>{icon}</CollapseButton>
 			) : null}
@@ -27,6 +27,9 @@ const Container = styled.div`
 	gap: 0.5em;
 	text-align: left;
 	border-bottom: 1px solid ${({ theme }) => theme.style.borderColor};
+`
+const TitleInfo = styled.div`
+	flex: 1 1 auto;
 `
 const CollapseButton = styled.button`
 	vertical-align: middle;

@@ -26,8 +26,8 @@ const Navigation = () => {
 	}
 
 	return (
-		<NavigationBar>
-			<span>test</span>
+		<StickyNavBar>
+			<span>Schuberg Philis</span>
 			<Settings>
 				<ToggleButton
 					isActive={isLargeMode}
@@ -42,9 +42,18 @@ const Navigation = () => {
 					title="Change color theme of the website"
 				/>
 			</Settings>
-		</NavigationBar>
+		</StickyNavBar>
 	)
 }
+
+const StickyNavBar = styled(NavigationBar)`
+	position: sticky;
+	top: 10px;
+
+	align-self: flex-start;
+	top: 0;
+	overflow-y: auto;
+`
 
 const Settings = styled.div`
 	display: flex;

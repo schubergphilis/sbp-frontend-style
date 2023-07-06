@@ -156,25 +156,31 @@ const GeneralHeader = styled(ActionButton)<{ $isOpen: boolean }>`
 	position: relative;
 
 	&::after {
-		content: '^';
+		content: '';
 		display: block;
-		width: 2em;
-		height: 1em;
+		width: 0.5em;
+		height: 0.5em;
 		position: absolute;
-		right: 0;
-		top: 0.4em;
+		right: 0.5em;
+		top: 0.5em;
 		font-size: 1.5em;
 		line-height: 1.25em;
 		text-align: center;
 		rotate: 0deg;
-		transition: rotate 0.2s ease-in-out;
+		transition: rotate 0.2s ease-in-out, margin-top 0.2s ease-in-out;
+
+		margin-top: 0;
+		border: solid black;
+		border-width: 0 2px 2px 0;
+		rotate: 45deg;
 	}
 
 	${({ $isOpen }) =>
 		$isOpen &&
 		`
 		&::after {
-			rotate: 180deg;
+			rotate: 225deg;
+			margin-top: .2em;
 		}
 	`}
 `

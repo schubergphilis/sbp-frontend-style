@@ -142,10 +142,10 @@ const App = () => {
 							<MenuBar />
 						</Menu>
 						<Main>
-							<div>
+							<InfoBox>
 								<LogoIcon width={200} height={200} />
 								<h1>Welcome to the SBP Cloud Styleguide</h1>
-							</div>
+							</InfoBox>
 
 							<ComponentBox
 								title="Toggle button"
@@ -216,5 +216,12 @@ const Menu = styled.menu`
 `
 const Footer = styled.footer`
 	flex: 0 0 auto;
+`
+const InfoBox = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 90vh;
 `
 export default App

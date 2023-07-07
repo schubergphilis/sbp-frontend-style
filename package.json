@@ -11,6 +11,7 @@
 		"@types/node": "^16.18.37",
 		"@types/react": "^18.2.14",
 		"@types/react-dom": "^18.2.6",
+		"directory-tree": "^3.5.1",
 		"html-react-parser": "^4.0.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
@@ -24,7 +25,9 @@
 		"web-vitals": "^2.1.4"
 	},
 	"scripts": {
+		"prestart": "yarn prebuild",
 		"start": "react-scripts start",
+		"prebuild": "node --trace-warnings component-list.js",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"

@@ -59,63 +59,70 @@ const ComponentBox = ({
 	}
 
 	return (
-		<ComponentCard>
-			<CardHeader>
-				<h2>{title}</h2>
-				<p>{parse(description)}</p>
-				{descriptionCode && (
-					<SyntaxHighlighter
-						language="tsx"
-						style={github}
-						showLineNumbers={true}
-						wrapLines
-						wrapLongLines>
-						{descriptionCode
-							.replace(/\\t/gim, '\t')
-							.replace(/\\r\\n/gim, '\r\n')
-							.replace(/\\s\\s/gim, 's')}
-					</SyntaxHighlighter>
-				)}
-			</CardHeader>
-			<ComponentCardContent>
-				<Element>{clone}</Element>
-				<ElementOptions>
-					{options
-						.filter(({ general }) => !general)
-						.map((props, index) => (
-							<OptionRow
-								key={index}
-								handleEvent={handleEvent}
-								state={AccumulateState(steps, props.name)}
-								{...props}
-							/>
-						))}
-					<General>
-						<GeneralHeader isBlock onClick={toggleOptions} $isOpen={isOpen}>
-							General options
-						</GeneralHeader>
-						<GeneralCollapse $isOpen={isOpen}>
-							{options
-								.filter(({ general }) => general)
-								.map((props, index) => (
-									<OptionRow
-										key={index}
-										handleEvent={handleEvent}
-										state={AccumulateState(steps, props.name)}
-										{...props}
-									/>
-								))}
-						</GeneralCollapse>
-					</General>
-				</ElementOptions>
-			</ComponentCardContent>
-			<ComponentCardFooter>
-				<CodeBlock>{clone}</CodeBlock>
-			</ComponentCardFooter>
-		</ComponentCard>
+		<>
+			<Anchor id={title.toLowerCase().replace(/\s/gim, '-')} />
+			<ComponentCard>
+				<CardHeader>
+					<h2>{title}</h2>
+					<p>{parse(description)}</p>
+					{descriptionCode && (
+						<SyntaxHighlighter
+							language="tsx"
+							style={github}
+							showLineNumbers={true}
+							wrapLines
+							wrapLongLines>
+							{descriptionCode
+								.replace(/\\t/gim, '\t')
+								.replace(/\\r\\n/gim, '\r\n')
+								.replace(/\\s\\s/gim, 's')}
+						</SyntaxHighlighter>
+					)}
+				</CardHeader>
+				<ComponentCardContent>
+					<Element>{clone}</Element>
+					<ElementOptions>
+						{options
+							.filter(({ general }) => !general)
+							.map((props, index) => (
+								<OptionRow
+									key={index}
+									handleEvent={handleEvent}
+									state={AccumulateState(steps, props.name)}
+									{...props}
+								/>
+							))}
+						<General>
+							<GeneralHeader isBlock onClick={toggleOptions} $isOpen={isOpen}>
+								General options
+							</GeneralHeader>
+
+							<GeneralCollapse $isOpen={isOpen}>
+								{options
+									.filter(({ general }) => general)
+									.map((props, index) => (
+										<OptionRow
+											key={index}
+											handleEvent={handleEvent}
+											state={AccumulateState(steps, props.name)}
+											{...props}
+										/>
+									))}
+							</GeneralCollapse>
+						</General>
+					</ElementOptions>
+				</ComponentCardContent>
+				<ComponentCardFooter>
+					<CodeBlock>{clone}</CodeBlock>
+				</ComponentCardFooter>
+			</ComponentCard>
+		</>
 	)
 }
 
+const Anchor = styled.a`
+	height: 0;
+`
 const ComponentCard = styled(Card)`
 	pre {
 		padding: 1em !important;
@@ -152,7 +159,11 @@ const General = styled.div`
 	margin-top: 1em;
 	position: relative;
 `
-const GeneralHeader = styled(ActionButton)<{ $isOpen: boolean }>`
+const GeneralHeader = styled(ActionButton).withConfig({
+	shouldForwardProp: (props) => !['$isOpen'].includes(props)
+})<{
+	$isOpen: boolean
+}>`
 	position: relative;
 
 	&::after {

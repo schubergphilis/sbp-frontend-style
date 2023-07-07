@@ -48,7 +48,7 @@ const Navigation = () => {
 
 const StickyNavBar = styled(NavigationBar)`
 	position: sticky;
-	top: 10px;
+	top: 1em;
 
 	align-self: flex-start;
 	top: 0;

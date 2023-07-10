@@ -1,6 +1,6 @@
 import { styled } from 'styled-components'
 
-export const SelectInput = styled.select`
+const SelectInput = styled.select`
 	border: 1px solid ${({ theme }) => theme.style.borderColor};
 	border-radius: ${({ theme }) => theme.style.radius}px;
 	background-color: ${({ theme }) => theme.style.inputColorBg};
@@ -15,3 +15,5 @@ export const SelectInput = styled.select`
 		pointer-events: none;
 	}
 `
+
+export default SelectInput

@@ -1,6 +1,6 @@
 import ToggleButton from 'components/atoms/buttons/ToggleButton'
-import { SelectInput } from 'components/atoms/forms/SelectInput'
-import { TextInput } from 'components/atoms/forms/TextInput'
+import SelectInput from 'components/atoms/forms/SelectInput'
+import TextInput from 'components/atoms/forms/TextInput'
 import { OptionType } from 'datatypes/OptionType'
 import { ValueType } from 'datatypes/ValueType'
 import SelectOptionModel from 'models/SelectOptionModel'

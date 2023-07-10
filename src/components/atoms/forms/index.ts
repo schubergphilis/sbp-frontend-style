@@ -1,2 +1,2 @@
-export * from './SelectInput'
-export * from './TextInput'
+export { default as SelectInput } from './SelectInput'
+export { default as TextInput } from './TextInput'

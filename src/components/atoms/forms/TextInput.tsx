@@ -1,6 +1,6 @@
 import { styled } from 'styled-components'
 
-export const TextInput = styled.input`
+const TextInput = styled.input`
 	border: 1px solid ${({ theme }) => theme.style.borderColor};
 	border-radius: ${({ theme }) => theme.style.radius}px;
 	background-color: ${({ theme }) => theme.style.inputColorBg};
@@ -19,3 +19,4 @@ export const TextInput = styled.input`
 		pointer-events: none;
 	}
 `
+export default TextInput

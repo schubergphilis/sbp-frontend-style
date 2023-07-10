@@ -20,7 +20,7 @@ const Size = styled.div`
 	display: block;
 	padding: 0.5em;
 	background-color: ${({ theme }) => theme.style.fontColor};
-	color: #fff;
+	color: ${({ theme }) => theme.style.colorBg};
 	position: sticky;
 	bottom: 0;
 	left: 0;

@@ -12,13 +12,11 @@ import Navigation from 'styling/elements/Navigation'
 import ThemeWrapper from 'styling/elements/ThemeWrapper'
 import 'styling/global.css'
 import LogoIcon from 'styling/icons/LogoIcon'
-import { GlobalStyles } from 'styling/ThemeConfig'
 
 const App = () => {
 	return (
 		<Provider store={makeStore()}>
 			<ThemeWrapper>
-				<GlobalStyles />
 				<MainContainer>
 					<Header>
 						<Navigation />
@@ -34,11 +32,11 @@ const App = () => {
 								<h1>Welcome to the SBP Cloud Styleguide</h1>
 							</InfoBox>
 
-							<ToggleButtonComponentBox />
-
 							<ActionButtonComponentBox />
 
 							<TextLinkComponentBox />
+
+							<ToggleButtonComponentBox />
 						</Main>
 					</Content>
 					<Footer>

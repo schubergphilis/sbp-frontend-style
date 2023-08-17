@@ -15,13 +15,13 @@ export default [
 			{
 				file: packageJson.main,
 				format: 'cjs',
-				sourcemap: true,
+				sourcemap: false,
 				name: 'react-ts-lib'
 			},
 			{
 				file: packageJson.module,
 				format: 'esm',
-				sourcemap: true
+				sourcemap: false
 			}
 		],
 		plugins: [
@@ -45,6 +45,7 @@ export default [
 				targets: ['./dist/cjs/types', './dist/esm/types'],
 				hook: 'buildEnd'
 			})
-		]
+		],
+		external: ['styled-components']
 	}
 ]

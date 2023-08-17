@@ -18,6 +18,20 @@ const TextInputComponentBox = () => {
 			value: ''
 		},
 		{
+			title: 'Type',
+			name: 'type',
+			type: 'select',
+			options: [
+				{ name: 'Text', value: 'text' },
+				{ name: 'Password', value: 'password' },
+				{ name: 'Email', value: 'email' },
+				{ name: 'Phonenumber', value: 'tel' },
+				{ name: 'Number', value: 'number' },
+				{ name: 'Hidden', value: 'hidden' }
+			],
+			value: 'text'
+		},
+		{
 			title: 'Readonly',
 			name: 'readonly',
 			type: 'boolean',

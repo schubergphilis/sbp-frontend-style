@@ -197,7 +197,7 @@ const GeneralHeader = styled(ActionButton).withConfig({
 `
 const GeneralCollapse = styled.div<{ $isOpen: boolean }>`
 	overflow: hidden;
-	max-height: 150px;
+	max-height: 250px;
 	transition: max-height 0.2s ease-in-out;
 
 	${({ $isOpen }) =>

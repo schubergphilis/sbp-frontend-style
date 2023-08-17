@@ -5,6 +5,7 @@ import { makeStore } from 'store/Store'
 import styled from 'styled-components'
 import ActionButtonComponentBox from 'styling/componentBoxes/ActionButtonComponentBox'
 import SelectInputComponentBox from 'styling/componentBoxes/SelectInputComponentBox'
+import TextInputComponentBox from 'styling/componentBoxes/TextInputComponentBox'
 import TextLinkComponentBox from 'styling/componentBoxes/TextLinkComponentBox'
 import ToggleButtonComponentBox from 'styling/componentBoxes/ToggleButtonComponentBox'
 import FooterBar from 'styling/elements/FooterBar'
@@ -40,6 +41,8 @@ const App = () => {
 							<ToggleButtonComponentBox />
 
 							<SelectInputComponentBox />
+
+							<TextInputComponentBox />
 						</Main>
 					</Content>
 					<Footer>

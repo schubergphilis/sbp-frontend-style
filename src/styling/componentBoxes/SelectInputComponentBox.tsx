@@ -29,7 +29,10 @@ const SelectInputComponentBox = () => {
 	]
 
 	return (
-		<ComponentBox title="Select Input" description="" options={options}>
+		<ComponentBox
+			title="Select Input"
+			description="Select components are used for collecting user provided information from a list of options."
+			options={options}>
 			<SelectInput>
 				{selectOptions.map(({ name, value }, index) => (
 					<option key={index} value={value}>

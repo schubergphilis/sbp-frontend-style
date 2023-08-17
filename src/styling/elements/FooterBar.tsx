@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
-interface Props {}
-
-const FooterBar = ({}: Props) => {
+const FooterBar = () => {
 	return <Container>Footer</Container>
 }
 

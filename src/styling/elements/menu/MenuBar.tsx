@@ -4,9 +4,8 @@ import CardHeader from 'components/molecules/cards/CardHeader'
 import MenuItemModel from 'models/MenuItemModel'
 import styled from 'styled-components'
 import MenuItem from './MenuItem'
-interface Props {}
 
-const MenuBar = ({}: Props) => {
+const MenuBar = () => {
 	const menuList: MenuItemModel = JSON.parse(JSON.stringify(structure))
 
 	return (

@@ -4,7 +4,6 @@ import styled, { css } from 'styled-components'
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 	isBlock?: boolean
-	isCta?: boolean
 	isRounded?: boolean
 	variant?: VariantType
 	children: string | JSX.Element | JSX.Element[] | React.ReactNode
@@ -52,7 +51,6 @@ export const ButtonStyle = css<{
 	cursor: pointer;
 	display: ${({ $isBlock }) => ($isBlock ? 'block' : 'inline-block')};
 	width: ${({ $isBlock }) => ($isBlock ? '100%' : 'auto')};
-	color: ${({ theme }) => theme.style.buttonColor};
 	color: ${({ $variant, theme }) =>
 		$variant === 'cta'
 			? theme.style.buttonPrimaryColor

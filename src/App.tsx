@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { makeStore } from 'store/Store'
 import styled from 'styled-components'
 import ActionButtonComponentBox from 'styling/componentBoxes/ActionButtonComponentBox'
+import SelectInputComponentBox from 'styling/componentBoxes/SelectInputComponentBox'
 import TextLinkComponentBox from 'styling/componentBoxes/TextLinkComponentBox'
 import ToggleButtonComponentBox from 'styling/componentBoxes/ToggleButtonComponentBox'
 import FooterBar from 'styling/elements/FooterBar'
@@ -37,6 +38,8 @@ const App = () => {
 							<TextLinkComponentBox />
 
 							<ToggleButtonComponentBox />
+
+							<SelectInputComponentBox />
 						</Main>
 					</Content>
 					<Footer>

@@ -107,7 +107,7 @@ const lightStyle: DefaultStyle = {
 	buttonDisabledColorBg: 'rgba(22, 12, 23, .75)',
 	cardColorBg: 'rgba(232, 242, 253, .90)',
 	inputColorBg: 'rgb(255, 255, 255)',
-	inputPlaceholder: 'rgba(22, 12, 23, .15)'
+	inputPlaceholder: 'rgba(22, 12, 23, .5)'
 }
 
 const darkStyle: DefaultStyle = {

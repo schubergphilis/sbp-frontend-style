@@ -35,7 +35,7 @@ const TextLink = ({
 	)
 }
 
-export const TextLinktyle = css<{ $isActive: boolean; $disabled: boolean }>`
+export const TextLinktyle = css<{ $isActive?: boolean; $disabled?: boolean }>`
 	display: inline-block;
 	line-height: 2em;
 	margin: 0 1em;

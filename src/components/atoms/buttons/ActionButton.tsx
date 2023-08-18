@@ -44,8 +44,8 @@ const ActionButton = ({
 
 export const ButtonStyle = css<{
 	$variant?: VariantType
-	$isBlock: boolean
-	$isRounded: boolean
+	$isBlock?: boolean
+	$isRounded?: boolean
 }>`
 	padding: 0.5em 1em;
 	cursor: pointer;

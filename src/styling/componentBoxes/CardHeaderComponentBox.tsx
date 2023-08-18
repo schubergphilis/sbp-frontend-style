@@ -33,7 +33,6 @@ const CardHeaderComponentBox = () => {
 			defaultValue: false,
 			value: null
 		},
-
 		...defaultOptions
 	]
 	return (

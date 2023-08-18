@@ -56,7 +56,7 @@ const ActionButtonComponentBox = () => {
 		<ComponentBox
 			title="Action button"
 			description="Action button can be used to trigger events within the page.<br/> When you use different Elements like <b>next/link</b> the buttonstyle can be imported:"
-			descriptionCode="import { Link } from 'next/link'\r\nimport { ButtonStyle } from '@sbp-cloud-style/buttons/ActionButton'\r\nimport { VariantType } from '@sbp-cloud-style/datatype/VariantType'\r\n\r\nconst StyledLink = styled(Link)<{\r\n\t $variant?: VariantType;\r\n\t $isBlock: boolean;\r\n\t $isRounded: boolean\r\n}>`\r\n\t${ButtonStyle}\r\n`"
+			descriptionCode="import { Link } from 'next/link'\r\nimport { ButtonStyle } from '@sbp-cloud-style/buttons/ActionButton'\r\nimport { VariantType } from '@sbp-cloud-style/datatype/VariantType'\r\n\r\nconst StyledLink = styled(Link)<{\r\n\t $variant?: VariantType;\r\n\t $isBlock?: boolean;\r\n\t $isRounded?: boolean\r\n}>`\r\n\t${ButtonStyle}\r\n`"
 			options={options}>
 			<ActionButton children={undefined} />
 		</ComponentBox>

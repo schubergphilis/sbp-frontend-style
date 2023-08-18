@@ -1,1 +1,7 @@
-export type ValueType = boolean | string | JSX.Element | number | Array<any>
+export type ValueType =
+	| boolean
+	| string
+	| JSX.Element
+	| number
+	| any[]
+	| VoidFunction

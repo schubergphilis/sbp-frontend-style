@@ -4,14 +4,15 @@ import { Provider } from 'react-redux'
 import { makeStore } from 'store/Store'
 import styled from 'styled-components'
 import ActionButtonComponentBox from 'styling/componentBoxes/ActionButtonComponentBox'
+import CardHeaderComponentBox from 'styling/componentBoxes/CardHeaderComponentBox'
 import SelectInputComponentBox from 'styling/componentBoxes/SelectInputComponentBox'
 import TextInputComponentBox from 'styling/componentBoxes/TextInputComponentBox'
 import TextLinkComponentBox from 'styling/componentBoxes/TextLinkComponentBox'
 import ToggleButtonComponentBox from 'styling/componentBoxes/ToggleButtonComponentBox'
 import FooterBar from 'styling/elements/FooterBar'
-import MenuBar from 'styling/elements/menu/MenuBar'
 import Navigation from 'styling/elements/Navigation'
 import ThemeWrapper from 'styling/elements/ThemeWrapper'
+import MenuBar from 'styling/elements/menu/MenuBar'
 import 'styling/global.css'
 import LogoIcon from 'styling/icons/LogoIcon'
 
@@ -43,6 +44,8 @@ const App = () => {
 							<SelectInputComponentBox />
 
 							<TextInputComponentBox />
+
+							<CardHeaderComponentBox />
 						</Main>
 					</Content>
 					<Footer>

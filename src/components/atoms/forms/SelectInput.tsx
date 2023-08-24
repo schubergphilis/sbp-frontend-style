@@ -6,7 +6,6 @@ interface Props extends SelectHTMLAttributes<HTMLSelectElement> {
 }
 
 const SelectInput = ({ children, ...props }: Props) => {
-	console.log(props.value)
 	return (
 		<SelectInputElement {...props}>
 			{props.placeholder && (
@@ -19,15 +18,15 @@ const SelectInput = ({ children, ...props }: Props) => {
 	)
 }
 
-const SelectInputElement = styled.select<{ readonly?: boolean }>`
+const SelectInputElement = styled.select<{ readOnly?: boolean }>`
 	border: 1px solid ${({ theme }) => theme.style.borderColor};
 	border-radius: ${({ theme }) => theme.style.radius}px;
 	background-color: ${({ theme }) => theme.style.inputColorBg};
 	padding: 0.5em;
 	display: block;
 	width: 100%;
-	cursor: ${({ readonly }) => (readonly ? 'hand' : 'pointer')};
-	pointer-events: ${({ readonly }) => (readonly ? 'none' : 'auto')};
+	cursor: ${({ readOnly }) => (readOnly ? 'hand' : 'pointer')};
+	pointer-events: ${({ readOnly }) => (readOnly ? 'none' : 'auto')};
 
 	&[disabled] {
 		cursor: default;

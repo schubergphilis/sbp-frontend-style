@@ -15,7 +15,7 @@ interface Props {
 }
 
 const MenuItem = ({ name, children }: Props) => {
-	const itemName = FirstToUpperCase(RemoveExtension(CleanName(name)))
+	const itemName = FirstToUpperCase(CleanName(RemoveExtension(name)))
 	const itemUrl = `#${ToKebabCase(RemoveExtension(name))}`
 
 	const { hash } = useLocation()

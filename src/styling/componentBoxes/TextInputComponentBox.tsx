@@ -32,8 +32,8 @@ const TextInputComponentBox = () => {
 			value: 'text'
 		},
 		{
-			title: 'Readonly',
-			name: 'readonly',
+			title: 'Read only',
+			name: 'readOnly',
 			type: 'boolean',
 			value: false,
 			defaultValue: false,
@@ -47,7 +47,7 @@ const TextInputComponentBox = () => {
 			title="Text Input"
 			description="Text Fields let users enter and edit text."
 			options={options}>
-			<TextInput />
+			<TextInput onChange={() => {}} />
 		</ComponentBox>
 	)
 }

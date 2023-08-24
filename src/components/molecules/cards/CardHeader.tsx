@@ -1,6 +1,6 @@
 import ConditionalWrapper from 'helpers/ConditionalWrapperHelper'
 import { HTMLAttributes } from 'react'
-import styled from 'styled-components'
+import { styled } from 'styled-components'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
 	isOpen?: boolean
@@ -43,7 +43,9 @@ const Container = styled.div<{ $isOpen?: boolean }>`
 	text-align: left;
 	border-bottom: 1px solid
 		${({ theme, $isOpen }) =>
-			$isOpen ? theme.style.borderColor : 'transparent'};
+			$isOpen === false || $isOpen === undefined
+				? theme.style.borderColor
+				: 'transparent'};
 `
 const TitleInfo = styled.div`
 	flex: 1 1 auto;

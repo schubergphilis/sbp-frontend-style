@@ -14,7 +14,7 @@ const SelectInputComponentBox = () => {
 		},
 		{
 			title: 'Readonly',
-			name: 'readonly',
+			name: 'readOnly',
 			type: 'boolean',
 			value: false,
 			defaultValue: false,

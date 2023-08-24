@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes } from 'react'
-import styled from 'styled-components'
+import { styled } from 'styled-components'
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 	isActive: boolean

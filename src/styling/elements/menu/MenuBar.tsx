@@ -2,7 +2,7 @@ import structure from 'component-list.json'
 import Card from 'components/molecules/cards/Card'
 import CardHeader from 'components/molecules/cards/CardHeader'
 import MenuItemModel from 'models/MenuItemModel'
-import styled from 'styled-components'
+import { styled } from 'styled-components'
 import MenuItem from './MenuItem'
 
 const MenuBar = () => {

@@ -1,7 +1,7 @@
-const fs = require('fs')
-const { Readable } = require('stream')
-const { finished } = require('stream/promises')
-const directoryTree = require('directory-tree')
+import directoryTree from 'directory-tree'
+import fs from 'fs'
+import { Readable } from 'stream'
+import { finished } from 'stream/promises'
 
 const start = async () => {
 	const stream = fs.createWriteStream(`./src/component-list.json`)

@@ -1,11 +1,11 @@
-import reactElementToJSXString from 'react-element-to-jsx-string'
-import { Light as SyntaxHighlighter } from 'react-syntax-highlighter'
-import tsx from 'react-syntax-highlighter/dist/esm/languages/hljs/typescript'
-import html from 'react-syntax-highlighter/dist/esm/languages/hljs/xml'
-import github from 'react-syntax-highlighter/dist/esm/styles/hljs/atom-one-dark'
+import reactElementToJsxString from 'react-element-to-jsx-string'
+import SyntaxHighlighter from 'react-syntax-highlighter/dist/cjs/light'
+// import typescript from 'react-syntax-highlighter/dist/esm/languages/hljs/typescript'
+// import xml from 'react-syntax-highlighter/dist/esm/languages/hljs/xml'
+import github from 'react-syntax-highlighter/dist/cjs/styles/hljs/atom-one-dark'
 
-SyntaxHighlighter.registerLanguage('tsx', tsx)
-SyntaxHighlighter.registerLanguage('html', html)
+// SyntaxHighlighter.registerLanguage('tsx', typescript)
+// SyntaxHighlighter.registerLanguage('html', xml)
 
 interface Props {
 	children: JSX.Element
@@ -14,7 +14,7 @@ interface Props {
 const CodeBlock = ({ children }: Props) => {
 	return (
 		<SyntaxHighlighter language="html" style={github} showLineNumbers={true}>
-			{reactElementToJSXString(children)
+			{reactElementToJsxString(children)
 				//.replace(/(class=[\"\-\w\s]+")/gim, '')
 				.replace(/(<[\w\s]+\><\/\w+\>)/gim, '')
 				.replace(/(\w+)(="")/gim, `$1`)}

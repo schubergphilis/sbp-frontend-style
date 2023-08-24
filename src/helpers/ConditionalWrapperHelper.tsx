@@ -7,7 +7,6 @@ interface Props {
 }
 
 const ConditionalWrapper = ({ condition, wrapper, children }: Props) => {
-	console.log(condition)
 	return condition ? wrapper(children) : children
 }
 

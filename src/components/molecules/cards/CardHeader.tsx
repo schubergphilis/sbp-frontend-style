@@ -26,7 +26,10 @@ const CardHeader = ({
 					{children}
 				</CollapseButton>
 			)}>
-			<Container $isOpen={isOpen} {...props}>
+			<Container
+				$isOpen={isOpen}
+				$isClickable={typeof onClick === 'function'}
+				{...props}>
 				<TitleInfo>{children}</TitleInfo>
 				{onClick ? <CollapseIcon $isOpen={isOpen}>{icon}</CollapseIcon> : null}
 			</Container>
@@ -34,7 +37,7 @@ const CardHeader = ({
 	)
 }
 
-const Container = styled.div<{ $isOpen?: boolean }>`
+const Container = styled.div<{ $isOpen?: boolean; $isClickable: boolean }>`
 	padding: 2em;
 	display: flex;
 	justify-content: space-between;
@@ -42,10 +45,8 @@ const Container = styled.div<{ $isOpen?: boolean }>`
 	gap: 0.5em;
 	text-align: left;
 	border-bottom: 1px solid
-		${({ theme, $isOpen }) =>
-			$isOpen === false || $isOpen === undefined
-				? theme.style.borderColor
-				: 'transparent'};
+		${({ theme, $isOpen, $isClickable }) =>
+			!$isClickable || !$isOpen ? theme.style.borderColor : 'transparent'};
 `
 const TitleInfo = styled.div`
 	flex: 1 1 auto;

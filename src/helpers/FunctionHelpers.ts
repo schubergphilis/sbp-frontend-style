@@ -19,7 +19,7 @@ export const ToKebabCase = (item: string): string => {
 }
 
 export const RemoveExtension = (item: string): string => {
-	return item.replace(/(\.*)\.[^\.]+$/gi, '')
+	return item.replace(/(\.*)\.[^.]+$/gi, '')
 }
 
 export const CleanName = (item: string): string => {

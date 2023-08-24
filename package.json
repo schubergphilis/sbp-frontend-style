@@ -38,7 +38,8 @@
 		"test": "jest --coverage --colors --silent --verbose --watchAll=false",
 		"test:debug": "jest --watchAll --coverage --color --detectOpenHandles --silent false --verbose true --debug",
 		"test:focus": "jest -i ./__tests__/helpers/FunctionHelpers.test.ts -t --watchAll --coverage --color --detectOpenHandles --silent false --verbose true --debug",
-		"coverage": "open -a \"Google Chrome\" ./coverage/index.html"
+		"coverage": "open -a \"Google Chrome\" ./coverage/index.html",
+		"test:clear": "jest --clearCache"
 	},
 	"release": {
 		"branches": [
@@ -49,7 +50,10 @@
 		"extends": [
 			"react-app",
 			"react-app/jest"
-		]
+		],
+		"rules": {
+			"no-template-curly-in-string": "off"
+		}
 	},
 	"browserslist": {
 		"production": [

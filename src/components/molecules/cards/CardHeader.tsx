@@ -44,9 +44,17 @@ const Container = styled.div<{ $isOpen?: boolean; $isClickable: boolean }>`
 	align-items: center;
 	gap: 0.5em;
 	text-align: left;
-	border-bottom: 1px solid
-		${({ theme, $isOpen, $isClickable }) =>
-			!$isClickable || $isOpen ? theme.style.borderColor : 'transparent'};
+
+	transition: border-bottom 0.4s step-end;
+
+	border-bottom: 1px solid transparent;
+
+	${({ theme, $isOpen, $isClickable }) =>
+		(!$isClickable || $isOpen) &&
+		`
+			transition: border-bottom 0.5s step-start;
+			border-bottom: 1px solid ${theme.style.borderColor};
+		`}
 `
 const TitleInfo = styled.div`
 	flex: 1 1 auto;

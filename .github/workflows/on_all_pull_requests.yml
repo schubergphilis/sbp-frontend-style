@@ -43,4 +43,4 @@ jobs:
 
       - name: Package project
         working-directory: frontend-shared-components
-        run: yarn pack
+        run: yarn pack && yarn publish

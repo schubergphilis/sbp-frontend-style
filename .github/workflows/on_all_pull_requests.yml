@@ -1,5 +1,5 @@
 ---
-name: Terraform CI
+name: Package Pre-release CI
 
 on:
   pull_request:
@@ -7,14 +7,6 @@ on:
       - "main"
 
 jobs:
-  terraform-ci:
-    uses: gmtdi/github-workflows/.github/workflows/run-terraform-ci.yml@v0.3.0
-    with:
-      environment: dev
-    secrets:
-      github_pat: ${{ secrets.VCS_PAT }}
-      tfe_token: ${{ secrets.TFE_TOKEN }}
-
   frontend-ci:
     environment: dev
     runs-on: ubuntu-latest

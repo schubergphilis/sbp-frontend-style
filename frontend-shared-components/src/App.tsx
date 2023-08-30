@@ -32,7 +32,7 @@ const App = () => {
 						<Main>
 							<InfoBox>
 								<LogoIcon width={200} height={200} />
-								<h1>Welcome to the SBP Cloud Styleguide</h1>
+								<h1>Welcome to Shared Components</h1>
 							</InfoBox>
 
 							<ActionButtonComponentBox />

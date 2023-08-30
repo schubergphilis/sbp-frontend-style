@@ -39,7 +39,7 @@ const TextLinkComponentBox = () => {
 		<ComponentBox
 			title="Text link"
 			description="Text link can be used to trigger events within the page."
-			descriptionCode="import { Link } from 'next/link'\r\nimport { TextLinkStyle } from '@sbp-cloud-style/buttons/TextLink'\r\n\r\nconst StyledLink = styled(Link)<{\r\n\t $isActive?: boolean;\r\n\t $disabled?: boolean\r\n}>`\r\n\t${TextLinkStyle}\r\n`"
+			descriptionCode="import { Link } from 'next/link'\r\nimport { TextLinkStyle } from '@frontent-shared-components/buttons/TextLink'\r\n\r\nconst StyledLink = styled(Link)<{\r\n\t $isActive?: boolean;\r\n\t $disabled?: boolean\r\n}>`\r\n\t${TextLinkStyle}\r\n`"
 			options={options}>
 			<TextLink children={undefined} />
 		</ComponentBox>

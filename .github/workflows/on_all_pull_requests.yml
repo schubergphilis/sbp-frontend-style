@@ -12,6 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: google-github-actions/release-please-action@v3
+        with:
+          release-type: node
+          package-name: release-please-action
+          prerelease: true
       - uses: actions/setup-node@v3
         with:
           node-version: 18
@@ -34,4 +39,4 @@ jobs:
 
       - name: Package project
         working-directory: frontend-shared-components
-        run: yarn release -- --prerelease
+        run: yarn pack

@@ -37,8 +37,6 @@
 		"prestart": "yarn prebuild",
 		"start": "react-scripts start",
 		"prebuild": "node --trace-warnings component-list.js",
-		"xsemantic-release": "semantic-release",
-		"prepack": "yarn build",
 		"clean": "rimraf dist",
 		"build": "yarn clean && rollup -c --bundleConfigAsCjs",
 		"release": "standard-version",

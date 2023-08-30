@@ -1,6 +1,7 @@
 {
 	"name": "@gmtdi/frontent-shared-components",
 	"version": "0.2.16",
+	"license": "MIT",
 	"type": "module",
 	"types": "./dist/index.d.ts",
 	"main": "dist/cjs/index.js",

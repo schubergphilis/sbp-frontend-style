@@ -1,6 +1,6 @@
 {
-	"name": "frontent-shared-components",
-	"version": "0.2.15",
+	"name": "@gmtdi/frontent-shared-components",
+	"version": "0.2.16",
 	"private": true,
 	"type": "module",
 	"types": "./dist/index.d.ts",
@@ -9,6 +9,12 @@
 	"files": [
 		"dist"
 	],
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com"
+	},
+	"repository": {
+		"url": "git://github.com/gmtdi/frontend-shared-components.git"
+	},
 	"dependencies": {
 		"@reduxjs/toolkit": "^1.9.5",
 		"directory-tree": "^3.5.1",
@@ -35,6 +41,7 @@
 		"prepack": "yarn build",
 		"clean": "rimraf dist",
 		"build": "yarn clean && rollup -c --bundleConfigAsCjs",
+		"release": "standard-version",
 		"test": "jest --coverage --colors --silent --verbose --watchAll=false",
 		"test:debug": "jest --watchAll --coverage --color --detectOpenHandles --silent false --verbose true --debug",
 		"test:focus": "jest -i ./__tests__/helpers/FunctionHelpers.test.ts -t --watchAll --coverage --color --detectOpenHandles --silent false --verbose true --debug",
@@ -98,6 +105,7 @@
 		"rollup-plugin-terser": "^7.0.2",
 		"rollup-plugin-tsconfig-paths": "^1.5.1",
 		"rollup-plugin-typescript2": "^0.35.0",
+		"standard-version": "^9.5.0",
 		"ts-jest": "^29.1.1",
 		"typescript": "^5.1.6"
 	},

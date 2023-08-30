@@ -1,0 +1,45 @@
+---
+name: Terraform CI
+
+on:
+  pull_request:
+    branches:
+      - "main"
+
+jobs:
+  terraform-ci:
+    uses: gmtdi/github-workflows/.github/workflows/run-terraform-ci.yml@v0.3.0
+    with:
+      environment: dev
+    secrets:
+      github_pat: ${{ secrets.VCS_PAT }}
+      tfe_token: ${{ secrets.TFE_TOKEN }}
+
+  frontend-ci:
+    environment: dev
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "yarn"
+          cache-dependency-path: "**/yarn.lock"
+
+      - name: Install dependencies
+        working-directory: frontend-shared-components
+        run: yarn install
+
+      - name: Run Tests
+        working-directory: frontend-shared-components
+        run: yarn test
+
+      - name: Build project
+        working-directory: frontend-shared-components
+        run: yarn build
+        env:
+          GENERATE_SOURCEMAP: "false"
+      
+      - name: Package project
+        working-directory: frontend-shared-components
+        run: yarn release -- --prerelease

@@ -45,6 +45,8 @@ jobs:
 
       - uses: google-github-actions/release-please-action@v3
         with:
+          package-name: "@gmtdi/frontent-shared-components"
+          path: frontend-shared-components
           release-type: node
           prerelease: true
 

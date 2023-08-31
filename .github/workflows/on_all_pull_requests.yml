@@ -23,8 +23,8 @@ jobs:
       - uses: google-github-actions/release-please-action@v3
         with:
           release-type: node
-          package-name: release-please-action
           prerelease: true
+          path: frontend-shared-components
       - uses: actions/setup-node@v3
         with:
           node-version: 18

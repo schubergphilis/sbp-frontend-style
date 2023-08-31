@@ -24,7 +24,7 @@ jobs:
         with:
           release-type: node
           package-name: release-please-action
-          prerelease: true
+          prerelease: alpha
       - uses: actions/setup-node@v3
         with:
           node-version: 18

@@ -20,11 +20,6 @@ jobs:
       pull-requests: write  
     steps:
       - uses: actions/checkout@v3
-      - uses: google-github-actions/release-please-action@v3
-        with:
-          release-type: node
-          prerelease: true
-          path: frontend-shared-components
       - uses: actions/setup-node@v3
         with:
           node-version: 18
@@ -47,6 +42,11 @@ jobs:
       - name: Run Tests
         working-directory: frontend-shared-components
         run: yarn test
+
+      - uses: google-github-actions/release-please-action@v3
+        with:
+          release-type: node
+          prerelease: true
 
       - name: Package project
         working-directory: frontend-shared-components

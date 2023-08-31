@@ -43,15 +43,8 @@ jobs:
         working-directory: frontend-shared-components
         run: yarn test
 
-      - uses: google-github-actions/release-please-action@v3
-        with:
-          package-name: "@gmtdi/frontent-shared-components"
-          path: frontend-shared-components
-          release-type: node
-          prerelease: true
-
       - name: Package project
         working-directory: frontend-shared-components
-        run: yarn pack && yarn publish
+        run: yarn version --prerelease && yarn pack && yarn publish --p
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

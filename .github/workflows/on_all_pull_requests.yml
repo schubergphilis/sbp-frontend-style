@@ -32,6 +32,7 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           
       - name: Prepare repository
+        working-directory: frontend-shared-components
         run: git checkout "${GITHUB_REF:11}"
 
       - name: Install dependencies

@@ -30,10 +30,6 @@ jobs:
           always-auth: true
           scope: '@gmtdi'
           registry-url: 'https://npm.pkg.github.com'
-          
-      - name: Prepare repository
-        working-directory: frontend-shared-components
-        run: git checkout "${GITHUB_REF:11}"
 
       - name: Install dependencies
         working-directory: frontend-shared-components
@@ -51,6 +47,6 @@ jobs:
 
       - name: Package project
         working-directory: frontend-shared-components
-        run: yarn version --prerelease
+        run: yarn version --prerelease && yarn pack && yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

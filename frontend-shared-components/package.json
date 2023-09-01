@@ -44,8 +44,7 @@
 		"test:debug": "jest --watchAll --coverage --color --detectOpenHandles --silent false --verbose true --debug",
 		"test:focus": "jest -i ./__tests__/helpers/FunctionHelpers.test.ts -t --watchAll --coverage --color --detectOpenHandles --silent false --verbose true --debug",
 		"coverage": "open -a \"Google Chrome\" ./coverage/index.html",
-		"test:clear": "jest --clearCache",
-		"postversion": "git push --tags && yarn pack && yarn publish . --tag $npm_package_version && git push && echo \"Successfully released version $npm_package_version!\""
+		"test:clear": "jest --clearCache"
 	},
 	"release": {
 		"branches": [

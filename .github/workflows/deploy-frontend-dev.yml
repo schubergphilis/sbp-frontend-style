@@ -36,6 +36,7 @@ jobs:
           package-name: '@gmtdi/frontend-shared-components'
 
       - name: Prepare repository
+        working-directory: frontend-shared-components
         run: git checkout "${GITHUB_REF:11}"
 
       - name: Install dependencies

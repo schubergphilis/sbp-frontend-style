@@ -1,0 +1,56 @@
+---
+name: Deploy Frontend Dev
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  frontend-ci:
+    environment: dev
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+      pull-requests: write  
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "yarn"
+          cache-dependency-path: "**/yarn.lock"
+          always-auth: true
+          scope: '@gmtdi'
+          registry-url: 'https://npm.pkg.github.com'
+      - uses: google-github-actions/release-please-action@v3
+        id: release
+        with:
+          release-type: node
+          path: frontend-shared-components
+          package-name: '@gmtdi/frontend-shared-components'
+
+      - name: Install dependencies
+        working-directory: frontend-shared-components
+        run: yarn install
+
+      - name: Build project
+        working-directory: frontend-shared-components
+        run: yarn build
+        env:
+          GENERATE_SOURCEMAP: "false"
+      
+      - name: Run Tests
+        working-directory: frontend-shared-components
+        run: yarn test
+
+      - name: Package project
+        working-directory: frontend-shared-components
+        run: yarn version && yarn pack && yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

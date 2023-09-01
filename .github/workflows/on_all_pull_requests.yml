@@ -47,6 +47,6 @@ jobs:
 
       - name: Package project
         working-directory: frontend-shared-components
-        run: yarn version --prerelease && yarn pack && yarn publish
+        run: yarn version --prerelease
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

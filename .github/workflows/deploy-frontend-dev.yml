@@ -51,6 +51,6 @@ jobs:
 
       - name: Package project
         working-directory: frontend-shared-components
-        run: yarn pack && yarn publish
+        run: yarn version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

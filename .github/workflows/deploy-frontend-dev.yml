@@ -35,6 +35,9 @@ jobs:
           path: frontend-shared-components
           package-name: '@gmtdi/frontend-shared-components'
 
+      - name: Prepare repository
+        run: git checkout "${GITHUB_REF:11}"
+
       - name: Install dependencies
         working-directory: frontend-shared-components
         run: yarn install

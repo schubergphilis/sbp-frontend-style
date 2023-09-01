@@ -30,6 +30,9 @@ jobs:
           always-auth: true
           scope: '@gmtdi'
           registry-url: 'https://npm.pkg.github.com'
+          
+      - name: Prepare repository
+        run: git checkout "${GITHUB_REF:11}"
 
       - name: Install dependencies
         working-directory: frontend-shared-components

@@ -23,7 +23,7 @@ const CardHeader = ({
 			if (onClick) onClick()
 			e.stopPropagation()
 		},
-		[]
+		[onClick]
 	)
 
 	return (

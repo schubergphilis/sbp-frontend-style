@@ -17,7 +17,7 @@ const ChipBadge = ({ children, onClick, isActive, disabled }: Props) => {
 			if (onClick) onClick()
 			e.stopPropagation()
 		},
-		[]
+		[onClick]
 	)
 	return (
 		<ConditionalWrapper

@@ -5,6 +5,7 @@ import { makeStore } from 'store/Store'
 import { styled } from 'styled-components'
 import ActionButtonComponentBox from 'styling/componentBoxes/ActionButtonComponentBox'
 import CardHeaderComponentBox from 'styling/componentBoxes/CardHeaderComponentBox'
+import ChipBadgeComponentBox from 'styling/componentBoxes/ChipBadgeComponentBox'
 import SelectInputComponentBox from 'styling/componentBoxes/SelectInputComponentBox'
 import TextInputComponentBox from 'styling/componentBoxes/TextInputComponentBox'
 import TextLinkComponentBox from 'styling/componentBoxes/TextLinkComponentBox'
@@ -36,6 +37,8 @@ const App = () => {
 							</InfoBox>
 
 							<ActionButtonComponentBox />
+
+							<ChipBadgeComponentBox />
 
 							<TextLinkComponentBox />
 

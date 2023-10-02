@@ -1,5 +1,5 @@
 import ConditionalWrapper from 'helpers/ConditionalWrapperHelper'
-import { HTMLAttributes, MouseEvent } from 'react'
+import { HTMLAttributes, MouseEvent, useCallback } from 'react'
 import { styled } from 'styled-components'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -18,16 +18,21 @@ const CardHeader = ({
 	disabled,
 	...props
 }: Props) => {
-	const handleOnClick = (e: MouseEvent<HTMLButtonElement>): void => {
-		if (onClick) onClick()
-		e.stopPropagation()
-	}
+	const handleOnClick = useCallback(
+		(e: MouseEvent<HTMLButtonElement>): void => {
+			if (onClick) onClick()
+			e.stopPropagation()
+		},
+		[]
+	)
 
 	return (
 		<ConditionalWrapper
 			condition={typeof onClick === 'function'}
 			wrapper={(children) => (
-				<CollapseButton onClick={handleOnClick} disabled={disabled}>
+				<CollapseButton
+					onClick={(e: MouseEvent<HTMLButtonElement>) => handleOnClick(e)}
+					disabled={disabled}>
 					{children}
 				</CollapseButton>
 			)}>

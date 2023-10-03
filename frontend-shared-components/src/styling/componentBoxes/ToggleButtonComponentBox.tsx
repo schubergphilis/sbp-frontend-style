@@ -2,7 +2,7 @@ import ToggleButton from 'components/atoms/buttons/ToggleButton'
 import LightModeIcon from 'components/icons/LightModeIcon'
 import ComponentOptionModel from 'models/ComponentOptionModel'
 import ComponentBox from 'styling/elements/box/ComponentBox'
-import { defaultOptions } from 'styling/settings/DefaultOptions'
+import { generalOptions } from 'styling/settings/GeneralOptions'
 
 const ToggleButtonComponentBox = () => {
 	const options: ComponentOptionModel[] = [
@@ -19,7 +19,7 @@ const ToggleButtonComponentBox = () => {
 			defaultValue: <LightModeIcon />,
 			value: null
 		},
-		...defaultOptions
+		...generalOptions
 	]
 
 	return (

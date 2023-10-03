@@ -1,7 +1,7 @@
 import { TextInput } from 'components/atoms/forms'
 import ComponentOptionModel from 'models/ComponentOptionModel'
 import ComponentBox from 'styling/elements/box/ComponentBox'
-import { defaultOptions } from 'styling/settings/DefaultOptions'
+import { generalOptions } from 'styling/settings/GeneralOptions'
 
 const TextInputComponentBox = () => {
 	const options: ComponentOptionModel[] = [
@@ -39,7 +39,7 @@ const TextInputComponentBox = () => {
 			defaultValue: false,
 			general: true
 		},
-		...defaultOptions
+		...generalOptions
 	]
 
 	return (

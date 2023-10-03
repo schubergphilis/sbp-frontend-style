@@ -3,7 +3,7 @@ import DarkModeIcon from 'components/icons/DarkModeIcon'
 import LightModeIcon from 'components/icons/LightModeIcon'
 import ComponentOptionModel from 'models/ComponentOptionModel'
 import ComponentBox from 'styling/elements/box/ComponentBox'
-import { defaultOptions } from 'styling/settings/DefaultOptions'
+import { generalOptions } from 'styling/settings/GeneralOptions'
 
 const TextLinkComponentBox = () => {
 	const options: ComponentOptionModel[] = [
@@ -33,7 +33,7 @@ const TextLinkComponentBox = () => {
 			defaultValue: <DarkModeIcon />,
 			value: null
 		},
-		...defaultOptions
+		...generalOptions,
 	]
 	return (
 		<ComponentBox

@@ -3,7 +3,7 @@ import CloseIcon from 'components/icons/CloseIcon'
 import LightModeIcon from 'components/icons/LightModeIcon'
 import ComponentOptionModel from 'models/ComponentOptionModel'
 import ComponentBox from 'styling/elements/box/ComponentBox'
-import { defaultOptions } from 'styling/settings/DefaultOptions'
+import { generalOptions } from 'styling/settings/GeneralOptions'
 
 const ChipBadgeComponentBox = () => {
 	const options: ComponentOptionModel[] = [
@@ -41,7 +41,7 @@ const ChipBadgeComponentBox = () => {
 			defaultValue: <CloseIcon />,
 			value: null
 		},
-		...defaultOptions
+		...generalOptions,
 	]
 
 	return (

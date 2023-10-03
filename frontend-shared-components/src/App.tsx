@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { makeStore } from 'store/Store'
 import { styled } from 'styled-components'
 import ActionButtonComponentBox from 'styling/componentBoxes/ActionButtonComponentBox'
+import BadgeComponentBox from 'styling/componentBoxes/BadgeComponentBox'
 import CardHeaderComponentBox from 'styling/componentBoxes/CardHeaderComponentBox'
 import ChipBadgeComponentBox from 'styling/componentBoxes/ChipBadgeComponentBox'
 import SelectInputComponentBox from 'styling/componentBoxes/SelectInputComponentBox'
@@ -37,6 +38,8 @@ const App = () => {
 							</InfoBox>
 
 							<ActionButtonComponentBox />
+
+							<BadgeComponentBox />
 
 							<ChipBadgeComponentBox />
 

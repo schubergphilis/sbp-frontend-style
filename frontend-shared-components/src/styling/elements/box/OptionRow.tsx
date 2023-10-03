@@ -60,6 +60,14 @@ const OptionRow = ({
 							handleEvent(name, event.target.value)
 						}
 					/>
+				) : type === 'number' ? (
+					<TextInput
+						type="number"
+						value={(state as string) ?? ''}
+						onChange={(event: ChangeEvent<HTMLInputElement>) =>
+							handleEvent(name, event.target.value)
+						}
+					/>
 				) : type === 'select' ? (
 					<SelectInput
 						onChange={(event: ChangeEvent<HTMLSelectElement>) =>

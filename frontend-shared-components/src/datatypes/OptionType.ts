@@ -1,1 +1,1 @@
-export type OptionType = 'boolean' | 'text' | 'select' | 'element'
+export type OptionType = 'boolean' | 'text' | 'select' | 'element' | 'number'

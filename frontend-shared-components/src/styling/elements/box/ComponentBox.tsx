@@ -92,24 +92,26 @@ const ComponentBox = ({
 									{...props}
 								/>
 							))}
-						<General>
-							<GeneralHeader isBlock onClick={toggleOptions} $isOpen={isOpen}>
-								General options
-							</GeneralHeader>
+						{options.filter(({ general }) => general).length > 0 ? (
+							<General>
+								<GeneralHeader isBlock onClick={toggleOptions} $isOpen={isOpen}>
+									General options
+								</GeneralHeader>
 
-							<GeneralCollapse $isOpen={isOpen}>
-								{options
-									.filter(({ general }) => general)
-									.map((props, index) => (
-										<OptionRow
-											key={index}
-											handleEvent={handleEvent}
-											state={AccumulateState(steps, props.name)}
-											{...props}
-										/>
-									))}
-							</GeneralCollapse>
-						</General>
+								<GeneralCollapse $isOpen={isOpen}>
+									{options
+										.filter(({ general }) => general)
+										.map((props, index) => (
+											<OptionRow
+												key={index}
+												handleEvent={handleEvent}
+												state={AccumulateState(steps, props.name)}
+												{...props}
+											/>
+										))}
+								</GeneralCollapse>
+							</General>
+						) : null}
 					</ElementOptions>
 				</ComponentCardContent>
 				<ComponentCardFooter>
@@ -147,6 +149,10 @@ const Element = styled.div`
 	flex: 1 1 auto;
 	padding: 2em;
 	align-self: center;
+
+	> * {
+		margin: auto;
+	}
 `
 const ElementOptions = styled.div`
 	flex: 0 1 auto;
@@ -154,6 +160,10 @@ const ElementOptions = styled.div`
 	background-color: ${({ theme }) => theme.style.cardColorBg};
 	padding: 2em;
 	box-shadow: -5px 0px 5px ${({ theme }) => theme.style.shadow};
+
+	> div:first-child:last-child {
+		border-bottom: none;
+	}
 `
 const General = styled.div`
 	margin-top: 1em;
@@ -197,7 +207,7 @@ const GeneralHeader = styled(ActionButton).withConfig({
 `
 const GeneralCollapse = styled.div<{ $isOpen: boolean }>`
 	overflow: hidden;
-	max-height: 250px;
+	max-height: 300px;
 	transition: max-height 0.2s ease-in-out;
 
 	${({ $isOpen }) =>

@@ -21,7 +21,7 @@ const ChipBadgeComponentBox = () => {
 			value: null
 		},
 		{
-			title: 'Active chip',
+			title: 'Active Chip',
 			name: 'isActive',
 			type: 'boolean',
 			defaultValue: false,
@@ -42,6 +42,21 @@ const ChipBadgeComponentBox = () => {
 			value: null
 		},
 		...generalOptions,
+		{
+			title: 'Badge Amount',
+			name: 'badge',
+			type: 'number',
+			value: 0,
+			general: true
+		},
+		{
+			title: 'Small Badge',
+			name: 'isSmall',
+			type: 'boolean',
+			defaultValue: false,
+			value: null,
+			general: true
+		}
 	]
 
 	return (

@@ -1,8 +1,11 @@
 import { VariantType } from 'datatypes/VariantType'
 import { ButtonHTMLAttributes, Children } from 'react'
 import styled, { css } from 'styled-components'
+import BadgeStyle, { BadgeStyleProps } from '../badges/Badge'
 
-interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface Props
+	extends ButtonHTMLAttributes<HTMLButtonElement>,
+		BadgeStyleProps {
 	isBlock?: boolean
 	isRounded?: boolean
 	isLoading?: boolean
@@ -45,12 +48,14 @@ const ActionButton = ({
 	)
 }
 
-export const ButtonStyle = css<{
+export interface ButtonStyleProps extends BadgeStyleProps {
 	$variant?: VariantType
 	$isBlock?: boolean
 	$isRounded?: boolean
 	$isLoading?: boolean
-}>`
+}
+
+export const ButtonStyle = css<ButtonStyleProps>`
 	position: relative;
 	padding: 0.5em 1em;
 	cursor: pointer;
@@ -114,6 +119,8 @@ export const ButtonStyle = css<{
 			animation: rotating 0.75s linear infinite;
 		}
 	`}
+
+	${BadgeStyle}
 `
 const Content = styled.div`
 	display: flex;
@@ -121,12 +128,7 @@ const Content = styled.div`
 	gap: 0.5em;
 	align-items: center;
 `
-const Button = styled.button<{
-	$variant?: VariantType
-	$isBlock: boolean
-	$isRounded: boolean
-	$isLoading?: boolean
-}>`
+const Button = styled.button<ButtonStyleProps>`
 	${ButtonStyle}
 `
 

@@ -56,13 +56,28 @@ const ActionButtonComponentBox = () => {
 			value: null
 		},
 		...generalOptions,
+		{
+			title: 'Badge Amount',
+			name: 'badge',
+			type: 'number',
+			value: 0,
+			general: true
+		},
+		{
+			title: 'Small Badge',
+			name: 'isSmall',
+			type: 'boolean',
+			defaultValue: false,
+			value: null,
+			general: true
+		}
 	]
 
 	return (
 		<ComponentBox
 			title="Action button"
 			description="Action button can be used to trigger events within the page.<br/> When you use different Elements like <b>next/link</b> the buttonstyle can be imported:"
-			descriptionCode="import { Link } from 'next/link'\r\nimport { ButtonStyle } from '@frontent-shared-components/buttons/ActionButton'\r\nimport { VariantType } from '@frontent-shared-components/datatype/VariantType'\r\n\r\nconst StyledLink = styled(Link)<{\r\n\t $variant?: VariantType;\r\n\t $isBlock?: boolean;\r\n\t $isRounded?: boolean;\r\n\t $isLoading?: boolean\r\n}>`\r\n\t${ButtonStyle}\r\n`"
+			descriptionCode="import { Link } from 'next/link'\r\nimport { ButtonStyle, ButtonStyleProps } from '@frontent-shared-components/buttons/ActionButton'\r\n\r\nconst StyledLink = styled(Link)<ButtonStyleProps>`\r\n\t${ButtonStyle}\r\n`"
 			options={options}>
 			<ActionButton children={undefined} />
 		</ComponentBox>

@@ -1,17 +1,23 @@
-import { VariantType } from 'datatypes/VariantType'
 import ConditionalWrapper from 'helpers/ConditionalWrapperHelper'
 import { Children, MouseEvent, useCallback } from 'react'
 import styled from 'styled-components'
-import { ButtonStyle } from '../buttons/ActionButton'
+import { ButtonStyle, ButtonStyleProps } from '../buttons/ActionButton'
+import { BadgeStyleProps } from './Badge'
 
-interface Props {
+interface Props extends BadgeStyleProps {
 	onClick?: VoidFunction
 	isActive?: boolean
 	disabled?: boolean
 	children: string | JSX.Element | JSX.Element[] | React.ReactNode
 }
 
-const ChipBadge = ({ children, onClick, isActive, disabled }: Props) => {
+const ChipBadge = ({
+	children,
+	onClick,
+	isActive,
+	disabled,
+	...props
+}: Props) => {
 	const handleOnClick = useCallback(
 		(e: MouseEvent<HTMLButtonElement>): void => {
 			if (onClick) onClick()
@@ -29,7 +35,7 @@ const ChipBadge = ({ children, onClick, isActive, disabled }: Props) => {
 					{xchildren}
 				</Button>
 			)}>
-			<Chip $isRounded={true} $variant={isActive ? 'cta' : 'ghost'}>
+			<Chip $isRounded={true} $variant={isActive ? 'cta' : 'ghost'} {...props}>
 				<Content>
 					{Array.isArray(children)
 						? Children.toArray(
@@ -68,12 +74,9 @@ const Button = styled.button`
 	}
 `
 
-const Chip = styled.div<{
-	$variant?: VariantType
-	$isBlock?: boolean
-	$isRounded?: boolean
-	$isLoading?: boolean
-}>`
+export interface ChipBadgeStyleProps extends ButtonStyleProps {}
+
+const Chip = styled.div<ChipBadgeStyleProps>`
 	${ButtonStyle}
 	font-size: 0.75em;
 	font-weight: bold;

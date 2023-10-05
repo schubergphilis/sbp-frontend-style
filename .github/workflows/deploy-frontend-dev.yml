@@ -49,9 +49,9 @@ jobs:
         working-directory: frontend-shared-components
         run: yarn test
 
-      - name: Create pre-release version
+      - name: Create minor version
         working-directory: frontend-shared-components
-        run: npm version
+        run: npm version minor
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

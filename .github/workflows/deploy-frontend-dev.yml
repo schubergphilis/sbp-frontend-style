@@ -51,7 +51,7 @@ jobs:
 
       - name: Create pre-release version
         working-directory: frontend-shared-components
-        run: yarn version
+        run: npm version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

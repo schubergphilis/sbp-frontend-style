@@ -49,8 +49,20 @@ jobs:
         working-directory: frontend-shared-components
         run: yarn test
 
+      - name: Create pre-release version
+        working-directory: frontend-shared-components
+        run: yarn version
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check-in new version
+        run: |
+          git add .
+          git commit -m "Bump version [skip ci]"
+          git push
+
       - name: Package project
         working-directory: frontend-shared-components
-        run: yarn version && yarn pack && yarn publish
+        run: yarn pack && yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

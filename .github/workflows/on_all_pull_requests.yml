@@ -19,9 +19,10 @@ jobs:
       packages: write
       pull-requests: write  
     steps:
-      - uses: actions/checkout@v3
-      - run: git config user.name "GitHub Actions"
-      - run: git config user.email "<>"
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{github.head_ref}} 
+
       - uses: actions/setup-node@v3
         with:
           node-version: 18
@@ -31,6 +32,11 @@ jobs:
           scope: '@gmtdi'
           registry-url: 'https://npm.pkg.github.com'
 
+      - name: "Setup git user"
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "<>"
+     
       - name: Install dependencies
         working-directory: frontend-shared-components
         run: yarn install
@@ -43,10 +49,22 @@ jobs:
       
       - name: Run Tests
         working-directory: frontend-shared-components
-        run: yarn test
+        run: yarn test  
+
+      - name: Create pre-release version
+        working-directory: frontend-shared-components
+        run: npm version prerelease
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check-in new version
+        run: |
+          git add .
+          git commit -m "Bump version [skip ci]"
+          git push
 
       - name: Package project
         working-directory: frontend-shared-components
-        run: yarn version --prerelease && yarn pack && yarn publish
+        run: yarn pack && yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -37,11 +37,11 @@ const App = () => {
 								<h1>Welcome to Shared Components</h1>
 							</InfoBox>
 
-							<ActionButtonComponentBox />
-
 							<BadgeComponentBox />
 
 							<ChipBadgeComponentBox />
+
+							<ActionButtonComponentBox />
 
 							<TextLinkComponentBox />
 

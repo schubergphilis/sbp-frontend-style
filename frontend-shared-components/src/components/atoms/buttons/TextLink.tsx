@@ -1,5 +1,6 @@
 import { AnchorHTMLAttributes, Children } from 'react'
 import styled, { css } from 'styled-components'
+import BadgeStyle, { BadgeStyleProps } from '../badges/Badge'
 
 interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
 	isActive?: boolean
@@ -35,7 +36,12 @@ const TextLink = ({
 	)
 }
 
-export const TextLinktyle = css<{ $isActive?: boolean; $disabled?: boolean }>`
+export interface TextLinkStyleProps extends BadgeStyleProps {
+	$isActive?: boolean
+	$disabled?: boolean
+}
+
+export const TextLinktyle = css<TextLinkStyleProps>`
 	display: inline-block;
 	line-height: 2em;
 	margin: 0 1em;
@@ -62,6 +68,8 @@ export const TextLinktyle = css<{ $isActive?: boolean; $disabled?: boolean }>`
 		opacity: 0.75;
 		pointer-events: none;
 	`}
+
+	${BadgeStyle}
 `
 const Content = styled.div`
 	display: flex;

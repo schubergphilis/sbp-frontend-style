@@ -2,7 +2,7 @@ import LightModeIcon from 'components/icons/LightModeIcon'
 import CardHeader from 'components/molecules/cards/CardHeader'
 import ComponentOptionModel from 'models/ComponentOptionModel'
 import ComponentBox from 'styling/elements/box/ComponentBox'
-import { defaultOptions } from 'styling/settings/DefaultOptions'
+import { generalOptions } from 'styling/settings/GeneralOptions'
 
 const CardHeaderComponentBox = () => {
 	const options: ComponentOptionModel[] = [
@@ -33,7 +33,7 @@ const CardHeaderComponentBox = () => {
 			defaultValue: false,
 			value: null
 		},
-		...defaultOptions
+		...generalOptions
 	]
 	return (
 		<ComponentBox

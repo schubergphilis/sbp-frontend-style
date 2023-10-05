@@ -1,23 +1,31 @@
-import TextLink from 'components/atoms/buttons/TextLink'
-import DarkModeIcon from 'components/icons/DarkModeIcon'
+import ChipBadge from 'components/atoms/badges/ChipBadge'
+import CloseIcon from 'components/icons/CloseIcon'
 import LightModeIcon from 'components/icons/LightModeIcon'
 import ComponentOptionModel from 'models/ComponentOptionModel'
 import ComponentBox from 'styling/elements/box/ComponentBox'
 import { generalOptions } from 'styling/settings/GeneralOptions'
 
-const TextLinkComponentBox = () => {
+const ChipBadgeComponentBox = () => {
 	const options: ComponentOptionModel[] = [
 		{
-			title: 'Link text',
+			title: 'Button title',
 			name: 'children[1]',
 			type: 'text',
-			value: 'More information'
+			value: 'Filter'
 		},
 		{
-			title: 'Active button',
+			title: 'Add Action',
+			name: 'onClick',
+			type: 'element',
+			defaultValue: (): void => {},
+			value: null
+		},
+		{
+			title: 'Active Chip',
 			name: 'isActive',
 			type: 'boolean',
-			value: true
+			defaultValue: false,
+			value: null
 		},
 		{
 			title: 'Start Icon',
@@ -30,7 +38,7 @@ const TextLinkComponentBox = () => {
 			title: 'End Icon',
 			name: 'children[2]',
 			type: 'element',
-			defaultValue: <DarkModeIcon />,
+			defaultValue: <CloseIcon />,
 			value: null
 		},
 		...generalOptions,
@@ -50,15 +58,15 @@ const TextLinkComponentBox = () => {
 			general: true
 		}
 	]
+
 	return (
 		<ComponentBox
-			title="Text link"
-			description="Text link can be used to trigger events within the page."
-			descriptionCode="import { Link } from 'next/link'\r\nimport { TextLinkStyle, TextLinkStyleProps } from '@frontent-shared-components/buttons/TextLink'\r\n\r\nconst StyledLink = styled(Link)<TextLinkStyleProps>`\r\n\t${TextLinkStyle}\r\n`"
+			title="Chip badge"
+			description="Chips help show information, make selections, filter content, or trigger actions"
 			options={options}>
-			<TextLink children={undefined} />
+			<ChipBadge children={undefined} />
 		</ComponentBox>
 	)
 }
 
-export default TextLinkComponentBox
+export default ChipBadgeComponentBox

@@ -38,9 +38,6 @@
     font-style: normal;
 }
 
-
-
-
 @font-face {
     font-family: 'TT Interphases Mono Regular';
     src: local('TT Interphases Mono Regular'), local('tt_interphases_mono_regular-webfont'),
@@ -52,11 +49,21 @@
 }
 
 @font-face {
-    font-family: 'TT Interphases Bold';
-    src: local('TT Interphases Bold'), local('tt_interphases_mono_bold-webfont'),
+    font-family: 'TT Interphases Mono Bold';
+    src: local('TT Interphases Mono Bold'), local('tt_interphases_mono_bold-webfont'),
         url('/public/fonts/ttinterphases-mono/tt_interphases_mono_bold-webfont.woff2') format('woff2'),
         url('/public/fonts/ttinterphases-mono/tt_interphases_mono_bold-webfont.woff') format('woff'),
         url('/public/fonts/ttinterphases-mono/tt_interphases_mono_bold-webfont.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
+}
+
+@keyframes rotating {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }

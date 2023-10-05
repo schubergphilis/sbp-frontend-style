@@ -2,7 +2,7 @@ import { SelectInput } from 'components/atoms/forms'
 import ComponentOptionModel from 'models/ComponentOptionModel'
 import SelectOptionModel from 'models/SelectOptionModel'
 import ComponentBox from 'styling/elements/box/ComponentBox'
-import { defaultOptions } from 'styling/settings/DefaultOptions'
+import { generalOptions } from 'styling/settings/GeneralOptions'
 
 const SelectInputComponentBox = () => {
 	const options: ComponentOptionModel[] = [
@@ -20,7 +20,7 @@ const SelectInputComponentBox = () => {
 			defaultValue: false,
 			general: true
 		},
-		...defaultOptions
+		...generalOptions
 	]
 
 	const selectOptions: SelectOptionModel[] = [

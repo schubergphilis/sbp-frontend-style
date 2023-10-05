@@ -1,6 +1,6 @@
 import ComponentOptionModel from 'models/ComponentOptionModel'
 
-export const defaultOptions: ComponentOptionModel[] = [
+export const generalOptions: ComponentOptionModel[] = [
 	{
 		title: 'Disabled state',
 		name: 'disabled',

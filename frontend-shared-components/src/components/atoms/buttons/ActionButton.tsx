@@ -1,10 +1,14 @@
 import { VariantType } from 'datatypes/VariantType'
 import { ButtonHTMLAttributes, Children } from 'react'
 import styled, { css } from 'styled-components'
+import BadgeStyle, { BadgeStyleProps } from '../badges/Badge'
 
-interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface Props
+	extends ButtonHTMLAttributes<HTMLButtonElement>,
+		BadgeStyleProps {
 	isBlock?: boolean
 	isRounded?: boolean
+	isLoading?: boolean
 	variant?: VariantType
 	children: string | JSX.Element | JSX.Element[] | React.ReactNode
 }
@@ -12,6 +16,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 const ActionButton = ({
 	isBlock = false,
 	isRounded = false,
+	isLoading = false,
 	variant,
 	children,
 	...props
@@ -21,6 +26,7 @@ const ActionButton = ({
 			$variant={variant}
 			$isBlock={isBlock}
 			$isRounded={isRounded}
+			$isLoading={isLoading}
 			{...props}>
 			<Content>
 				{Array.isArray(children)
@@ -42,11 +48,15 @@ const ActionButton = ({
 	)
 }
 
-export const ButtonStyle = css<{
+export interface ButtonStyleProps extends BadgeStyleProps {
 	$variant?: VariantType
 	$isBlock?: boolean
 	$isRounded?: boolean
-}>`
+	$isLoading?: boolean
+}
+
+export const ButtonStyle = css<ButtonStyleProps>`
+	position: relative;
 	padding: 0.5em 1em;
 	cursor: pointer;
 	display: ${({ $isBlock }) => ($isBlock ? 'block' : 'inline-block')};
@@ -84,6 +94,33 @@ export const ButtonStyle = css<{
 		opacity: 0.75;
 		pointer-events: none;
 	}
+
+	transition: padding-right 0.2s ease-in-out;
+
+	${({ $isLoading }) =>
+		$isLoading &&
+		`
+		padding-right: 3em;
+		pointer-events: none;
+
+		&::after {
+			content: '';
+			position: absolute;
+			right: 1em;
+			top: calc(50% - 0.625em);
+			display: block;
+			width: 1.25em;
+			height: 1.25em;
+			border-radius: 1em;
+			color: inherit;
+			border: 2px solid;
+			border-left-width: 1px;
+			border-bottom-color: transparent;
+			animation: rotating 0.75s linear infinite;
+		}
+	`}
+
+	${BadgeStyle}
 `
 const Content = styled.div`
 	display: flex;
@@ -91,11 +128,7 @@ const Content = styled.div`
 	gap: 0.5em;
 	align-items: center;
 `
-const Button = styled.button<{
-	$variant?: VariantType
-	$isBlock: boolean
-	$isRounded: boolean
-}>`
+const Button = styled.button<ButtonStyleProps>`
 	${ButtonStyle}
 `
 

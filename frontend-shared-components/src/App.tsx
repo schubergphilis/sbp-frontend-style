@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { makeStore } from 'store/Store'
 import { styled } from 'styled-components'
 import ActionButtonComponentBox from 'styling/componentBoxes/ActionButtonComponentBox'
+import AvatarComponentBox from 'styling/componentBoxes/AvatarComponentBox'
 import BadgeComponentBox from 'styling/componentBoxes/BadgeComponentBox'
 import CardHeaderComponentBox from 'styling/componentBoxes/CardHeaderComponentBox'
 import ChipBadgeComponentBox from 'styling/componentBoxes/ChipBadgeComponentBox'
@@ -36,6 +37,8 @@ const App = () => {
 								<LogoIcon width={200} height={200} />
 								<h1>Welcome to Shared Components</h1>
 							</InfoBox>
+
+							<AvatarComponentBox />
 
 							<BadgeComponentBox />
 

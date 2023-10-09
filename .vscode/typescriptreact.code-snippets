@@ -27,5 +27,19 @@
       "export default $TM_FILENAME_BASE"
     ],
     "description": "Create a React/NextJs module with Styled components"
+  },
+  "Create Shared Icon": {
+    "prefix": "ricon",
+    "scope": "typescript, typescriptreact",
+    "body": [
+
+      "const $TM_FILENAME_BASE = () => {",
+      "   return (",
+      "   )",
+      "}",
+      "",
+      "export default $TM_FILENAME_BASE"
+    ],
+    "description": "Create a React/NextJs icon"
   }
 }

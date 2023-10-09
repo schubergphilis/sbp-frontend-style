@@ -149,6 +149,7 @@ const Element = styled.div`
 	flex: 1 1 auto;
 	padding: 2em;
 	align-self: center;
+	max-width: 73%;
 
 	> * {
 		margin: auto;

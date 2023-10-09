@@ -28,3 +28,15 @@ export const CleanName = (item: string): string => {
 		.join(' ')
 		.replace(/([^A-Z0-9\s])/gim, '')
 }
+
+export const AbbreviateName = (name: string): string => {
+	const item = name.trim()
+
+	if (item.includes(' ')) {
+		const words = item.split(' ')
+		const abbr = words.map((word) => word.charAt(0))
+		return abbr.join('').toUpperCase()
+	} else {
+		return item.slice(0, 2).toUpperCase()
+	}
+}

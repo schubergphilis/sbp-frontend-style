@@ -36,14 +36,14 @@ const TextLinkComponentBox = () => {
 		...generalOptions,
 		{
 			title: 'Badge Amount',
-			name: 'badge',
+			name: '$badge',
 			type: 'number',
 			value: 0,
 			general: true
 		},
 		{
-			title: 'Small Badge',
-			name: 'isSmall',
+			title: 'Badge Small',
+			name: '$isBadgeSmall',
 			type: 'boolean',
 			defaultValue: false,
 			value: null,

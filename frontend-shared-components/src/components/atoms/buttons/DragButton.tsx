@@ -20,30 +20,30 @@ const Button = styled.button<{ $orientation: OrientationType }>`
 	line-height: 0em;
 	overflow: hidden;
 	display: block;
-	border-radius: 0.5em;
 	padding: 1em 0.5em;
-	border-radius: 0.5em 0 0 0.5em;
+	border-radius: ${({ theme }) => theme.style.radius}px 0 0
+		${({ theme }) => theme.style.radius}px;
 	box-shadow: 0px 5px 5px 0px ${({ theme }) => theme.style.shadow};
 	border: none;
 	cursor: pointer;
 
-	${({ $orientation }) =>
+	${({ $orientation, theme }) =>
 		$orientation === 'top' &&
 		`
-			border-radius: 0 0 0.5em 0.5em;
+			border-radius: 0 0 ${theme.style.radius}px ${theme.style.radius}px;
 			padding: 0.5em 1em;
 	`}
 
-	${({ $orientation }) =>
+	${({ $orientation, theme }) =>
 		$orientation === 'left' &&
 		`
-			border-radius:0 0.5em 0.5em 0;
+			border-radius:0 ${theme.style.radius}px ${theme.style.radius}px 0;
 	`}
 
 	${({ $orientation, theme }) =>
 		$orientation === 'bottom' &&
 		`
-			border-radius: 0.5em 0.5em 0 0;
+			border-radius: ${theme.style.radius}px 0${theme.style.radius}px 0 0;
 			box-shadow: 0px 0px 2px 0px ${theme.style.shadow};
 			padding: 0.5em 1em;
 	`}

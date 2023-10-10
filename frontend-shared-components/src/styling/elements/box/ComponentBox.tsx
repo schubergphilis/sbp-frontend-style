@@ -80,7 +80,9 @@ const ComponentBox = ({
 					)}
 				</CardHeader>
 				<ComponentCardContent>
-					<Element>{clone}</Element>
+					<Element>
+						<Center>{clone}</Center>
+					</Element>
 					<ElementOptions>
 						{options
 							.filter(({ general }) => !general)
@@ -140,6 +142,7 @@ const ComponentCardContent = styled(CardContent)`
 	display: flex;
 	justify-content: space-between;
 	padding: 0;
+	background-color: ${({ theme }) => theme.style.colorBg};
 `
 const ComponentCardFooter = styled(CardFooter)`
 	display: block;
@@ -150,11 +153,10 @@ const Element = styled.div`
 	padding: 2em;
 	align-self: center;
 	max-width: 73%;
-
-	> * {
-		margin: auto;
-	}
+	display: flex;
+	justify-content: center;
 `
+const Center = styled.div``
 const ElementOptions = styled.div`
 	flex: 0 1 auto;
 	max-width: 50%;
@@ -189,7 +191,9 @@ const GeneralHeader = styled(ActionButton).withConfig({
 		line-height: 1.25em;
 		text-align: center;
 		rotate: 0deg;
-		transition: rotate 0.2s ease-in-out, margin-top 0.2s ease-in-out;
+		transition:
+			rotate 0.2s ease-in-out,
+			margin-top 0.2s ease-in-out;
 
 		margin-top: 0;
 		border: solid black;

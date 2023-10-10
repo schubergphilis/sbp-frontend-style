@@ -44,10 +44,17 @@ const CardHeader = ({
 				$isClickable={typeof onClick === 'function'}
 				{...props}>
 				<TitleInfo>{children}</TitleInfo>
-				{onClick && !isRemove ? <CollapseIcon $isOpen={isOpen}>{icon}</CollapseIcon> : null}
-				{onClick && isRemove ? <CloseButton onClick={(e: MouseEvent<HTMLButtonElement>) => handleOnClick(e)}>
-					<CollapseIcon $isOpen={isOpen}><CloseIcon/></CollapseIcon>
-				</CloseButton>: null}
+				{onClick && !isRemove ? (
+					<CollapseIcon $isOpen={isOpen}>{icon}</CollapseIcon>
+				) : null}
+				{onClick && isRemove ? (
+					<CloseButton
+						onClick={(e: MouseEvent<HTMLButtonElement>) => handleOnClick(e)}>
+						<CollapseIcon $isOpen={isOpen}>
+							<CloseIcon />
+						</CollapseIcon>
+					</CloseButton>
+				) : null}
 			</Container>
 		</ConditionalWrapper>
 	)
@@ -92,6 +99,7 @@ const CloseButton = styled.button`
 const CollapseIcon = styled.div<{ $isOpen?: boolean }>`
 	vertical-align: middle;
 	position: relative;
+	padding-right: 2em;
 
 	&::after {
 		content: '';
@@ -105,7 +113,9 @@ const CollapseIcon = styled.div<{ $isOpen?: boolean }>`
 		line-height: 1.25em;
 		text-align: center;
 		rotate: 0deg;
-		transition: rotate 0.2s ease-in-out, margin-top 0.2s ease-in-out;
+		transition:
+			rotate 0.2s ease-in-out,
+			margin-top 0.2s ease-in-out;
 
 		margin-top: 0;
 		border-style: solid;
@@ -123,6 +133,8 @@ const CollapseIcon = styled.div<{ $isOpen?: boolean }>`
 	`}
 
 	&:has(> svg) {
+		padding-right: 0;
+
 		&::after {
 			content: none;
 		}

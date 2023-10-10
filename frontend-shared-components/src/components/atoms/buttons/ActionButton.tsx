@@ -111,7 +111,7 @@ export const ButtonStyle = css<ButtonStyleProps>`
 			display: block;
 			width: 1.25em;
 			height: 1.25em;
-			border-radius: 1em;
+			border-radius: 50%;
 			color: inherit;
 			border: 2px solid;
 			border-left-width: 1px;

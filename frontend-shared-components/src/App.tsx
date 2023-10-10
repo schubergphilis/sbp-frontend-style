@@ -6,6 +6,7 @@ import { styled } from 'styled-components'
 import ActionButtonComponentBox from 'styling/componentBoxes/ActionButtonComponentBox'
 import AvatarComponentBox from 'styling/componentBoxes/AvatarComponentBox'
 import BadgeComponentBox from 'styling/componentBoxes/BadgeComponentBox'
+import CardComponentBox from 'styling/componentBoxes/CardComponentBox'
 import CardHeaderComponentBox from 'styling/componentBoxes/CardHeaderComponentBox'
 import ChipBadgeComponentBox from 'styling/componentBoxes/ChipBadgeComponentBox'
 import DragButtonComponentBox from 'styling/componentBoxes/DragButtonComponentBox'
@@ -59,6 +60,8 @@ const App = () => {
 							<SelectInputComponentBox />
 
 							<TextInputComponentBox />
+
+							<CardComponentBox />
 
 							<CardHeaderComponentBox />
 						</Main>

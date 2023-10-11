@@ -40,12 +40,19 @@ const CardHeaderComponentBox = () => {
 			defaultValue: false,
 			value: null
 		},
+		{
+			title: 'Padding',
+			name: 'hasPadding',
+			type: 'boolean',
+			defaultValue: true,
+			value: true
+		},
 		...generalOptions
 	]
 	return (
 		<ComponentBox
 			title="Card header"
-			description="Text link can be used to trigger events within the page."
+			description="A card element can contain a <b>CardHeader</b> to amplify the title of specific content. Also some controls come in handy with using this header, like collapsing the <b>CardContent</b> or remove the card form the page."
 			options={options}>
 			<CardHeader children={undefined} />
 		</ComponentBox>

@@ -1,7 +1,6 @@
 import Card from 'components/molecules/cards/Card'
 import ComponentOptionModel from 'models/ComponentOptionModel'
 import ComponentBox from 'styling/elements/box/ComponentBox'
-import { generalOptions } from 'styling/settings/GeneralOptions'
 
 const CardComponentBox = () => {
 	const options: ComponentOptionModel[] = [
@@ -31,8 +30,7 @@ const CardComponentBox = () => {
 			type: 'element',
 			defaultValue: (): void => {},
 			value: null
-		},
-		...generalOptions
+		}
 	]
 	return (
 		<ComponentBox

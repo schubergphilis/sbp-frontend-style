@@ -14,6 +14,7 @@ import ToggleButtonComponentBox from 'styling/componentBoxes/atoms/buttons/Toggl
 import SelectInputComponentBox from 'styling/componentBoxes/atoms/forms/SelectInputComponentBox'
 import TextInputComponentBox from 'styling/componentBoxes/atoms/forms/TextInputComponentBox'
 import CardComponentBox from 'styling/componentBoxes/molecules/cards/CardComponentBox'
+import CardContentComponentBox from 'styling/componentBoxes/molecules/cards/CardContentComponentBox'
 import CardFooterComponentBox from 'styling/componentBoxes/molecules/cards/CardFooterComponentBox'
 import CardHeaderComponentBox from 'styling/componentBoxes/molecules/cards/CardHeaderComponentBox'
 import NotificationComponentBox from 'styling/componentBoxes/molecules/notifications/NotificationComponentBox'
@@ -68,6 +69,8 @@ const App = () => {
 							<CardComponentBox />
 
 							<CardHeaderComponentBox />
+
+							<CardContentComponentBox />
 
 							<CardFooterComponentBox />
 						</Main>

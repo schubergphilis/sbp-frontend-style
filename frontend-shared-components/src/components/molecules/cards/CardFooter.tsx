@@ -26,10 +26,10 @@ const Container = styled.div<{ $align: AlignType; $hasPadding: boolean }>`
 	justify-content: space-between;
 	padding: ${({ $hasPadding }) => ($hasPadding ? '2em' : '0')};
 	border-top: 1px solid ${({ theme }) => theme.style.borderColor};
+	text-align: ${({ $align }) => $align};
 
 	> * {
 		flex: 1 1 50%;
-		text-align: ${({ $align }) => $align};
 	}
 `
 

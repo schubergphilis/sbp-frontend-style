@@ -3,7 +3,7 @@ import { device, deviceSize } from 'helpers/DeviceHelper'
 import { Provider } from 'react-redux'
 import { makeStore } from 'store/Store'
 import { styled } from 'styled-components'
-import ActionButtonComponentBox from 'styling/componentBoxes/ActionButtonComponentBox'
+import CloudStyleComponentBox from 'styling/componentBoxes/CloudStyleComponentBox'
 import AvatarComponentBox from 'styling/componentBoxes/atoms/avatars/AvatarComponentBox'
 import BadgeComponentBox from 'styling/componentBoxes/atoms/badges/BadgeComponentBox'
 import ChipBadgeComponentBox from 'styling/componentBoxes/atoms/badges/ChipBadgeComponentBox'
@@ -14,7 +14,7 @@ import ToggleButtonComponentBox from 'styling/componentBoxes/atoms/buttons/Toggl
 import SelectInputComponentBox from 'styling/componentBoxes/atoms/forms/SelectInputComponentBox'
 import TextInputComponentBox from 'styling/componentBoxes/atoms/forms/TextInputComponentBox'
 import CardComponentBox from 'styling/componentBoxes/molecules/cards/CardComponentBox'
-import ToggleButtonComponentBox from 'styling/componentBoxes/ToggleButtonComponentBox'
+import CardFooterComponentBox from 'styling/componentBoxes/molecules/cards/CardFooterComponentBox'
 import CardHeaderComponentBox from 'styling/componentBoxes/molecules/cards/CardHeaderComponentBox'
 import NotificationComponentBox from 'styling/componentBoxes/molecules/notifications/NotificationComponentBox'
 import FooterBar from 'styling/elements/FooterBar'
@@ -43,6 +43,8 @@ const App = () => {
 								<h1>Welcome to Shared Components</h1>
 							</InfoBox>
 
+							<CloudStyleComponentBox />
+
 							<AvatarComponentBox />
 
 							<BadgeComponentBox />
@@ -66,6 +68,8 @@ const App = () => {
 							<CardComponentBox />
 
 							<CardHeaderComponentBox />
+
+							<CardFooterComponentBox />
 						</Main>
 					</Content>
 					<Footer>

@@ -9,6 +9,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 	icon?: JSX.Element
 	disabled?: boolean
 	isRemove?: boolean
+	hasPadding?: boolean
 	children: React.ReactNode
 }
 
@@ -19,6 +20,7 @@ const CardHeader = ({
 	children,
 	disabled,
 	isRemove = false,
+	hasPadding = true,
 	...props
 }: Props) => {
 	const handleOnClick = useCallback(
@@ -40,6 +42,7 @@ const CardHeader = ({
 				</CollapseButton>
 			)}>
 			<Container
+				$hasPadding={hasPadding}
 				$isOpen={isOpen}
 				$isClickable={typeof onClick === 'function'}
 				{...props}>
@@ -60,8 +63,12 @@ const CardHeader = ({
 	)
 }
 
-const Container = styled.div<{ $isOpen?: boolean; $isClickable: boolean }>`
-	padding: 2em;
+const Container = styled.div<{
+	$isOpen?: boolean
+	$isClickable: boolean
+	$hasPadding: boolean
+}>`
+	padding: ${({ $hasPadding }) => ($hasPadding ? '2em' : '0')};
 	display: flex;
 	justify-content: space-between;
 	align-items: center;

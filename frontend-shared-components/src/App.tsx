@@ -3,17 +3,21 @@ import { device, deviceSize } from 'helpers/DeviceHelper'
 import { Provider } from 'react-redux'
 import { makeStore } from 'store/Store'
 import { styled } from 'styled-components'
-import ActionButtonComponentBox from 'styling/componentBoxes/ActionButtonComponentBox'
-import AvatarComponentBox from 'styling/componentBoxes/AvatarComponentBox'
-import BadgeComponentBox from 'styling/componentBoxes/BadgeComponentBox'
-import CardHeaderComponentBox from 'styling/componentBoxes/CardHeaderComponentBox'
-import ChipBadgeComponentBox from 'styling/componentBoxes/ChipBadgeComponentBox'
-import DragButtonComponentBox from 'styling/componentBoxes/DragButtonComponentBox'
-import NotificationComponentBox from 'styling/componentBoxes/NotificationComponentBox'
-import SelectInputComponentBox from 'styling/componentBoxes/SelectInputComponentBox'
-import TextInputComponentBox from 'styling/componentBoxes/TextInputComponentBox'
-import TextLinkComponentBox from 'styling/componentBoxes/TextLinkComponentBox'
-import ToggleButtonComponentBox from 'styling/componentBoxes/ToggleButtonComponentBox'
+import CloudStyleComponentBox from 'styling/componentBoxes/CloudStyleComponentBox'
+import AvatarComponentBox from 'styling/componentBoxes/atoms/avatars/AvatarComponentBox'
+import BadgeComponentBox from 'styling/componentBoxes/atoms/badges/BadgeComponentBox'
+import ChipBadgeComponentBox from 'styling/componentBoxes/atoms/badges/ChipBadgeComponentBox'
+import ActionButtonComponentBox from 'styling/componentBoxes/atoms/buttons/ActionButtonComponentBox'
+import DragButtonComponentBox from 'styling/componentBoxes/atoms/buttons/DragButtonComponentBox'
+import TextLinkComponentBox from 'styling/componentBoxes/atoms/buttons/TextLinkComponentBox'
+import ToggleButtonComponentBox from 'styling/componentBoxes/atoms/buttons/ToggleButtonComponentBox'
+import SelectInputComponentBox from 'styling/componentBoxes/atoms/forms/SelectInputComponentBox'
+import TextInputComponentBox from 'styling/componentBoxes/atoms/forms/TextInputComponentBox'
+import CardComponentBox from 'styling/componentBoxes/molecules/cards/CardComponentBox'
+import CardContentComponentBox from 'styling/componentBoxes/molecules/cards/CardContentComponentBox'
+import CardFooterComponentBox from 'styling/componentBoxes/molecules/cards/CardFooterComponentBox'
+import CardHeaderComponentBox from 'styling/componentBoxes/molecules/cards/CardHeaderComponentBox'
+import NotificationComponentBox from 'styling/componentBoxes/molecules/notifications/NotificationComponentBox'
 import FooterBar from 'styling/elements/FooterBar'
 import Navigation from 'styling/elements/Navigation'
 import ThemeWrapper from 'styling/elements/ThemeWrapper'
@@ -40,6 +44,8 @@ const App = () => {
 								<h1>Welcome to Shared Components</h1>
 							</InfoBox>
 
+							<CloudStyleComponentBox />
+
 							<AvatarComponentBox />
 
 							<BadgeComponentBox />
@@ -60,7 +66,13 @@ const App = () => {
 
 							<TextInputComponentBox />
 
+							<CardComponentBox />
+
 							<CardHeaderComponentBox />
+
+							<CardContentComponentBox />
+
+							<CardFooterComponentBox />
 						</Main>
 					</Content>
 					<Footer>

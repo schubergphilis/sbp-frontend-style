@@ -5,17 +5,24 @@ import CardHeader from 'components/molecules/cards/CardHeader'
 import { ValueType } from 'datatypes/ValueType'
 import parse from 'html-react-parser'
 import ComponentOptionModel from 'models/ComponentOptionModel'
-import { cloneElement, useState } from 'react'
-import { styled } from 'styled-components'
+import { cloneElement, useCallback, useState } from 'react'
+import { DefaultStyle, styled } from 'styled-components'
 import CodeBlock from './CodeBlock'
 import OptionRow from './OptionRow'
 
 import ActionButton from 'components/atoms/buttons/ActionButton'
 import { AccumulateReturn, AccumulateState } from 'helpers/AccumulateHelper'
+import { useAppDispatch } from 'hooks/UseReduxStore'
 import StepsModel from 'models/StepsModel'
 import tsx from 'react-syntax-highlighter/dist/cjs/languages/hljs/typescript'
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/cjs/light'
 import github from 'react-syntax-highlighter/dist/cjs/styles/hljs/atom-one-dark'
+import {
+	setDarkModeState,
+	setDarkStyleState,
+	setLargeModeState,
+	setLightStyleState
+} from 'store/SettingsSlice'
 
 SyntaxHighlighter.registerLanguage('tsx', tsx)
 
@@ -23,19 +30,19 @@ interface Props {
 	title: string
 	description: string
 	descriptionCode?: string
-	options: ComponentOptionModel[]
+	options?: ComponentOptionModel[]
 	children: JSX.Element
 }
 
 const ComponentBox = ({
-	options,
+	options = [],
 	title,
 	description,
 	descriptionCode,
 	children
 }: Props) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false)
-
+	const dispatch = useAppDispatch()
 	const init: StepsModel = options.reduce((accumulator, { name, value }) => {
 		const response = AccumulateReturn(accumulator, name, value)
 		return { ...accumulator, ...response }
@@ -54,8 +61,40 @@ const ComponentBox = ({
 		})
 	}
 
-	const toggleOptions = (): void => {
+	const toggleOptions = useCallback((isOpen: boolean): void => {
 		setIsOpen(!isOpen)
+	}, [])
+
+	// UGLY but it's working
+	const handleStateEvent = (name: string, value: ValueType | null) => {
+		handleEvent(name, value)
+
+		console.log('--handleStateEvent', name, value)
+
+		switch (name) {
+			case 'lightStyle':
+				dispatch(
+					setLightStyleState(
+						(value === null ? undefined : value) as DefaultStyle | undefined
+					)
+				)
+				break
+			case 'darkStyle':
+				dispatch(
+					setDarkStyleState(
+						(value === null ? undefined : value) as DefaultStyle | undefined
+					)
+				)
+				break
+			case 'isDarkMode':
+				dispatch(setDarkModeState(value as boolean))
+				break
+			case 'isLargeMode':
+				dispatch(
+					setLargeModeState((value === null ? undefined : value) as boolean)
+				)
+				break
+		}
 	}
 
 	return (
@@ -89,14 +128,17 @@ const ComponentBox = ({
 							.map((props, index) => (
 								<OptionRow
 									key={index}
-									handleEvent={handleEvent}
+									handleEvent={props.global ? handleStateEvent : handleEvent}
 									state={AccumulateState(steps, props.name)}
 									{...props}
 								/>
 							))}
 						{options.filter(({ general }) => general).length > 0 ? (
 							<General>
-								<GeneralHeader isBlock onClick={toggleOptions} $isOpen={isOpen}>
+								<GeneralHeader
+									isBlock
+									onClick={() => toggleOptions(isOpen)}
+									$isOpen={isOpen}>
 									General options
 								</GeneralHeader>
 

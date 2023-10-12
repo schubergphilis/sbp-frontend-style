@@ -10,4 +10,5 @@ export default interface ComponentOptionModel {
 	defaultValue?: ValueType | null
 	value: ValueType | null
 	general?: boolean
+	global?: boolean
 }

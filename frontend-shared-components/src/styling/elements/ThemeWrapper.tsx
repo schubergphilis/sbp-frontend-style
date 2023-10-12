@@ -1,6 +1,12 @@
 import CloudStyle from 'components/CloudStyle'
 import { useAppSelector } from 'hooks/UseReduxStore'
-import { isDarkModeState, isLargeModeState } from 'store/SettingsSlice'
+import {
+	darkStyleState,
+	isDarkModeState,
+	isLargeModeState,
+	lightStyleState
+} from 'store/SettingsSlice'
+import { DefaultStyle } from 'styled-components'
 
 interface Props {
 	children: JSX.Element | JSX.Element[]
@@ -9,9 +15,15 @@ interface Props {
 const ThemeWrapper = ({ children }: Props) => {
 	const isDarkMode = useAppSelector<boolean>(isDarkModeState)
 	const isLargeMode = useAppSelector<boolean>(isLargeModeState)
+	const ligthStyle = useAppSelector<DefaultStyle>(lightStyleState)
+	const darkStyle = useAppSelector<DefaultStyle>(darkStyleState)
 
 	return (
-		<CloudStyle isDarkMode={isDarkMode} isLargeMode={isLargeMode}>
+		<CloudStyle
+			isDarkMode={isDarkMode}
+			isLargeMode={isLargeMode}
+			lightStyle={ligthStyle}
+			darkStyle={darkStyle}>
 			{children}
 		</CloudStyle>
 	)

@@ -1,6 +1,6 @@
+import Notification from 'components/molecules/notifications/Notification'
 import ComponentOptionModel from 'models/ComponentOptionModel'
 import ComponentBox from 'styling/elements/box/ComponentBox'
-import Notification from 'components/atoms/notifications/Notification'
 
 const NotificationComponentBox = () => {
 	const options: ComponentOptionModel[] = [
@@ -14,7 +14,8 @@ const NotificationComponentBox = () => {
 			title: 'Description',
 			name: 'description',
 			type: 'text',
-			value: 'They sing, they dance, they model, but they don\'t exist in real life - virtual influencers are trying to break out of the metaverse and into the charts. From Alvin and The Chipmunks to Gorillaz, and Hatsune Miku to Polar, the music industry is no stranger to virtual characters as popstars.'
+			value:
+				"They sing, they dance, they model, but they don't exist in real life - virtual influencers are trying to break out of the metaverse and into the charts. From Alvin and The Chipmunks to Gorillaz, and Hatsune Miku to Polar, the music industry is no stranger to virtual characters as popstars."
 		},
 		{
 			title: 'Notification Type',
@@ -41,15 +42,11 @@ const NotificationComponentBox = () => {
 			type: 'boolean',
 			defaultValue: false,
 			value: null
-		},
-
+		}
 	]
 
 	return (
-		<ComponentBox
-			title="Notification"
-			description=""
-			options={options}>
+		<ComponentBox title="Notification" description="" options={options}>
 			<Notification title="" />
 		</ComponentBox>
 	)

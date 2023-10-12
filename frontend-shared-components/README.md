@@ -33,7 +33,7 @@ npm install @sbp-cloud-style
 
 ### React
 
-Within the base of the application it needs a Style wrapper **\<CloudStyle\>** to set the default styling and this will also be the input for customizing the componenst for your needs.
+Within the base of the application it needs a Style wrapper **\<CloudStyle\>** to set the default styling and this will also be the input for customizing the components for your needs.
 
 ```jsx
 import { ActionButton, CloudStyle } from 'sbp-cloud-style'

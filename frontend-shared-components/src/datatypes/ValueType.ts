@@ -1,3 +1,5 @@
+import { DefaultStyle } from 'styled-components'
+
 export type ValueType =
 	| boolean
 	| string
@@ -5,3 +7,4 @@ export type ValueType =
 	| number
 	| any[]
 	| VoidFunction
+	| DefaultStyle

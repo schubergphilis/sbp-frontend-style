@@ -9,20 +9,20 @@ const CardFooterComponentBox = () => {
 			title: 'First child',
 			name: 'children[0]',
 			type: 'element',
-			value: <StyledChild>First</StyledChild>
+			value: <StyledChild key="0">First</StyledChild>
 		},
 		{
 			title: 'Second child',
 			name: 'children[1]',
 			type: 'element',
-			defaultValue: <StyledChild>Second</StyledChild>,
+			defaultValue: <StyledChild key="1">Second</StyledChild>,
 			value: null
 		},
 		{
 			title: 'Third child',
 			name: 'children[2]',
 			type: 'element',
-			defaultValue: <StyledChild>Third</StyledChild>,
+			defaultValue: <StyledChild key="2">Third</StyledChild>,
 			value: null
 		},
 		{

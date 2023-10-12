@@ -17,6 +17,7 @@ import CardComponentBox from 'styling/componentBoxes/molecules/cards/CardCompone
 import CardContentComponentBox from 'styling/componentBoxes/molecules/cards/CardContentComponentBox'
 import CardFooterComponentBox from 'styling/componentBoxes/molecules/cards/CardFooterComponentBox'
 import CardHeaderComponentBox from 'styling/componentBoxes/molecules/cards/CardHeaderComponentBox'
+import ModalComponentBox from 'styling/componentBoxes/molecules/modals/ModalComponentBox'
 import NotificationComponentBox from 'styling/componentBoxes/molecules/notifications/NotificationComponentBox'
 import FooterBar from 'styling/elements/FooterBar'
 import Navigation from 'styling/elements/Navigation'
@@ -73,6 +74,8 @@ const App = () => {
 							<CardContentComponentBox />
 
 							<CardFooterComponentBox />
+
+							<ModalComponentBox />
 						</Main>
 					</Content>
 					<Footer>

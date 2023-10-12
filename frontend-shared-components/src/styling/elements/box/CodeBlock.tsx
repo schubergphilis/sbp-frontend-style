@@ -15,7 +15,10 @@ const CodeBlock = ({ children }: Props) => {
 			{reactElementToJsxString(children)
 				//.replace(/(class=[\"\-\w\s]+")/gim, '')
 				.replace(/(<[\w\s]+><\/\w+>)/gim, '')
-				.replace(/(\w+)(="")/gim, `$1`)}
+				.replace(/(\w+)(="")/gim, `$1`)
+				.replace(/(Styled\()(\w+)(\))/gim, '$2')
+				.replace(/(styled\.)(\w+)/gim, '$2')
+				.replace(/({function[\w\s(){}]+})/gim, '{function{}}')}
 		</SyntaxHighlighter>
 	)
 }

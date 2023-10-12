@@ -33,6 +33,13 @@ const CardHeaderComponentBox = () => {
 			defaultValue: false,
 			value: null
 		},
+		{
+			title: 'Remove card',
+			name: 'isRemove',
+			type: 'boolean',
+			defaultValue: false,
+			value: null
+		},
 		...generalOptions
 	]
 	return (

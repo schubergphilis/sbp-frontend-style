@@ -8,6 +8,8 @@ import AvatarComponentBox from 'styling/componentBoxes/AvatarComponentBox'
 import BadgeComponentBox from 'styling/componentBoxes/BadgeComponentBox'
 import CardHeaderComponentBox from 'styling/componentBoxes/CardHeaderComponentBox'
 import ChipBadgeComponentBox from 'styling/componentBoxes/ChipBadgeComponentBox'
+import DragButtonComponentBox from 'styling/componentBoxes/DragButtonComponentBox'
+import NotificationComponentBox from 'styling/componentBoxes/NotificationComponentBox'
 import SelectInputComponentBox from 'styling/componentBoxes/SelectInputComponentBox'
 import TextInputComponentBox from 'styling/componentBoxes/TextInputComponentBox'
 import TextLinkComponentBox from 'styling/componentBoxes/TextLinkComponentBox'
@@ -45,6 +47,10 @@ const App = () => {
 							<ChipBadgeComponentBox />
 
 							<ActionButtonComponentBox />
+
+							<DragButtonComponentBox />
+
+							<NotificationComponentBox />
 
 							<TextLinkComponentBox />
 

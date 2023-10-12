@@ -1,3 +1,4 @@
+import CloseIcon from 'components/icons/CloseIcon'
 import ConditionalWrapper from 'helpers/ConditionalWrapperHelper'
 import { HTMLAttributes, MouseEvent, useCallback } from 'react'
 import { styled } from 'styled-components'
@@ -7,6 +8,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 	onClick?: VoidFunction
 	icon?: JSX.Element
 	disabled?: boolean
+	isRemove?: boolean
 	children: React.ReactNode
 }
 
@@ -16,6 +18,7 @@ const CardHeader = ({
 	icon,
 	children,
 	disabled,
+	isRemove = false,
 	...props
 }: Props) => {
 	const handleOnClick = useCallback(
@@ -28,7 +31,7 @@ const CardHeader = ({
 
 	return (
 		<ConditionalWrapper
-			condition={typeof onClick === 'function'}
+			condition={typeof onClick === 'function' && !isRemove}
 			wrapper={(children) => (
 				<CollapseButton
 					onClick={(e: MouseEvent<HTMLButtonElement>) => handleOnClick(e)}
@@ -41,7 +44,17 @@ const CardHeader = ({
 				$isClickable={typeof onClick === 'function'}
 				{...props}>
 				<TitleInfo>{children}</TitleInfo>
-				{onClick ? <CollapseIcon $isOpen={isOpen}>{icon}</CollapseIcon> : null}
+				{onClick && !isRemove ? (
+					<CollapseIcon $isOpen={isOpen}>{icon}</CollapseIcon>
+				) : null}
+				{onClick && isRemove ? (
+					<CloseButton
+						onClick={(e: MouseEvent<HTMLButtonElement>) => handleOnClick(e)}>
+						<CollapseIcon $isOpen={isOpen}>
+							<CloseIcon />
+						</CollapseIcon>
+					</CloseButton>
+				) : null}
 			</Container>
 		</ConditionalWrapper>
 	)
@@ -79,13 +92,14 @@ const CollapseButton = styled.button`
 		pointer-events: none;
 	}
 `
+const CloseButton = styled.button`
+	cursor: pointer;
+`
+
 const CollapseIcon = styled.div<{ $isOpen?: boolean }>`
 	vertical-align: middle;
 	position: relative;
-
-	svg {
-		margin-right: 0.5em;
-	}
+	padding-right: 2em;
 
 	&::after {
 		content: '';
@@ -99,7 +113,9 @@ const CollapseIcon = styled.div<{ $isOpen?: boolean }>`
 		line-height: 1.25em;
 		text-align: center;
 		rotate: 0deg;
-		transition: rotate 0.2s ease-in-out, margin-top 0.2s ease-in-out;
+		transition:
+			rotate 0.2s ease-in-out,
+			margin-top 0.2s ease-in-out;
 
 		margin-top: 0;
 		border-style: solid;
@@ -117,6 +133,8 @@ const CollapseIcon = styled.div<{ $isOpen?: boolean }>`
 	`}
 
 	&:has(> svg) {
+		padding-right: 0;
+
 		&::after {
 			content: none;
 		}

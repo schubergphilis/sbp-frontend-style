@@ -1,5 +1,7 @@
 export * from './AlignType'
 export * from './CssColorType'
+export * from './NotificationType'
 export * from './OptionType'
+export * from './OrientationType'
 export * from './ValueType'
 export * from './VariantType'

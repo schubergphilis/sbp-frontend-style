@@ -1,4 +1,4 @@
-import { ActionButton } from 'components'
+import ActionButton from 'components/atoms/buttons/ActionButton'
 import ComponentOptionModel from 'models/ComponentOptionModel'
 
 import ComponentBox from 'styling/elements/box/ComponentBox'

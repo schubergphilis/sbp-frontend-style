@@ -34,11 +34,12 @@ jobs:
           release-type: node
           path: frontend-shared-components
           package-name: '@gmtdi/frontend-shared-components'
+          pull-request-header: ":robot: I have created a release *beep* *boop* [skip ci]"
      
-      - name: "Setup git user"
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "<>"
+      # - name: "Setup git user"
+      #   run: |
+      #     git config user.name "GitHub Actions"
+      #     git config user.email "<>"
 
       - name: Install dependencies
         working-directory: frontend-shared-components
@@ -54,18 +55,21 @@ jobs:
         working-directory: frontend-shared-components
         run: yarn test
 
-      - name: Create minor version
-        working-directory: frontend-shared-components
-        run: npm version minor
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   if: ${{ steps.release.outputs.release_created }}
+      # - name: Create patch version
+      #   working-directory: frontend-shared-components
+      #   run: npm version patch
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Check-in new version
-        run: |
-          git add .
-          git commit -m "Bump version [skip ci]"
-          git push
+      #   if: ${{ steps.release.outputs.release_created }}
+      # - name: Check-in new version
+      #   run: |
+      #     git add .
+      #     git commit -m "Bump version [skip ci]"
+      #     git push
 
+        if: ${{ steps.release.outputs.release_created }}
       - name: Package project
         working-directory: frontend-shared-components
         run: yarn pack && yarn publish

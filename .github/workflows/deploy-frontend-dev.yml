@@ -55,7 +55,6 @@ jobs:
         working-directory: frontend-shared-components
         run: yarn test
 
-      #   if: ${{ steps.release.outputs.release_created }}
       # - name: Create patch version
       #   working-directory: frontend-shared-components
       #   run: npm version patch
@@ -68,10 +67,11 @@ jobs:
       #     git add .
       #     git commit -m "Bump version [skip ci]"
       #     git push
-
-        if: ${{ steps.release.outputs.release_created }}
+      #   if: ${{ steps.release.outputs.release_created }}
+       
       - name: Package project
         working-directory: frontend-shared-components
         run: yarn pack && yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: ${{ steps.release.outputs.release_created }}

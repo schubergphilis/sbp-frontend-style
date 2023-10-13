@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/gmtdi/frontend-shared-components/compare/v1.0.1...v1.0.2) (2023-10-13)
+
+
+### Bug Fixes
+
+* header of release pull request ([468d694](https://github.com/gmtdi/frontend-shared-components/commit/468d69404361f59beb613df0417473b6c1df0a05))
+
 ## [1.0.1](https://github.com/gmtdi/frontend-shared-components/compare/v1.0.0...v1.0.1) (2023-10-13)
 
 

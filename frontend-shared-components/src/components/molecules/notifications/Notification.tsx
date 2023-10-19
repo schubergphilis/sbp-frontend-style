@@ -31,10 +31,13 @@ const Notification = ({
 		setIsOpen(isOpen)
 	}, [])
 
-	const handleRemove = useCallback((isRemove: boolean) => {
-		setIsRemove(!isRemove)
-		if (onClose) onClose()
-	}, [])
+	const handleRemove = useCallback(
+		(isRemove: boolean) => {
+			setIsRemove(!isRemove)
+			if (onClose) onClose()
+		},
+		[onClose]
+	)
 
 	useEffect(() => {
 		if (showClose) setIsRemove(false)

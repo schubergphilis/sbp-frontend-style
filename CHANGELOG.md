@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/gmtdi/frontend-shared-components/compare/v1.0.2...v1.0.3) (2023-10-19)
+
+
+### Bug Fixes
+
+* Make components available in package ([ae5cd03](https://github.com/gmtdi/frontend-shared-components/commit/ae5cd0310863b606cb5693ea4e4cc9c8ae69e714))
+
 ## [1.0.2](https://github.com/gmtdi/frontend-shared-components/compare/v1.0.1...v1.0.2) (2023-10-13)
 
 

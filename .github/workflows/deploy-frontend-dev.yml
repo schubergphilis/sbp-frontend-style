@@ -32,14 +32,8 @@ jobs:
         id: release
         with:
           release-type: node
-          # path: frontend-shared-components
           package-name: '@gmtdi/frontend-shared-components'
           pull-request-title-pattern: "chore${scope}: release${component} ${version} [skip ci]"
-     
-      # - name: "Setup git user"
-      #   run: |
-      #     git config user.name "GitHub Actions"
-      #     git config user.email "<>"
 
       - name: Install dependencies
         working-directory: frontend-shared-components
@@ -54,20 +48,6 @@ jobs:
       - name: Run Tests
         working-directory: frontend-shared-components
         run: yarn test
-
-      # - name: Create patch version
-      #   working-directory: frontend-shared-components
-      #   run: npm version patch
-      #   env:
-      #     NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      #   if: ${{ steps.release.outputs.release_created }}
-      # - name: Check-in new version
-      #   run: |
-      #     git add .
-      #     git commit -m "Bump version [skip ci]"
-      #     git push
-      #   if: ${{ steps.release.outputs.release_created }}
        
       - name: Package project
         working-directory: frontend-shared-components

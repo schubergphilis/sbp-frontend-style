@@ -1,1 +1,1 @@
-export { default as Modal } from './Modal'
+export { Backdrop, default as Modal } from './Modal'

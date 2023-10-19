@@ -2,7 +2,12 @@ import ErrorIcon from 'components/icons/ErrorIcon'
 import InfoIcon from 'components/icons/InfoIcon'
 import SuccessIcon from 'components/icons/SuccessIcon'
 import WarningIcon from 'components/icons/WarningIcon'
-import { Card, CardContent, CardHeader } from 'components/molecules/cards'
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader
+} from 'components/molecules/cards'
 import { NotificationType } from 'datatypes/NotificationType'
 import { useCallback, useEffect, useState } from 'react'
 import { styled } from 'styled-components'
@@ -10,6 +15,7 @@ import { styled } from 'styled-components'
 interface Props {
 	title: string
 	description?: string
+	date?: Date
 	type?: NotificationType
 	showMore?: boolean
 	showClose?: boolean
@@ -19,6 +25,7 @@ interface Props {
 const Notification = ({
 	title,
 	description,
+	date,
 	type = 'info',
 	showMore = false,
 	showClose = false,
@@ -60,9 +67,14 @@ const Notification = ({
 				<h3>{title}</h3>
 			</NotificationHeader>
 			{description && description !== '' ? (
-				<NotificationContent isOpen={showMore ? isOpen : true}>
-					{description}
-				</NotificationContent>
+				<Collapse $isOpen={showMore ? isOpen : true}>
+					<NotificationContent>{description}</NotificationContent>
+					{date && (
+						<NotificationFooter hasPadding>
+							<DateInfo>{new Date(date).toLocaleString()}</DateInfo>
+						</NotificationFooter>
+					)}
+				</Collapse>
 			) : null}
 		</NoticationCard>
 	)
@@ -111,12 +123,28 @@ const NotificationHeader = styled(CardHeader)`
 		align-items: center;
 	}
 `
-const NotificationContent = styled(CardContent)<{ isOpen: boolean }>`
-	${({ isOpen }) =>
-		isOpen &&
+const NotificationContent = styled(CardContent)``
+const NotificationFooter = styled(CardFooter)`
+	padding-top: 1em;
+	padding-bottom: 1em;
+`
+
+const Collapse = styled.div<{ $isOpen: boolean }>`
+	overflow: hidden;
+	max-height: 100em;
+	transition:
+		max-height 0.4s ease-in-out,
+		padding 0.1s ease-in-out;
+
+	${({ $isOpen }) =>
+		!$isOpen &&
 		`
-        padding-top: 1em;
-        padding-bottom: 1em;
+        transition: max-height 0.5s ease-in-out, padding 0.4s step-end;
+        max-height: 0;
     `}
+`
+
+const DateInfo = styled.strong`
+	color: ${({ theme }) => theme.style.shadow};
 `
 export default Notification

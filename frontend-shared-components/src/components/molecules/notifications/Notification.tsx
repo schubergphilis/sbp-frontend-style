@@ -13,6 +13,7 @@ interface Props {
 	type?: NotificationType
 	showMore?: boolean
 	showClose?: boolean
+	onClose?: VoidFunction
 }
 
 const Notification = ({
@@ -20,7 +21,8 @@ const Notification = ({
 	description,
 	type = 'info',
 	showMore = false,
-	showClose = false
+	showClose = false,
+	onClose
 }: Props) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false)
 	const [isRemove, setIsRemove] = useState<boolean>(false)
@@ -31,6 +33,7 @@ const Notification = ({
 
 	const handleRemove = useCallback((isRemove: boolean) => {
 		setIsRemove(!isRemove)
+		if (onClose) onClose()
 	}, [])
 
 	useEffect(() => {

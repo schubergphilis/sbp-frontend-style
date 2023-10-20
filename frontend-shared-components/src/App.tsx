@@ -1,4 +1,3 @@
-import PageSize from 'components/atoms/debugger/PageSize'
 import { device, deviceSize } from 'helpers/DeviceHelper'
 import { Provider } from 'react-redux'
 import { makeStore } from 'store/Store'
@@ -82,7 +81,6 @@ const App = () => {
 						<FooterBar />
 					</Footer>
 				</MainContainer>
-				<PageSize />
 			</ThemeWrapper>
 		</Provider>
 	)

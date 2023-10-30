@@ -53,7 +53,7 @@ export const TextLinktyle = css<TextLinkStyleProps>`
 		$isActive &&
 		`
 		font-weight: bold;
-		border-bottom-color: ${theme.style.colorPrimary};
+		border-bottom-color: ${theme.style.colorActive};
 	`}
 
 	&:hover {

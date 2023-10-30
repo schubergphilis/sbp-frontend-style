@@ -20,6 +20,7 @@ declare module 'styled-components' {
 		colorPrimary?: CssColorType
 		colorSecondary?: CssColorType
 		colorCta?: CssColorType
+		colorActive?: CssColorType
 		borderColor?: CssColorType
 		buttonColor?: CssColorType
 		buttonPrimaryColor?: CssColorType

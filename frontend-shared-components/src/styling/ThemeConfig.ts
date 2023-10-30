@@ -98,6 +98,7 @@ const lightStyle: DefaultStyle = {
 	colorPrimary: 'rgb(30, 128, 237)',
 	colorSecondary: 'rgb(30, 232, 237)',
 	colorCta: 'inherit',
+	colorActive: 'rgb(30, 128, 237)',
 	borderColor: 'rgba(22, 12, 23, .15)',
 	buttonColor: 'rgb(255, 255, 255)',
 	buttonPrimaryColor: 'rgb(255, 255, 255)',

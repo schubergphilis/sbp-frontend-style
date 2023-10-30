@@ -105,6 +105,8 @@ const lightStyle: DefaultStyle = {
 	buttonActiveColor: 'rgba(22, 12, 23, .75)',
 	buttonDisabledColor: 'rgb(255, 255, 255)',
 	buttonDisabledColorBg: 'rgba(22, 12, 23, .75)',
+	buttonDragColor: 'inherit',
+	buttonDragColorBg: 'rgb(255, 255, 255)',
 	notificationInfoColor: 'rgb(255, 255, 255)',
 	notificationInfoColorBg: 'rgb(52, 152, 219)',
 	notificationWarningColor: 'rgb(2, 12, 23)',

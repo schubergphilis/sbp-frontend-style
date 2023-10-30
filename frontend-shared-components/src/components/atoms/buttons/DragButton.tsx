@@ -15,7 +15,8 @@ const DragButton = ({ orientation = 'right', ...props }: Props) => {
 }
 
 const Button = styled.button<{ $orientation: OrientationType }>`
-	background-color: ${({ theme }) => theme.style.cardColorBg};
+	color: ${({ theme }) => theme.style.buttonDragColor};
+	background-color: ${({ theme }) => theme.style.buttonDragColorBg};
 	text-align: center;
 	line-height: 0em;
 	overflow: hidden;

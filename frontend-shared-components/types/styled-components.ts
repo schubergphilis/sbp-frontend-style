@@ -27,6 +27,8 @@ declare module 'styled-components' {
 		buttonActiveColor?: CssColorType
 		buttonDisabledColor?: CssColorType
 		buttonDisabledColorBg?: CssColorType
+		buttonDragColor?: CssColorType
+		buttonDragColorBg?: CssColorType
 		notificationInfoColor?: CssColorType
 		notificationInfoColorBg?: CssColorType
 		notificationWarningColor?: CssColorType

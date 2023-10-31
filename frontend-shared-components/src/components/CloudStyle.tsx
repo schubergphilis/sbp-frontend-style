@@ -68,7 +68,7 @@ const CloudStyle = ({
 			}>
 			<GlobalStyles />
 			{children}
-			{true ? <PageSize /> : null}
+			{isDebug ? <PageSize /> : null}
 		</ThemeProvider>
 	)
 }

@@ -41,7 +41,7 @@ export interface TextLinkStyleProps extends BadgeStyleProps {
 	$disabled?: boolean
 }
 
-export const TextLinktyle = css<TextLinkStyleProps>`
+export const TextLinkStyle = css<TextLinkStyleProps>`
 	display: inline-block;
 	line-height: 2em;
 	margin: 0 1em;
@@ -78,7 +78,7 @@ const Content = styled.div`
 	align-items: center;
 `
 const Container = styled.a<{ $isActive: boolean; $disabled: boolean }>`
-	${TextLinktyle}
+	${TextLinkStyle}
 `
 
 export default TextLink

@@ -21,6 +21,7 @@ declare module 'styled-components' {
 		colorSecondary?: CssColorType
 		colorCta?: CssColorType
 		colorActive?: CssColorType
+		colorZebra?: CssColorType
 		borderColor?: CssColorType
 		buttonColor?: CssColorType
 		buttonPrimaryColor?: CssColorType

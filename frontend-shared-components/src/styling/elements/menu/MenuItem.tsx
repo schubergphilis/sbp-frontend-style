@@ -1,6 +1,6 @@
 import TextLink, {
-	TextLinkStyleProps,
-	TextLinktyle
+	TextLinkStyle,
+	TextLinkStyleProps
 } from 'components/atoms/buttons/TextLink'
 import {
 	CleanName,
@@ -55,7 +55,7 @@ const MenuItem = ({ name, children }: Props) => {
 }
 
 const LinkButton = styled.button<TextLinkStyleProps>`
-	${TextLinktyle}
+	${TextLinkStyle}
 
 	font-weight: bold;
 	display: block;

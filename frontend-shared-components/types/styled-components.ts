@@ -41,6 +41,7 @@ declare module 'styled-components' {
 		cardColorBg?: CssColorType
 		inputColorBg?: CssColorType
 		inputPlaceholder?: CssColorType
+		navigationColorBg?: CssColorType
 	}
 
 	export interface DefaultTheme {

@@ -2,7 +2,7 @@ import { HTMLAttributes } from 'react'
 import { styled } from 'styled-components'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
-	children: JSX.Element | JSX.Element[]
+	children: JSX.Element | JSX.Element[] | React.ReactNode
 }
 
 const NavigationBar = ({ children, ...props }: Props) => {
@@ -15,6 +15,7 @@ const NavBar = styled.div`
 	gap: 1em;
 	flex-wrap: nowrap;
 	padding: 1em;
+	background-color: ${({ theme }) => theme.style.navigationColorBg};
 `
 
 export default NavigationBar

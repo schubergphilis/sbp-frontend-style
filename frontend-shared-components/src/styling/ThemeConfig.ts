@@ -99,6 +99,7 @@ const lightStyle: DefaultStyle = {
 	colorSecondary: 'rgb(30, 232, 237)',
 	colorCta: 'inherit',
 	colorActive: 'rgb(30, 128, 237)',
+	colorZebra: 'rgba(0, 0, 0, 0.5)',
 	borderColor: 'rgba(22, 12, 23, .15)',
 	buttonColor: 'rgb(255, 255, 255)',
 	buttonPrimaryColor: 'rgb(255, 255, 255)',

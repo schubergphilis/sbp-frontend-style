@@ -2,8 +2,8 @@ const DragIcon = () => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
-			height="24px"
-			width="24px"
+			height="100%"
+			width="100%"
 			viewBox="0 0 24 24"
 			fill="currentColor">
 			<path d="M0 0h24v24H0V0z" fill="transparent" />

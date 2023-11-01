@@ -16,6 +16,9 @@ const NavBar = styled.div`
 	flex-wrap: nowrap;
 	padding: 1em;
 	background-color: ${({ theme }) => theme.style.navigationColorBg};
+	border-bottom-left-radius: ${({ theme }) => theme.style.radius}px;
+	border-bottom-right-radius: ${({ theme }) => theme.style.radius}px;
+	margin-bottom: 1em;
 `
 
 export default NavigationBar

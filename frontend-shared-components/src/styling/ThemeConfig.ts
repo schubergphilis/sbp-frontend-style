@@ -120,7 +120,7 @@ const lightStyle: DefaultStyle = {
 	cardColorBg: 'rgba(232, 242, 253, .90)',
 	inputColorBg: 'rgb(255, 255, 255)',
 	inputPlaceholder: 'rgba(22, 12, 23, .5)',
-	navigationColorBg: 'rgb(30, 128, 237)'
+	navigationColorBg: 'rgba(232, 242, 253, .90)'
 }
 
 const darkStyle: DefaultStyle = {
@@ -133,9 +133,11 @@ const darkStyle: DefaultStyle = {
 		buttonActiveColor: 'rgba(232, 242, 253, .75)',
 		buttonDisabledColor: 'rgba(232, 242, 253, .75)',
 		buttonDisabledColorBg: 'rgba(232, 242, 253, .75)',
+		buttonDragColor: 'rgb(2, 12, 23)',
 		cardColorBg: 'rgba(232, 242, 253, .10)',
 		inputColorBg: 'rgba(232, 242, 253, .10)',
-		inputPlaceholder: 'rgba(255, 255, 255, .5)'
+		inputPlaceholder: 'rgba(255, 255, 255, .5)',
+		navigationColorBg: 'rgba(232, 242, 253, .10)'
 	}
 }
 

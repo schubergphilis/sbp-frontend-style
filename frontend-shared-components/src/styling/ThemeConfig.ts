@@ -118,6 +118,7 @@ const lightStyle: DefaultStyle = {
 	notificationErrorColor: 'rgb(255, 255, 255)',
 	notificationErrorColorBg: 'rgb(231, 76, 60)',
 	cardColorBg: 'rgba(232, 242, 253, .90)',
+	inputColorActive: 'rgb(255, 204, 0)',
 	inputColorBg: 'rgb(255, 255, 255)',
 	inputPlaceholder: 'rgba(22, 12, 23, .5)',
 	navigationColorBg: 'rgba(232, 242, 253, .90)'

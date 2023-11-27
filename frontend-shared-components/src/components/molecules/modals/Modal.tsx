@@ -6,31 +6,47 @@ import { styled } from 'styled-components'
 
 interface Props {
 	isOpen: boolean
+	isCustom?: boolean
 	toggle: VoidFunction
 	title?: string
 	children: ReactNode
 }
 
-const Modal = ({ isOpen, toggle, title = '', children, ...props }: Props) => {
+const Modal = ({
+	isOpen,
+	toggle,
+	isCustom = false,
+	title = '',
+	children,
+	...props
+}: Props) => {
 	const stopPropagation = (e: MouseEvent<HTMLDivElement>): void => {
 		e.stopPropagation()
 	}
 
 	return (
-		<Backdrop $isActive={isOpen} onClick={toggle} {...props}>
+		<Backdrop
+			$isActive={isOpen}
+			onClick={toggle}
+			className="dackdrop"
+			{...props}>
 			<ModalBox onClick={stopPropagation}>
-				<Card>
-					<CardHeader isRemove onClick={toggle} isOpen={title !== ''}>
-						<h1>{title}</h1>
-					</CardHeader>
-					<CardContent>{children}</CardContent>
-				</Card>
+				{isCustom ? (
+					children
+				) : (
+					<Card>
+						<CardHeader isRemove onClick={toggle} isOpen={title !== ''}>
+							<h1>{title}</h1>
+						</CardHeader>
+						<CardContent>{children}</CardContent>
+					</Card>
+				)}
 			</ModalBox>
 		</Backdrop>
 	)
 }
 
-const Backdrop = styled.div<{ $isActive: boolean }>`
+export const Backdrop = styled.div<{ $isActive: boolean }>`
 	position: fixed;
 	inset: 0px;
 	z-index: 1000;

@@ -28,11 +28,13 @@ const $badgeStyle = css<BadgeStyleProps>`
 		height: ${({ $isBadgeSmall }) => ($isBadgeSmall ? '1em' : '2.5em')};
 		padding: 0.5em ${({ $badge }) => ($badge && $badge > 99 ? '.75em' : '')};
 		border-radius: 1.25em;
-		colors: inherit;
+		color: inherit;
 		background-color: ${({ theme }) => theme.style.colorPrimary};
 		box-shadow: 0 5px 5px ${({ theme }) => theme.style.shadow};
 		transform: scale(${({ $badge }) => (!$badge || $badge <= 0 ? 0 : 1)});
-		transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out,
+		transition:
+			opacity 0.2s ease-in-out,
+			transform 0.2s ease-in-out,
 			padding 0.2s ease-in-out;
 	}
 `

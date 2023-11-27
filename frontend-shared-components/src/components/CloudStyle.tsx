@@ -5,6 +5,7 @@ import {
 	darkTheme as defaultDarkTheme,
 	lightTheme as defaultLightTheme
 } from 'styling/ThemeConfig'
+import PageSize from './atoms/debugger/PageSize'
 
 interface Props {
 	isDarkMode?: boolean
@@ -12,12 +13,14 @@ interface Props {
 	lightStyle?: DefaultStyle
 	darkStyle?: DefaultStyle
 	fonts?: DefaultFonts
+	isDebug?: boolean
 	children: JSX.Element | JSX.Element[] | React.ReactNode
 }
 
 const CloudStyle = ({
 	isDarkMode = false,
 	isLargeMode = false,
+	isDebug = false,
 	lightStyle,
 	darkStyle,
 	fonts,
@@ -60,11 +63,12 @@ const CloudStyle = ({
 						? customLargeDarkTheme
 						: customDarkTheme
 					: isLargeMode
-					? customLargeLightTheme
-					: customLightTheme
+					  ? customLargeLightTheme
+					  : customLightTheme
 			}>
 			<GlobalStyles />
 			{children}
+			{isDebug ? <PageSize /> : null}
 		</ThemeProvider>
 	)
 }

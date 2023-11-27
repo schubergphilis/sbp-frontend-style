@@ -1,5 +1,7 @@
 import ActionButton from 'components/atoms/buttons/ActionButton'
+import PageSize from 'components/atoms/debugger/PageSize'
 import ComponentOptionModel from 'models/ComponentOptionModel'
+import styled from 'styled-components'
 
 import ComponentBox from 'styling/elements/box/ComponentBox'
 
@@ -36,6 +38,14 @@ const CloudStyleComponentBox = () => {
 			defaultValue: { colorSecondary: '#8cd600' },
 			value: null,
 			global: true
+		},
+		{
+			title: 'Debug mode',
+			name: 'isDebug',
+			type: 'boolean',
+			defaultValue: false,
+			value: null,
+			global: true
 		}
 	]
 
@@ -51,5 +61,27 @@ const CloudStyleComponentBox = () => {
 	)
 }
 
-const CloudStyle = ({ children }: { children: JSX.Element }) => children
+const CloudStyle = ({
+	children,
+	isDebug
+}: {
+	children: JSX.Element
+	isDebug?: boolean
+}) => {
+	return (
+		<Container>
+			{children}
+			{isDebug ? <PageSize /> : null}
+		</Container>
+	)
+}
+
+const Container = styled.div`
+	position: relative;
+	border: 1px solid ${({ theme }) => theme.style.borderColor};
+
+	> button {
+		margin: 4em;
+	}
+`
 export default CloudStyleComponentBox

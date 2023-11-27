@@ -30,3 +30,5 @@ yarn-error.log*
 # custom
 component-list.json
 *.tgz
+
+.npmrc

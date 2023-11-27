@@ -17,7 +17,7 @@ const Modal = ({ isOpen, toggle, title = '', children, ...props }: Props) => {
 	}
 
 	return (
-		<Backdrop $isActive={isOpen} onClick={toggle} {...props}>
+		<Backdrop $isActive={isOpen} onClick={toggle} className="modal" {...props}>
 			<ModalBox onClick={stopPropagation}>
 				<Card>
 					<CardHeader isRemove onClick={toggle} isOpen={title !== ''}>
@@ -30,7 +30,7 @@ const Modal = ({ isOpen, toggle, title = '', children, ...props }: Props) => {
 	)
 }
 
-const Backdrop = styled.div<{ $isActive: boolean }>`
+export const Backdrop = styled.div<{ $isActive: boolean }>`
 	position: fixed;
 	inset: 0px;
 	z-index: 1000;

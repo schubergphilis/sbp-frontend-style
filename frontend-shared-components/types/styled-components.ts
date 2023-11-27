@@ -20,6 +20,8 @@ declare module 'styled-components' {
 		colorPrimary?: CssColorType
 		colorSecondary?: CssColorType
 		colorCta?: CssColorType
+		colorActive?: CssColorType
+		colorZebra?: CssColorType
 		borderColor?: CssColorType
 		buttonColor?: CssColorType
 		buttonPrimaryColor?: CssColorType
@@ -27,6 +29,8 @@ declare module 'styled-components' {
 		buttonActiveColor?: CssColorType
 		buttonDisabledColor?: CssColorType
 		buttonDisabledColorBg?: CssColorType
+		buttonDragColor?: CssColorType
+		buttonDragColorBg?: CssColorType
 		notificationInfoColor?: CssColorType
 		notificationInfoColorBg?: CssColorType
 		notificationWarningColor?: CssColorType
@@ -38,6 +42,7 @@ declare module 'styled-components' {
 		cardColorBg?: CssColorType
 		inputColorBg?: CssColorType
 		inputPlaceholder?: CssColorType
+		navigationColorBg?: CssColorType
 	}
 
 	export interface DefaultTheme {

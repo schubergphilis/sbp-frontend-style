@@ -23,7 +23,8 @@ const ThemeWrapper = ({ children }: Props) => {
 			isDarkMode={isDarkMode}
 			isLargeMode={isLargeMode}
 			lightStyle={ligthStyle}
-			darkStyle={darkStyle}>
+			darkStyle={darkStyle}
+			isDebug={true}>
 			{children}
 		</CloudStyle>
 	)

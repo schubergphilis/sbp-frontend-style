@@ -1,1 +1,1 @@
-export type NotificationType = 'info' | 'success' | 'warning' | 'error' 
+export type NotificationType = 'info' | 'success' | 'warning' | 'error'

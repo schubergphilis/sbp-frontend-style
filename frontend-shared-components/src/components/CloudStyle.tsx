@@ -63,8 +63,8 @@ const CloudStyle = ({
 						? customLargeDarkTheme
 						: customDarkTheme
 					: isLargeMode
-					? customLargeLightTheme
-					: customLightTheme
+					  ? customLargeLightTheme
+					  : customLightTheme
 			}>
 			<GlobalStyles />
 			{children}

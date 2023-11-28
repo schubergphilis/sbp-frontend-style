@@ -53,9 +53,9 @@ const ProgressBar: React.FC<Props> = ({
 
 	return (
 		<Container
-			$completed={progress}
-			$bgColor={bgColor}
-			$fillColor={fillColor}
+			completed={progress}
+			bgColor={bgColor}
+			fillColor={fillColor}
 			{...props}>
 			<div className="filler" />
 		</Container>
@@ -63,17 +63,17 @@ const ProgressBar: React.FC<Props> = ({
 }
 
 const Container = styled.div<{
-	$completed: number
-	$bgColor: string
-	$fillColor: string
+	completed: number
+	bgColor: string
+	fillColor: string
 }>`
 	height: 0.5rem;
 	width: 100%;
-	background-color: ${({ $bgColor }) => `${$bgColor}`};
+	background-color: ${({ bgColor }) => `${bgColor}`};
 	.filler {
-		width: ${({ $completed }) => `${$completed}%`};
+		width: ${({ completed }) => `${completed}%`};
 		height: 100%;
-		background-color: ${({ $fillColor }) => `${$fillColor}`};
+		background-color: ${({ fillColor }) => `${fillColor}`};
 		transition: width 1s linear;
 	}
 `

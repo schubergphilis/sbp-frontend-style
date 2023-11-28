@@ -12,6 +12,7 @@ import TextLinkComponentBox from 'styling/componentBoxes/atoms/buttons/TextLinkC
 import ToggleButtonComponentBox from 'styling/componentBoxes/atoms/buttons/ToggleButtonComponentBox'
 import SelectInputComponentBox from 'styling/componentBoxes/atoms/forms/SelectInputComponentBox'
 import TextInputComponentBox from 'styling/componentBoxes/atoms/forms/TextInputComponentBox'
+import CoinLoaderComponentBox from 'styling/componentBoxes/atoms/loaders/CoinLoaderComponentBox'
 import ProgressBarComponentBox from 'styling/componentBoxes/atoms/progressbars/ProgressBarComponentBox'
 import CardComponentBox from 'styling/componentBoxes/molecules/cards/CardComponentBox'
 import CardContentComponentBox from 'styling/componentBoxes/molecules/cards/CardContentComponentBox'
@@ -67,6 +68,8 @@ const App = () => {
 							<SelectInputComponentBox />
 
 							<TextInputComponentBox />
+
+							<CoinLoaderComponentBox />
 
 							<ProgressBarComponentBox />
 

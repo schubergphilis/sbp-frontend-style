@@ -12,8 +12,8 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 const ProgressBar: React.FC<Props> = ({
 	length,
 	inverse = false,
-	bgColor = '#ffcc01',
-	fillColor = '#494949',
+	bgColor = '#494949',
+	fillColor = '#ffcc01',
 	onTimerFinish,
 	...props
 }) => {

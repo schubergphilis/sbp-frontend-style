@@ -4,6 +4,7 @@ import styled from 'styled-components'
 interface Props extends HTMLAttributes<HTMLDivElement> {
 	length: number // time in seconds
 	inverse?: boolean
+	isRounded?: boolean
 	bgColor?: string // hex code
 	fillColor?: string // hex code
 	onTimerFinish?: () => void
@@ -12,6 +13,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 const ProgressBar: React.FC<Props> = ({
 	length,
 	inverse = false,
+	isRounded = false,
 	bgColor = '#494949',
 	fillColor = '#ffcc01',
 	onTimerFinish,
@@ -54,6 +56,7 @@ const ProgressBar: React.FC<Props> = ({
 	return (
 		<Container
 			completed={progress}
+			$isRounded={isRounded}
 			bgColor={bgColor}
 			fillColor={fillColor}
 			{...props}>
@@ -66,15 +69,21 @@ const Container = styled.div<{
 	completed: number
 	bgColor: string
 	fillColor: string
+	$isRounded: boolean
 }>`
 	height: 0.5rem;
 	width: 100%;
 	background-color: ${({ bgColor }) => `${bgColor}`};
+	border-radius: ${({ $isRounded, theme }) =>
+		$isRounded ? theme.style.radius : 0}px;
+	overflow: hidden;
 	.filler {
 		width: ${({ completed }) => `${completed}%`};
 		height: 100%;
 		background-color: ${({ fillColor }) => `${fillColor}`};
 		transition: width 1s linear;
+		border-radius: ${({ $isRounded, theme }) =>
+			$isRounded ? theme.style.radius : 0}px;
 	}
 `
 

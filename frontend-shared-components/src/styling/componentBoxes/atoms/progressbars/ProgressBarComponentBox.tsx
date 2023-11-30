@@ -27,6 +27,12 @@ const ProgressBarComponentBox = () => {
 			name: 'inverse',
 			type: 'boolean',
 			value: false
+		},
+		{
+			title: 'Rounded',
+			name: 'isRounded',
+			type: 'boolean',
+			value: false
 		}
 	]
 	return (

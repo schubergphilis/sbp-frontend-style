@@ -15,17 +15,13 @@ const LoaderComponentBox = () => {
 
 	return (
 		<ComponentBox title="Loader" description="" options={options}>
-			<DummyLoaderContainer></DummyLoaderContainer>
+			<Container />
 		</ComponentBox>
 	)
 }
 
-const DummyLoaderContainer = () => <Container size={56}></Container>
-
 const Container = styled.div<LoaderProps>`
 	position: relative;
-	width: 56px;
-	height: 56px;
 	${LoaderStyle}
 `
 

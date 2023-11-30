@@ -1,1 +1,1 @@
-import { default as CoinLoader } from './CoinLoader'
+import { default as Loader } from './Loader'

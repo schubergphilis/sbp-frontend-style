@@ -1,3 +1,4 @@
+import LoaderStyle, { LoaderProps } from 'components/atoms/loaders/Loader'
 import { VariantType } from 'datatypes/VariantType'
 import { ButtonHTMLAttributes, Children } from 'react'
 import styled, { css } from 'styled-components'
@@ -48,7 +49,7 @@ const ActionButton = ({
 	)
 }
 
-export interface ButtonStyleProps extends BadgeStyleProps {
+export interface ButtonStyleProps extends BadgeStyleProps, LoaderProps {
 	$variant?: VariantType
 	$isBlock?: boolean
 	$isRounded?: boolean
@@ -102,23 +103,9 @@ export const ButtonStyle = css<ButtonStyleProps>`
 		`
 		padding-right: 3em;
 		pointer-events: none;
-
-		&::after {
-			content: '';
-			position: absolute;
-			right: 1em;
-			top: calc(50% - 0.625em);
-			display: block;
-			width: 1.25em;
-			height: 1.25em;
-			border-radius: 50%;
-			color: inherit;
-			border: 2px solid;
-			border-left-width: 1px;
-			border-bottom-color: transparent;
-			animation: rotating 0.75s linear infinite;
-		}
 	`}
+
+	${({ $isLoading }) => ($isLoading ? LoaderStyle : '')}
 
 	${BadgeStyle}
 `

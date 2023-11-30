@@ -80,6 +80,15 @@ const OptionRow = ({
 							</option>
 						))}
 					</SelectInput>
+				) : type === 'color' ? (
+					<TextInput
+						type="color"
+						style={{ height: '2rem' }}
+						value={(state as string) ?? ''}
+						onChange={(event: ChangeEvent<HTMLInputElement>) =>
+							handleEvent(name, event.target.value)
+						}
+					/>
 				) : null}
 			</Control>
 		</Row>

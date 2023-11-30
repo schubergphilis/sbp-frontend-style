@@ -198,7 +198,9 @@ const Element = styled.div`
 	display: flex;
 	justify-content: center;
 `
-const Center = styled.div``
+const Center = styled.div`
+	width: 100%;
+`
 const ElementOptions = styled.div`
 	flex: 0 1 auto;
 	max-width: 50%;

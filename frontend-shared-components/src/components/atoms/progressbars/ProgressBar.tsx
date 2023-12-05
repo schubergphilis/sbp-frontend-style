@@ -55,7 +55,7 @@ const ProgressBar: React.FC<Props> = ({
 
 	return (
 		<Container
-			completed={progress}
+			$completed={progress}
 			$isRounded={isRounded}
 			$bgColor={bgColor}
 			$fillColor={fillColor}
@@ -66,7 +66,7 @@ const ProgressBar: React.FC<Props> = ({
 }
 
 const Container = styled.div<{
-	completed: number
+	$completed: number
 	$bgColor: string
 	$fillColor: string
 	$isRounded: boolean
@@ -79,7 +79,7 @@ const Container = styled.div<{
 	overflow: hidden;
 
 	> .filler {
-		width: ${({ completed }) => `${completed}%`};
+		width: ${({ $completed }) => `${$completed}%`};
 		height: 100%;
 		background-color: ${({ $fillColor }) => `${$fillColor}`};
 		transition: width 1s linear;

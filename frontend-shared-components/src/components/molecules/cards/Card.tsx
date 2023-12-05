@@ -38,7 +38,7 @@ const CardStyle = css<{
 	$isSelected: boolean
 	disabled?: boolean
 }>`
-	background-color: ${({ $isSelected, theme }) => theme.style.cardColorBg};
+	background-color: ${({ theme }) => theme.style.cardColorBg};
 	border: 1px solid ${({ theme }) => theme.style.borderColor};
 	border-radius: ${({ theme }) => theme.style.radius}px;
 	padding: 0 ${({ $hasPadding }) => ($hasPadding ? '1em' : '0')};

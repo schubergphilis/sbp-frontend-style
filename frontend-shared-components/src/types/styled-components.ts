@@ -1,4 +1,4 @@
-import { CssColorType } from '../src/datatypes/CssColorType'
+import { CssColorType } from 'datatypes/CssColorType'
 
 declare module 'styled-components' {
 	export interface DefaultFonts {

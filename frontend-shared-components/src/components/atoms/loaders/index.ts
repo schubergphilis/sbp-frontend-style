@@ -1,1 +1,1 @@
-import { default as Loader } from './Loader'
+export { default as LoaderStyle } from './Loader'

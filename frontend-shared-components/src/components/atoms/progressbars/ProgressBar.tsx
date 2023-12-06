@@ -90,7 +90,7 @@ const Container = styled.div<{
 		$isRounded ? theme.style.radius : 0}px;
 	overflow: hidden;
 
-	> .filler {
+	& > .filler {
 		width: ${({ $completed }) => `${$completed}%`};
 		height: 100%;
 		background-color: ${({ $fillColor }) => `${$fillColor}`};

@@ -4,7 +4,7 @@ export interface LoaderProps {
 	size?: number
 }
 
-const $loaderStyle = css<LoaderProps>`
+const LoaderStyle = css<LoaderProps>`
 	&::after {
 		content: '';
 		display: block;
@@ -24,4 +24,4 @@ const $loaderStyle = css<LoaderProps>`
 	}
 `
 
-export default $loaderStyle
+export default LoaderStyle

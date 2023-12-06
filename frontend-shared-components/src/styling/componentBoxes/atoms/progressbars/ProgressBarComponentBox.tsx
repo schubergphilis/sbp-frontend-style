@@ -33,6 +33,12 @@ const ProgressBarComponentBox = () => {
 			name: 'isRounded',
 			type: 'boolean',
 			value: false
+		},
+		{
+			title: 'Restart',
+			name: 'restart',
+			type: 'boolean',
+			value: false
 		}
 	]
 	return (

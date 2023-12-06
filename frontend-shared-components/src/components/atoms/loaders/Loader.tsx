@@ -1,10 +1,10 @@
 import { css } from 'styled-components'
 
-export interface LoaderProps {
+export interface LoaderStyleProps {
 	size?: number
 }
 
-const LoaderStyle = css<LoaderProps>`
+const LoaderStyle = css<LoaderStyleProps>`
 	&::after {
 		content: '';
 		display: block;

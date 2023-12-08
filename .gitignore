@@ -1,19 +1,29 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# dependencies
 node_modules
-.pnp
-.pnp.js
-
-# testing
-coverage
-
-# production
-build
 dist
+dist-ssr
+*.local
+coverage
+build
 
-# misc
+# Editor directories and files
+.idea
 .DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# environment
 .env
 .env.local
 .env.development
@@ -23,12 +33,8 @@ dist
 .env.production
 .env.production.local
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
 # custom
+.DS_Store
 component-list.json
 *.tgz
-
 .npmrc

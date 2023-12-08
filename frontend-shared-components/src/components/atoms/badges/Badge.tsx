@@ -5,16 +5,10 @@ export interface BadgeStyleProps {
 	$isBadgeSmall?: boolean
 }
 
-const $badgeStyle = css<BadgeStyleProps>`
+const BadgeStyle = css<BadgeStyleProps>`
 	position: relative;
 
 	&::before {
-		content: '${({ $badge, $isBadgeSmall }) =>
-			!$badge || $badge <= 0 || $isBadgeSmall
-				? ''
-				: $badge > 999
-				? '999+'
-				: $badge}';
 		opacity: ${({ $badge }) => (!$badge || $badge <= 0 ? 0 : 1)};
 		font-size: 1rem;
 		line-height: 1.5rem;
@@ -36,7 +30,14 @@ const $badgeStyle = css<BadgeStyleProps>`
 			opacity 0.2s ease-in-out,
 			transform 0.2s ease-in-out,
 			padding 0.2s ease-in-out;
+
+		content: '${({ $badge, $isBadgeSmall }) =>
+			!$badge || $badge <= 0 || $isBadgeSmall
+				? ''
+				: $badge > 999
+				  ? '999+'
+				  : $badge}';
 	}
 `
 
-export default $badgeStyle
+export default BadgeStyle

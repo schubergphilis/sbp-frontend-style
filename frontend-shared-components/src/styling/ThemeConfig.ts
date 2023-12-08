@@ -80,6 +80,16 @@ export const GlobalStyles = createGlobalStyle`
         display: inline-block;
         vertical-align: middle;
     }
+
+	@keyframes rotating {
+		from {
+			transform: rotate(0deg);
+		}
+
+		to {
+			transform: rotate(360deg);
+		}
+	}
 `
 
 const fonts: DefaultFonts = {

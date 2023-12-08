@@ -1,4 +1,4 @@
-import LoaderStyle, { LoaderProps } from 'components/atoms/loaders/Loader'
+import LoaderStyle, { LoaderStyleProps } from 'components/atoms/loaders/Loader'
 import ComponentOptionModel from 'models/ComponentOptionModel'
 import { styled } from 'styled-components'
 import ComponentBox from 'styling/elements/box/ComponentBox'
@@ -20,7 +20,7 @@ const LoaderComponentBox = () => {
 	)
 }
 
-const Container = styled.div<LoaderProps>`
+const Container = styled.div<LoaderStyleProps>`
 	position: relative;
 	${LoaderStyle}
 `

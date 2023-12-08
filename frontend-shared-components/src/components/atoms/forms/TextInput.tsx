@@ -13,7 +13,8 @@ const TextInput = styled.input`
 		color: ${({ theme }) => theme.style.inputPlaceholder};
 	}
 
-	&[disabled] {
+	&[disabled],
+	&[readOnly] {
 		cursor: default;
 		opacity: 0.75;
 		pointer-events: none;

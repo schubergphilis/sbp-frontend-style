@@ -10,6 +10,8 @@ import ActionButtonComponentBox from 'styling/componentBoxes/atoms/buttons/Actio
 import DragButtonComponentBox from 'styling/componentBoxes/atoms/buttons/DragButtonComponentBox'
 import TextLinkComponentBox from 'styling/componentBoxes/atoms/buttons/TextLinkComponentBox'
 import ToggleButtonComponentBox from 'styling/componentBoxes/atoms/buttons/ToggleButtonComponentBox'
+import CheckboxInputComponentBox from 'styling/componentBoxes/atoms/forms/CheckboxInputComponentBox'
+import RadioInputComponentBox from 'styling/componentBoxes/atoms/forms/RadioInputComponentBox'
 import SelectInputComponentBox from 'styling/componentBoxes/atoms/forms/SelectInputComponentBox'
 import TextInputComponentBox from 'styling/componentBoxes/atoms/forms/TextInputComponentBox'
 import LoaderComponentBox from 'styling/componentBoxes/atoms/loaders/LoaderComponentBox'
@@ -64,6 +66,10 @@ const App = () => {
 							<TextLinkComponentBox />
 
 							<ToggleButtonComponentBox />
+
+							<CheckboxInputComponentBox />
+
+							<RadioInputComponentBox />
 
 							<SelectInputComponentBox />
 

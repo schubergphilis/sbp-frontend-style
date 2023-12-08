@@ -1,4 +1,4 @@
-import { SelectInput } from 'components/atoms/forms'
+import SelectInput from 'components/atoms/forms/SelectInput'
 import ComponentOptionModel from 'models/ComponentOptionModel'
 import SelectOptionModel from 'models/SelectOptionModel'
 import ComponentBox from 'styling/elements/box/ComponentBox'

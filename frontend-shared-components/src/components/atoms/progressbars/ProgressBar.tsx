@@ -30,6 +30,8 @@ const ProgressBar: React.FC<Props> = ({
 
 	useEffect(() => {
 		if (restart) return
+		setProgress(START_PROGRESS)
+		progressRef.current = START_PROGRESS
 
 		timerRef.current = setInterval(() => {
 			const currentCount = progressRef.current
@@ -50,7 +52,7 @@ const ProgressBar: React.FC<Props> = ({
 					setTimeout(() => {
 						setProgress(START_PROGRESS)
 						onTimerFinish()
-					}, 2000)
+					}, 1500)
 			}
 
 			setProgress(nextCount)
@@ -99,13 +101,12 @@ const Container = styled.div<{
 		opacity: 1;
 		transition:
 			width 1s linear,
-			opacity 0.05s ease-in-out 0.95s;
+			opacity 0.25s ease-in-out 1.25s;
 
 		${({ $completed, $inverse }) =>
 			!$inverse &&
 			$completed === 100 &&
 			`
-			transition: width 1s linear, opacity .5s ease-in-out 1.5s;
 			opacity: 0;
 				
 		`}
@@ -115,12 +116,6 @@ const Container = styled.div<{
 			$completed === 0 &&
 			`
 			opacity: 0;
-		`}
-		${({ $completed, $inverse }) =>
-			$inverse &&
-			$completed === 100 &&
-			`
-			transition: opacity .5s ease-in-out;
 		`}
 	}
 `

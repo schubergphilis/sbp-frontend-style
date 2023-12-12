@@ -20,7 +20,7 @@ const ProgressBarComponentBox = () => {
 			title: 'Fill Color',
 			name: 'fillColor',
 			type: 'color',
-			value: '#ffcc01'
+			value: '#1EE8ED'
 		},
 		{
 			title: 'Reverse',

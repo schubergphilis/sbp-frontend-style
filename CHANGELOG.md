@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/gmtdi/frontend-shared-components/compare/v1.1.0...v1.1.1) (2023-12-12)
+
+
+### Bug Fixes
+
+* Progress bar was not restarting correctly ([5b67891](https://github.com/gmtdi/frontend-shared-components/commit/5b678912976f01ff6e2be4c43a369e2c1a0efdb0))
+
 ## [1.1.0](https://github.com/gmtdi/frontend-shared-components/compare/v1.0.3...v1.1.0) (2023-12-08)
 
 

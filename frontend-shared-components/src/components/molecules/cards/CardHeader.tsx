@@ -52,7 +52,8 @@ const CardHeader = ({
 				) : null}
 				{onClick && isRemove ? (
 					<CloseButton
-						onClick={(e: MouseEvent<HTMLButtonElement>) => handleOnClick(e)}>
+						onClick={(e: MouseEvent<HTMLButtonElement>) => handleOnClick(e)}
+						title={props.title ?? 'Close'}>
 						<CollapseIcon $isOpen={isOpen}>
 							<CloseIcon />
 						</CollapseIcon>

@@ -34,7 +34,8 @@ const Notification = ({
 	showClose = false,
 	showIcon = false,
 	autoClose,
-	onClose
+	onClose,
+	...props
 }: Props) => {
 	const timer = useRef<NodeJS.Timeout>()
 	const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -78,7 +79,8 @@ const Notification = ({
 			$type={type}
 			$isRemove={isRemove}
 			onMouseEnter={showMore ? () => handleHover(true) : undefined}
-			onMouseLeave={showMore ? () => handleHover(false) : undefined}>
+			onMouseLeave={showMore ? () => handleHover(false) : undefined}
+			{...props}>
 			<NotificationHeader
 				onClick={showClose ? () => handleRemove(isRemove) : undefined}
 				isOpen={showMore ? isOpen : true}

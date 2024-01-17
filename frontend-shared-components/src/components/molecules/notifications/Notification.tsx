@@ -20,6 +20,7 @@ interface Props {
 	type?: NotificationType
 	showMore?: boolean
 	showClose?: boolean
+	showIcon?: boolean
 	autoClose?: number // in seconds
 	onClose?: VoidFunction
 }
@@ -31,6 +32,7 @@ const Notification = ({
 	type = 'info',
 	showMore = false,
 	showClose = false,
+	showIcon = false,
 	autoClose,
 	onClose
 }: Props) => {
@@ -81,10 +83,12 @@ const Notification = ({
 				onClick={showClose ? () => handleRemove(isRemove) : undefined}
 				isOpen={showMore ? isOpen : true}
 				isRemove>
-				{!['warning', 'success', 'error'].includes(type) && <InfoIcon />}
-				{type === 'warning' && <WarningIcon />}
-				{type === 'success' && <SuccessIcon />}
-				{type === 'error' && <ErrorIcon />}
+				{showIcon && !['warning', 'success', 'error'].includes(type) && (
+					<InfoIcon />
+				)}
+				{showIcon && type === 'warning' && <WarningIcon />}
+				{showIcon && type === 'success' && <SuccessIcon />}
+				{showIcon && type === 'error' && <ErrorIcon />}
 				<h3>{title}</h3>
 				{autoClose ? (
 					<Counter
@@ -154,6 +158,7 @@ const NotificationHeader = styled(CardHeader)`
 	}
 
 	& > div > svg:first-child {
+		flex: 0 0 auto;
 		width: 2em;
 		height: 2em;
 	}

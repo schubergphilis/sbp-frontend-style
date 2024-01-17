@@ -36,6 +36,13 @@ const NotificationComponentBox = () => {
 			value: ''
 		},
 		{
+			title: 'Show icon',
+			name: 'showIcon',
+			type: 'boolean',
+			defaultValue: false,
+			value: null
+		},
+		{
 			title: 'Auto Close',
 			name: 'autoClose',
 			type: 'number',

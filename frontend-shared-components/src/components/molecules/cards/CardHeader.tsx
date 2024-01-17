@@ -52,6 +52,7 @@ const CardHeader = ({
 				) : null}
 				{onClick && isRemove ? (
 					<CloseButton
+						type="button"
 						onClick={(e: MouseEvent<HTMLButtonElement>) => handleOnClick(e)}
 						title={props.title ?? 'Close'}>
 						<CollapseIcon $isOpen={isOpen}>
@@ -142,6 +143,11 @@ const CollapseIcon = styled.div<{ $isOpen?: boolean }>`
 
 	&:has(> svg) {
 		padding-right: 0;
+
+		> svg {
+			width: 1.5em;
+			height: 1.5em;
+		}
 
 		&::after {
 			content: none;

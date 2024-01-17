@@ -36,6 +36,12 @@ const NotificationComponentBox = () => {
 			value: ''
 		},
 		{
+			title: 'Auto Close',
+			name: 'autoClose',
+			type: 'number',
+			value: null
+		},
+		{
 			title: 'Open on hover',
 			name: 'showMore',
 			type: 'boolean',
@@ -43,7 +49,7 @@ const NotificationComponentBox = () => {
 			value: null
 		},
 		{
-			title: 'Close notification',
+			title: 'Show close button',
 			name: 'showClose',
 			type: 'boolean',
 			defaultValue: false,
@@ -53,7 +59,7 @@ const NotificationComponentBox = () => {
 
 	return (
 		<ComponentBox title="Notification" description="" options={options}>
-			<Notification title="" />
+			<Notification title="" onClose={() => console.log('closed')} />
 		</ComponentBox>
 	)
 }

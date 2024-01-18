@@ -47,7 +47,6 @@ const Notification = ({
 
 	const handleRemove = useCallback(
 		(isRemove: boolean) => {
-			console.log(isRemove)
 			setIsRemove(!isRemove)
 
 			clearTimeout(timer.current)
@@ -61,10 +60,8 @@ const Notification = ({
 
 	useEffect(() => {
 		if (autoClose && autoClose > 0) {
-			console.log('startTimer')
 			clearTimeout(timer.current)
 			timer.current = setTimeout(() => {
-				console.log('timeout')
 				handleRemove(false)
 			}, autoClose * 1000)
 		}

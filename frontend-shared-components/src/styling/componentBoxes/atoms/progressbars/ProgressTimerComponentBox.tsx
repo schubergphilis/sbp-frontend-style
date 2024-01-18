@@ -47,7 +47,13 @@ const ProgressTimerComponentBox = () => {
 			title="Progress Timer"
 			description="A progress timer to help visualise a timed action"
 			options={options}>
-			<StyledProgressTimer length={10} size="5em" />
+			<StyledProgressTimer
+				length={10}
+				size="5em"
+				onTimerFinish={() => {
+					console.log('Progress timer finished')
+				}}
+			/>
 		</ComponentBox>
 	)
 }

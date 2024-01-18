@@ -46,7 +46,12 @@ const ProgressBarComponentBox = () => {
 			title="Progress Bar"
 			description="A progress bar to help visualise a timed action"
 			options={options}>
-			<ProgressBar length={10} onTimerFinish={() => {}} />
+			<ProgressBar
+				length={10}
+				onTimerFinish={() => {
+					console.log('Progress bar finished')
+				}}
+			/>
 		</ComponentBox>
 	)
 }

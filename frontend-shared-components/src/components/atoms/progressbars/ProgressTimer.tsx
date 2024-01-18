@@ -25,6 +25,7 @@ const ProgressTimer: React.FC<Props> = ({
 	...props
 }) => {
 	const timerRef = useRef<NodeJS.Timeout>()
+	const finishRef = useRef<NodeJS.Timeout>()
 	const [trigger, setTrigger] = useState<boolean>(false)
 
 	useEffect(() => {
@@ -32,6 +33,12 @@ const ProgressTimer: React.FC<Props> = ({
 		clearTimeout(timerRef.current)
 		timerRef.current = setTimeout(() => setTrigger(false), 100)
 	}, [restart, length])
+
+	useEffect(() => {
+		if (!trigger || !onTimerFinish) return
+		clearTimeout(finishRef.current)
+		finishRef.current = setTimeout(onTimerFinish, length * 1000)
+	}, [trigger])
 
 	return (
 		<XProgressCirlce
@@ -41,7 +48,7 @@ const ProgressTimer: React.FC<Props> = ({
 			fillColor={fillColor}
 			isRounded={isRounded}
 			inverse={inverse}
-			restart={trigger}
+			$restart={trigger}
 			size={size}
 			{...props}
 		/>
@@ -50,12 +57,12 @@ const ProgressTimer: React.FC<Props> = ({
 
 const XProgressCirlce = styled(ProgressCirlce)<{
 	initial: number
-	restart: boolean
+	$restart: boolean
 	inverse: boolean
 }>`
 	& > g > circle:last-child {
 		animation-duration: ${({ initial }) => `${initial}s`};
-		animation-name: ${({ restart }) => (!restart ? 'dash' : 'none')};
+		animation-name: ${({ $restart }) => (!$restart ? 'dash' : 'none')};
 		animation-direction: ${({ inverse }) => (inverse ? 'reverse' : 'initial')};
 		animation-timing-function: linear;
 	}

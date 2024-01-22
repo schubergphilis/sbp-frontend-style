@@ -1,5 +1,5 @@
 import { AlignType } from 'datatypes/AlignType'
-import { HTMLAttributes } from 'react'
+import { HTMLAttributes, useEffect, useRef, useState } from 'react'
 import { styled } from 'styled-components'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -10,17 +10,34 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 }
 
 const CardContent = ({
-	isOpen = true,
+	isOpen,
 	align = 'left',
 	hasPadding = true,
 	children,
 	...props
 }: Props) => {
+	const ref = useRef<HTMLDivElement>(null)
+	const [height, setHeight] = useState<number | undefined>(undefined)
+	const timer = useRef<NodeJS.Timeout>()
+
+	useEffect(() => {
+		clearTimeout(timer.current)
+		setHeight(undefined)
+
+		if (!isOpen) return
+
+		timer.current = setTimeout(() => {
+			setHeight(ref.current?.clientHeight ?? undefined)
+		}, 400)
+	}, [isOpen])
+
 	return (
 		<Container
+			ref={ref}
 			$align={align}
 			$hasPadding={hasPadding}
 			$isOpen={isOpen}
+			style={{ maxHeight: height }}
 			{...props}>
 			{children}
 		</Container>
@@ -28,7 +45,7 @@ const CardContent = ({
 }
 
 const Container = styled.div<{
-	$isOpen: boolean
+	$isOpen?: boolean
 	$align: AlignType
 	$hasPadding: boolean
 }>`
@@ -41,9 +58,9 @@ const Container = styled.div<{
 	text-align: ${({ $align }) => $align};
 
 	${({ $isOpen }) =>
-		!$isOpen &&
+		$isOpen === false &&
 		`
-        transition: max-height 0.5s ease-in-out, padding 0.4s step-end;
+        transition: max-height 0.2s ease-in-out, padding 0.1s step-end;
         max-height: 0;
         padding-top: 0;
         padding-bottom: 0;

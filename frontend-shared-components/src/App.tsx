@@ -23,6 +23,7 @@ import CardFooterComponentBox from 'styling/componentBoxes/molecules/cards/CardF
 import CardHeaderComponentBox from 'styling/componentBoxes/molecules/cards/CardHeaderComponentBox'
 import ModalComponentBox from 'styling/componentBoxes/molecules/modals/ModalComponentBox'
 import NotificationComponentBox from 'styling/componentBoxes/molecules/notifications/NotificationComponentBox'
+import AccordionComponentBox from 'styling/componentBoxes/organisms/accordion/AccordionComponentBox'
 import NavigationBarComponentBox from 'styling/componentBoxes/organisms/navigation/NavigationBarComponentBox'
 import FooterBar from 'styling/elements/FooterBar'
 import Navigation from 'styling/elements/Navigation'
@@ -91,6 +92,8 @@ const App = () => {
 							<CardFooterComponentBox />
 
 							<ModalComponentBox />
+
+							<AccordionComponentBox />
 
 							<NavigationBarComponentBox />
 						</Main>

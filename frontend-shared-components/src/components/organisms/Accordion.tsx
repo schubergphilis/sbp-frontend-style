@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 interface AccordionModel {
 	title: string
-	content: string | JSX.Element
+	content: string
 	date?: Date
 }
 

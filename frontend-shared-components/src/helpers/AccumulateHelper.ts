@@ -6,6 +6,8 @@ export const AccumulateReturn = (
 	name: string,
 	value: ValueType | null
 ): StepsModel => {
+	if (value === null) return {}
+
 	const { key, keyName, prev } = sliceInfo(accumulator, name)
 
 	let xvalue = key && !prev ? [] : prev

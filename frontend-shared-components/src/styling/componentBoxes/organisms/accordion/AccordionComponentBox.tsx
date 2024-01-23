@@ -17,6 +17,13 @@ const AccordionComponentBox = () => {
 			type: 'boolean',
 			defaultValue: false,
 			value: null
+		},
+		{
+			title: 'Default expand',
+			name: 'expand[0]',
+			type: 'number',
+			defaultValue: null,
+			value: 1
 		}
 	]
 	return (
@@ -25,7 +32,6 @@ const AccordionComponentBox = () => {
 			description="The Accordion component lets users show and hide sections of related content on a page."
 			options={options}>
 			<Accordion
-				expand={[2]}
 				list={[
 					{
 						title: 'Can AI popstars make it in the real world?',

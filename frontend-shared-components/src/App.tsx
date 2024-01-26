@@ -25,6 +25,7 @@ import ModalComponentBox from 'styling/componentBoxes/molecules/modals/ModalComp
 import NotificationComponentBox from 'styling/componentBoxes/molecules/notifications/NotificationComponentBox'
 import AccordionComponentBox from 'styling/componentBoxes/organisms/accordion/AccordionComponentBox'
 import NavigationBarComponentBox from 'styling/componentBoxes/organisms/navigation/NavigationBarComponentBox'
+import TabBarComponentBox from 'styling/componentBoxes/organisms/tabbar/TabBarComponentBox'
 import FooterBar from 'styling/elements/FooterBar'
 import Navigation from 'styling/elements/Navigation'
 import ThemeWrapper from 'styling/elements/ThemeWrapper'
@@ -96,6 +97,8 @@ const App = () => {
 							<AccordionComponentBox />
 
 							<NavigationBarComponentBox />
+
+							<TabBarComponentBox />
 						</Main>
 					</Content>
 					<Footer>

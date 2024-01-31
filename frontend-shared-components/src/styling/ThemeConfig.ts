@@ -131,7 +131,9 @@ const lightStyle: DefaultStyle = {
 	inputColorActive: 'rgb(30, 128, 237)',
 	inputColorBg: 'rgb(255, 255, 255)',
 	inputPlaceholder: 'rgba(22, 12, 23, .5)',
-	navigationColorBg: 'rgba(232, 242, 253, .90)'
+	navigationColorBg: 'rgba(232, 242, 253, .90)',
+	tooltipColor: 'rgb(255, 255, 255)',
+	tooltipColorBg: 'rgba(2, 12, 23, 0.95)'
 }
 
 const darkStyle: DefaultStyle = {
@@ -148,7 +150,9 @@ const darkStyle: DefaultStyle = {
 		cardColorBg: 'rgba(232, 242, 253, .10)',
 		inputColorBg: 'rgba(232, 242, 253, .10)',
 		inputPlaceholder: 'rgba(255, 255, 255, .5)',
-		navigationColorBg: 'rgba(232, 242, 253, .10)'
+		navigationColorBg: 'rgba(232, 242, 253, .10)',
+		tooltipColor: 'rgb(2, 12, 23)',
+		tooltipColorBg: 'rgba(255, 255, 255, 0.95)'
 	}
 }
 

@@ -17,6 +17,7 @@ import TextInputComponentBox from 'styling/componentBoxes/atoms/forms/TextInputC
 import LoaderComponentBox from 'styling/componentBoxes/atoms/loaders/LoaderComponentBox'
 import ProgressBarComponentBox from 'styling/componentBoxes/atoms/progressbars/ProgressBarComponentBox'
 import ProgressTimerComponentBox from 'styling/componentBoxes/atoms/progressbars/ProgressTimerComponentBox'
+import TooltipComponentBox from 'styling/componentBoxes/atoms/tooltip/TooltipComponentBox'
 import CardComponentBox from 'styling/componentBoxes/molecules/cards/CardComponentBox'
 import CardContentComponentBox from 'styling/componentBoxes/molecules/cards/CardContentComponentBox'
 import CardFooterComponentBox from 'styling/componentBoxes/molecules/cards/CardFooterComponentBox'
@@ -83,6 +84,8 @@ const App = () => {
 							<ProgressBarComponentBox />
 
 							<ProgressTimerComponentBox />
+
+							<TooltipComponentBox />
 
 							<CardComponentBox />
 

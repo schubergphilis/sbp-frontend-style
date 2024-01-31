@@ -69,8 +69,6 @@ const ComponentBox = ({
 	const handleStateEvent = (name: string, value: ValueType | null) => {
 		handleEvent(name, value)
 
-		console.log('--handleStateEvent', name, value)
-
 		switch (name) {
 			case 'lightStyle':
 				dispatch(

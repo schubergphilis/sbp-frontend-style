@@ -1,8 +1,9 @@
-import { ProgressBar } from 'components/atoms/progressbars'
+import { ProgressTimer } from 'components/atoms/progressbars'
 import ComponentOptionModel from 'models/ComponentOptionModel'
+import { styled } from 'styled-components'
 import ComponentBox from 'styling/elements/box/ComponentBox'
 
-const ProgressBarComponentBox = () => {
+const ProgressTimerComponentBox = () => {
 	const options: ComponentOptionModel[] = [
 		{
 			title: 'Length',
@@ -43,17 +44,22 @@ const ProgressBarComponentBox = () => {
 	]
 	return (
 		<ComponentBox
-			title="Progress Bar"
-			description="A progress bar to help visualise a timed action"
+			title="Progress Timer"
+			description="A progress timer to help visualise a timed action"
 			options={options}>
-			<ProgressBar
+			<StyledProgressTimer
 				length={10}
+				size="5em"
 				onTimerFinish={() => {
-					console.log('Progress bar finished')
+					console.log('Progress timer finished')
 				}}
 			/>
 		</ComponentBox>
 	)
 }
 
-export default ProgressBarComponentBox
+const StyledProgressTimer = styled(ProgressTimer)`
+	display: block;
+	margin: auto;
+`
+export default ProgressTimerComponentBox

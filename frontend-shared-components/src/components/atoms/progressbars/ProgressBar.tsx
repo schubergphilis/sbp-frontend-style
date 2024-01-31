@@ -6,8 +6,8 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 	inverse?: boolean
 	isRounded?: boolean
 	restart?: boolean
-	bgColor?: string // hex code
-	fillColor?: string // hex code
+	bgColor?: `#${string}` // hex code
+	fillColor?: `#${string}` // hex code
 	onTimerFinish?: () => void
 }
 

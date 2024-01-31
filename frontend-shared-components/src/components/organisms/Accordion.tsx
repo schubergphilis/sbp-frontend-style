@@ -1,5 +1,6 @@
-import { CardContent, CardHeader } from 'components'
 import Card from 'components/molecules/cards/Card'
+import CardContent from 'components/molecules/cards/CardContent'
+import CardHeader from 'components/molecules/cards/CardHeader'
 import { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
 

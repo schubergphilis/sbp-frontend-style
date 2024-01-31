@@ -47,8 +47,8 @@ const OptionRow = ({
 									? value
 										? value
 										: defaultValue
-										? defaultValue
-										: null
+										  ? defaultValue
+										  : null
 									: null
 							)
 						}
@@ -65,7 +65,7 @@ const OptionRow = ({
 						type="number"
 						value={(state as string) ?? ''}
 						onChange={(event: ChangeEvent<HTMLInputElement>) =>
-							handleEvent(name, event.target.value)
+							handleEvent(name, Number(event.target.value))
 						}
 					/>
 				) : type === 'select' ? (

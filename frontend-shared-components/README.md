@@ -1,10 +1,10 @@
-# Schuberg Philis Cloud Style
+# Frontend Shared Components
 
 Finally it has arrived! A common design component library for all front-end platforms in the making. Are you using **ReactJS**...Let's go! Running **NextJS**... no sweat! Are you using **VueJS** *(or Nuxt)*... We've got you coverd aswell. :grin:
 
 With this platform it's easy to use and re-use default components without having to maintain them yourself. This platform will give you freedom by using a lot of pre-styled components for you website together with the ease of use of conventional platforms.
 
-We've chosen to style everything for internal use and projects that need SBP styling as default. But don't judge a book by its cover. It's possible to use a lot of predefined style variants and customize the components with use styling variables. *(do not mistake them with css-variables)*
+We've chosen to style everything for internal use and projects that need styling as default. But don't judge a book by its cover. It's possible to use a lot of predefined style variants and customize the components with use styling variables. *(do not mistake them with css-variables)*
 
 ## Platforms
 
@@ -24,11 +24,11 @@ Using these components you only need to add this package to your project
 ### Install
 
 ```bash
-yarn add @sbp-cloud-style
+yarn add @gmtdi/frontend-shared-components
 
 # Or with npm: 
 
-npm install @sbp-cloud-style
+npm install @gmtdi/frontend-shared-components
 ```
 
 ### React
@@ -36,7 +36,7 @@ npm install @sbp-cloud-style
 Within the base of the application it needs a Style wrapper **\<CloudStyle\>** to set the default styling and this will also be the input for customizing the components for your needs.
 
 ```jsx
-import { ActionButton, CloudStyle } from 'sbp-cloud-style'
+import { ActionButton, CloudStyle } from '@gmtdi/frontend-shared-components'
 
 const App = ()=> {
   return (

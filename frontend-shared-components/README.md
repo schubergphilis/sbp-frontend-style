@@ -1,6 +1,6 @@
 # Frontend Shared Components
 
-Finally it has arrived! A common design component library for all front-end platforms in the making. Are you using **ReactJS**...Let's go! Running **NextJS**... no sweat! Are you using **VueJS** *(or Nuxt)*... We've got you coverd aswell. :grin:
+Finally it has arrived! A common design component library for all front-end platforms in the making. Are you using **ReactJS**...Let's go! Running **NextJS**... no sweat! ~~Are you using **VueJS** *(or Nuxt)*... We've got you coverd aswell. :grin:~~
 
 With this platform it's easy to use and re-use default components without having to maintain them yourself. This platform will give you freedom by using a lot of pre-styled components for you website together with the ease of use of conventional platforms.
 
@@ -10,12 +10,12 @@ We've chosen to style everything for internal use and projects that need styling
 
 This project is running on ReactJS together with some react based packages needed for styling. But our goal is that this can be used on multiple platforms:
 
-|Platform|native|extra|
-|---|---|---|
-|ReactJS| true| |
-|NextJS| true| |
-|VueJS| false| use: [vuera]("https://npmjs.org/package/vuera", "_blank")|
-|NuxtJS| false | use: [vuera]("http://npmjs.org/package/vuera", "_blank")
+|Platform|native|extra|supported|
+|---|---|---|---|
+|ReactJS| true| | true
+|NextJS| true| | true
+|VueJS| false| use: [vuera]("https://npmjs.org/package/vuera", "_blank")| false
+|NuxtJS| false | use: [vuera]("http://npmjs.org/package/vuera", "_blank") | false
 
 ## Implementation
 
@@ -49,7 +49,7 @@ const App = ()=> {
 export default App
 ```
 
-### VueJS
+### VueJS (not supported)
 
 The basis of this style package is based upon React together wiht Styled-Components. When using this package inside a VueJS application there are some small differences and additional packages needed to format the properies towards the correct state.
 

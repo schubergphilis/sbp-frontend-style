@@ -28,7 +28,7 @@ const CardContent = ({
 
 		timer.current = setTimeout(() => {
 			setHeight(ref.current?.clientHeight ?? undefined)
-		}, 400)
+		}, 800)
 	}, [isOpen])
 
 	return (

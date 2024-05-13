@@ -53,7 +53,7 @@ const CardContentComponentBox = () => {
 	]
 	return (
 		<ComponentBox title="Card content" description="" options={options}>
-			<StyledCardContent children={undefined} />
+			<StyledCardContent isOpen={false} children={undefined} />
 		</ComponentBox>
 	)
 }

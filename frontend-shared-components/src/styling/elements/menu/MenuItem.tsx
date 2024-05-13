@@ -14,7 +14,7 @@ import { useLocation } from 'react-router-dom'
 import { styled } from 'styled-components'
 
 interface Props {
-	path: String
+	path: string
 	name: string
 	children?: MenuItemModel[]
 }

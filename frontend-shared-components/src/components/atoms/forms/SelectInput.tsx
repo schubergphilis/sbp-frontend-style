@@ -2,6 +2,7 @@ import { ReactNode, SelectHTMLAttributes } from 'react'
 import { styled } from 'styled-components'
 
 interface Props extends SelectHTMLAttributes<HTMLSelectElement> {
+	placeholder?: string
 	children: ReactNode | ReactNode[]
 }
 

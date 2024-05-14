@@ -28,7 +28,7 @@ const Accordion = ({ list, expand, showSelected, isControlled }: Props) => {
 		(index: number) => {
 			const isOpen = openList.findIndex((item) => item === index)
 
-			let list = isControlled ? [] : [...openList]
+			const list = isControlled ? [] : [...openList]
 
 			if (isOpen > -1) {
 				delete list[isOpen]

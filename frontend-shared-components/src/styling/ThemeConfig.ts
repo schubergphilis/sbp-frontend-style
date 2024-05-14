@@ -103,7 +103,7 @@ const lightStyle: DefaultStyle = {
 	radius: 8,
 	fontSize: 16,
 	shadow: 'rgba(2, 12, 23, 0.25)',
-	colorBg: 'rgb(255, 255, 255)', //'rgb(232, 242, 253)',
+	colorBg: 'rgb(255, 255, 255)', // 'rgb(232, 242, 253)',
 	fontColor: 'rgb(2, 12, 23)',
 	colorPrimary: 'rgb(30, 128, 237)',
 	colorSecondary: 'rgb(30, 232, 237)',

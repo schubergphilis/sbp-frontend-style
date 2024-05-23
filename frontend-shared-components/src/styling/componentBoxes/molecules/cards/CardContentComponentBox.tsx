@@ -40,6 +40,12 @@ const CardContentComponentBox = () => {
 			value: true
 		},
 		{
+			title: 'Refresh',
+			name: 'refresh',
+			type: 'boolean',
+			value: false
+		},
+		{
 			title: 'Align',
 			name: 'align',
 			type: 'select',

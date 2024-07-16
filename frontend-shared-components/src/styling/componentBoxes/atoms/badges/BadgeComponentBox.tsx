@@ -17,6 +17,16 @@ const BadgeComponentBox = () => {
 			type: 'boolean',
 			defaultValue: false,
 			value: null
+		},
+		{
+			title: 'Badge Position',
+			name: '$position',
+			type: 'select',
+			options: [
+				{ name: 'Left', value: 'left' },
+				{ name: 'Right', value: 'right' }
+			],
+			value: ''
 		}
 	]
 

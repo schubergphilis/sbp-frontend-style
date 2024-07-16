@@ -17,7 +17,33 @@ const DragComponentBox = () => {
 			],
 			value: ''
 		},
-		...generalOptions
+		...generalOptions,
+		{
+			title: 'Badge Amount',
+			name: '$badge',
+			type: 'number',
+			value: 0,
+			general: true
+		},
+		{
+			title: 'Badge Small',
+			name: '$isBadgeSmall',
+			type: 'boolean',
+			defaultValue: false,
+			value: null,
+			general: true
+		},
+		{
+			title: 'Badge Position',
+			name: '$position',
+			type: 'select',
+			options: [
+				{ name: 'Left', value: 'left' },
+				{ name: 'Right', value: 'right' }
+			],
+			value: '',
+			general: true
+		}
 	]
 
 	return (

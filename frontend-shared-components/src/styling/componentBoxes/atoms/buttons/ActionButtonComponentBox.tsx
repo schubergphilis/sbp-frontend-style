@@ -70,6 +70,17 @@ const ActionButtonComponentBox = () => {
 			defaultValue: false,
 			value: null,
 			general: true
+		},
+		{
+			title: 'Badge Position',
+			name: '$position',
+			type: 'select',
+			options: [
+				{ name: 'Left', value: 'left' },
+				{ name: 'Right', value: 'right' }
+			],
+			value: '',
+			general: true
 		}
 	]
 

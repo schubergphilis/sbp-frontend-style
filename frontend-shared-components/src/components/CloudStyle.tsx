@@ -1,4 +1,9 @@
-import { DefaultFonts, DefaultStyle, ThemeProvider } from 'styled-components'
+import {
+	DefaultFonts,
+	DefaultStyle,
+	DefaultStyleWithCustomVars,
+	ThemeProvider
+} from 'styled-components'
 import { DefaultTheme } from 'styled-components/dist/types'
 import {
 	GlobalStyles,
@@ -10,8 +15,8 @@ import PageSize from './atoms/debugger/PageSize'
 interface Props {
 	isDarkMode?: boolean
 	isLargeMode?: boolean
-	lightStyle?: DefaultStyle
-	darkStyle?: DefaultStyle
+	lightStyle?: DefaultStyleWithCustomVars
+	darkStyle?: DefaultStyleWithCustomVars
 	fonts?: DefaultFonts
 	isDebug?: boolean
 	children: JSX.Element | JSX.Element[] | React.ReactNode
@@ -63,8 +68,8 @@ const CloudStyle = ({
 						? customLargeDarkTheme
 						: customDarkTheme
 					: isLargeMode
-					  ? customLargeLightTheme
-					  : customLightTheme
+						? customLargeLightTheme
+						: customLightTheme
 			}>
 			<GlobalStyles />
 			{children}

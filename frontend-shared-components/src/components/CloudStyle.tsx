@@ -1,4 +1,9 @@
-import { DefaultFonts, DefaultStyle, ThemeProvider } from 'styled-components'
+import {
+	DefaultFonts,
+	DefaultStyle,
+	DefaultStyleWithCustomVars,
+	ThemeProvider
+} from 'styled-components'
 import { DefaultTheme } from 'styled-components/dist/types'
 import {
 	GlobalStyles,
@@ -7,12 +12,11 @@ import {
 } from 'styling/ThemeConfig'
 import PageSize from './atoms/debugger/PageSize'
 
-type WithCustomStyle<T> = T & { [key: string]: any }
 interface Props {
 	isDarkMode?: boolean
 	isLargeMode?: boolean
-	lightStyle?: WithCustomStyle<DefaultStyle>
-	darkStyle?: WithCustomStyle<DefaultStyle>
+	lightStyle?: DefaultStyleWithCustomVars
+	darkStyle?: DefaultStyleWithCustomVars
 	fonts?: DefaultFonts
 	isDebug?: boolean
 	children: JSX.Element | JSX.Element[] | React.ReactNode

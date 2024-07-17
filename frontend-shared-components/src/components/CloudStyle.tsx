@@ -2,9 +2,9 @@ import {
 	DefaultFonts,
 	DefaultStyle,
 	DefaultStyleWithCustomVars,
+	DefaultTheme,
 	ThemeProvider
 } from 'styled-components'
-import { DefaultTheme } from 'styled-components/dist/types'
 import {
 	GlobalStyles,
 	darkTheme as defaultDarkTheme,

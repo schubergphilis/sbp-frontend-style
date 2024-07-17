@@ -51,7 +51,7 @@ declare module 'styled-components' {
 	}
 
 	export interface DefaultTheme {
-		style: DefaultStyle
+		style: DefaultStyleWithCustomVars
 		fonts: DefaultFonts
 	}
 }

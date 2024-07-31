@@ -46,8 +46,12 @@ declare module 'styled-components' {
 		navigationColorBg?: CssColorType
 	}
 
+	export type DefaultStyleWithCustomVars = DefaultStyle & {
+		[key: string]: any
+	}
+
 	export interface DefaultTheme {
-		style: DefaultStyle
+		style: DefaultStyleWithCustomVars
 		fonts: DefaultFonts
 	}
 }

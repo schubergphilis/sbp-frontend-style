@@ -40,6 +40,12 @@ const CardContentComponentBox = () => {
 			value: true
 		},
 		{
+			title: 'Refresh',
+			name: 'refresh',
+			type: 'boolean',
+			value: false
+		},
+		{
 			title: 'Align',
 			name: 'align',
 			type: 'select',
@@ -53,7 +59,7 @@ const CardContentComponentBox = () => {
 	]
 	return (
 		<ComponentBox title="Card content" description="" options={options}>
-			<StyledCardContent children={undefined} />
+			<StyledCardContent isOpen={false} children={undefined} />
 		</ComponentBox>
 	)
 }

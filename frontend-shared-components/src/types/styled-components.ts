@@ -48,8 +48,12 @@ declare module 'styled-components' {
 		tooltipColorBg?: CssColorType
 	}
 
+	export type DefaultStyleWithCustomVars = DefaultStyle & {
+		[key: string]: any
+	}
+
 	export interface DefaultTheme {
-		style: DefaultStyle
+		style: DefaultStyleWithCustomVars
 		fonts: DefaultFonts
 	}
 }

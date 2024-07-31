@@ -18,9 +18,9 @@ const LoaderStyle = css<LoaderStyleProps>`
 		animation: rotating 0.75s linear infinite;
 
 		position: absolute;
-		right: ${({ size }) => (size ? `calc(50% - ${size / 2}px)` : `1em`)};
+		right: ${({ size }) => (size ? `calc(50% - ${size / 2}px)` : '1em')};
 		top: ${({ size }) =>
-			size ? `calc(50% - ${size / 2}px)` : `calc(50% - 0.625em)`};
+			size ? `calc(50% - ${size / 2}px)` : 'calc(50% - 0.625em)'};
 	}
 `
 

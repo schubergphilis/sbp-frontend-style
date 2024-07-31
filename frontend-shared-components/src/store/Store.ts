@@ -76,7 +76,7 @@ const makeConfiguredStore = (reducer: any) =>
 const persistedReducer = persistReducer(rootPersistConfig, reducers)
 const pstore = makeConfiguredStore(persistedReducer)
 
-export let persistor = persistStore(pstore)
+export const persistor = persistStore(pstore)
 
 export const makeStore = () => pstore
 

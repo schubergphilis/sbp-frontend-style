@@ -6,6 +6,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 	isOpen?: boolean
 	align?: AlignType
 	hasPadding?: boolean
+	refresh?: boolean
 	children: JSX.Element | JSX.Element[] | React.ReactNode
 }
 
@@ -13,12 +14,20 @@ const CardContent = ({
 	isOpen,
 	align = 'left',
 	hasPadding = true,
+	refresh = false,
 	children,
 	...props
 }: Props) => {
 	const ref = useRef<HTMLDivElement>(null)
-	const [height, setHeight] = useState<number | undefined>(undefined)
 	const timer = useRef<NodeJS.Timeout>()
+
+	const [height, setHeight] = useState<number | undefined>(undefined)
+	const [refreshCycle, setRefreshCycle] = useState<number>(0)
+
+	useEffect(() => {
+		if (!refresh) return
+		setRefreshCycle(Math.random())
+	}, [refresh])
 
 	useEffect(() => {
 		clearTimeout(timer.current)
@@ -29,7 +38,7 @@ const CardContent = ({
 		timer.current = setTimeout(() => {
 			setHeight(ref.current?.clientHeight ?? undefined)
 		}, 400)
-	}, [isOpen])
+	}, [isOpen, refreshCycle])
 
 	return (
 		<Container

@@ -1,8 +1,10 @@
+import { AlignType } from 'datatypes'
 import { css } from 'styled-components'
 
 export interface BadgeStyleProps {
 	$badge?: number
 	$isBadgeSmall?: boolean
+	$position?: AlignType
 }
 
 const BadgeStyle = css<BadgeStyleProps>`
@@ -31,12 +33,19 @@ const BadgeStyle = css<BadgeStyleProps>`
 			transform 0.2s ease-in-out,
 			padding 0.2s ease-in-out;
 
+		${({ $position, $isBadgeSmall }) =>
+			$position == 'left' &&
+			`
+				right: inherit;
+				left: ${$isBadgeSmall ? '-0.5em' : '-1.5em'};
+			`}
+
 		content: '${({ $badge, $isBadgeSmall }) =>
 			!$badge || $badge <= 0 || $isBadgeSmall
 				? ''
 				: $badge > 999
-				  ? '999+'
-				  : $badge}';
+					? '999+'
+					: $badge}';
 	}
 `
 

@@ -2,7 +2,11 @@ import DragIcon from 'components/icons/DragIcon'
 import { OrientationType } from 'datatypes/OrientationType'
 import { ButtonHTMLAttributes } from 'react'
 import styled from 'styled-components'
-interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+import BadgeStyle, { BadgeStyleProps } from '../badges/Badge'
+
+interface Props
+	extends ButtonHTMLAttributes<HTMLButtonElement>,
+		BadgeStyleProps {
 	orientation?: OrientationType
 }
 
@@ -14,13 +18,16 @@ const DragButton = ({ orientation = 'right', ...props }: Props) => {
 	)
 }
 
-const Button = styled.button<{ $orientation: OrientationType }>`
+export interface DragStyleProps extends BadgeStyleProps {
+	$orientation: OrientationType
+}
+
+const Button = styled.button<DragStyleProps>`
 	color: ${({ theme }) => theme.style.buttonDragColor};
 	background-color: ${({ theme }) => theme.style.buttonDragColorBg};
 	max-width: 2.5em;
 	text-align: center;
 	line-height: 0em;
-	overflow: hidden;
 	display: block;
 	padding: 1em 0.5em;
 	border-radius: ${({ theme }) => theme.style.radius}px 0 0
@@ -32,6 +39,7 @@ const Button = styled.button<{ $orientation: OrientationType }>`
 	${({ $orientation, theme }) =>
 		$orientation === 'top' &&
 		`
+			max-width: 3.5em;
 			border-radius: 0 0 ${theme.style.radius}px ${theme.style.radius}px;
 			padding: 0.5em 1em;
 	`}
@@ -45,6 +53,7 @@ const Button = styled.button<{ $orientation: OrientationType }>`
 	${({ $orientation, theme }) =>
 		$orientation === 'bottom' &&
 		`
+			max-width: 3.5em;
 			border-radius: ${theme.style.radius}px 0${theme.style.radius}px 0 0;
 			box-shadow: 0px 0px 2px 0px ${theme.style.shadow};
 			padding: 0.5em 1em;
@@ -67,6 +76,8 @@ const Button = styled.button<{ $orientation: OrientationType }>`
 		rotate: ${({ $orientation }) =>
 			$orientation === 'top' || $orientation === 'bottom' ? '90deg' : '0'};
 	}
+
+	${BadgeStyle}
 `
 
 export default DragButton

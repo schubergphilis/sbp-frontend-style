@@ -75,7 +75,7 @@ const Color = styled.div<{ color: string; $name: string; $isSmall: boolean }>`
 	overflow: hidden;
 	font-size: ${({ $isSmall }) => ($isSmall ? '.75em' : '1.5em')};
 
-	> svg {
+	& > svg {
 		width: 100%;
 		height: 100%;
 		margin: 0.25em;

@@ -44,6 +44,8 @@ declare module 'styled-components' {
 		inputColorBg?: CssColorType
 		inputPlaceholder?: CssColorType
 		navigationColorBg?: CssColorType
+		tooltipColor?: CssColorType
+		tooltipColorBg?: CssColorType
 	}
 
 	export type DefaultStyleWithCustomVars = DefaultStyle & {

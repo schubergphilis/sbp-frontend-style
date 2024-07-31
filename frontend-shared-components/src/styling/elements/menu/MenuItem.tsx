@@ -70,7 +70,7 @@ const List = styled.ul<{ $isOpen: boolean }>`
 	${({ $isOpen }) =>
 		$isOpen &&
 		`
-		max-height: 20em;
+		max-height: 50em;
 	`}
 `
 const ListItem = styled.li``

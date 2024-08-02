@@ -1,6 +1,6 @@
 import { OrientationType } from 'datatypes'
 import { useCallback, useEffect, useRef, useState } from 'react'
-import styled, { CSSProperties } from 'styled-components'
+import styled, { CSSProperties, css } from 'styled-components'
 
 interface Props {
 	title: string
@@ -99,7 +99,7 @@ const Container = styled.div`
 		transform: translate3d(0, 0, 0);
 	}
 `
-const Message = styled.abbr<{ $placement: OrientationType }>`
+export const MessageStyle = css<{ $placement: OrientationType }>`
 	opacity: 0;
 	pointer-events: none;
 	position: absolute;
@@ -164,5 +164,7 @@ const Message = styled.abbr<{ $placement: OrientationType }>`
         }
     `}
 `
-
+const Message = styled.abbr<{ $placement: OrientationType }>`
+	${MessageStyle}
+`
 export default Tooltip

@@ -99,7 +99,7 @@ const Container = styled.div`
 		transform: translate3d(0, 0, 0);
 	}
 `
-export const MessageStyle = css<{ $placement: OrientationType }>`
+export const TooltipStyle = css<{ $placement: OrientationType }>`
 	opacity: 0;
 	pointer-events: none;
 	position: absolute;
@@ -165,6 +165,6 @@ export const MessageStyle = css<{ $placement: OrientationType }>`
     `}
 `
 const Message = styled.abbr<{ $placement: OrientationType }>`
-	${MessageStyle}
+	${TooltipStyle}
 `
 export default Tooltip

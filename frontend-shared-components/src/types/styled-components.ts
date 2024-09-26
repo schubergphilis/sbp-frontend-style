@@ -25,7 +25,9 @@ declare module 'styled-components' {
 		borderColor?: CssColorType
 		buttonColor?: CssColorType
 		buttonPrimaryColor?: CssColorType
+		buttonPrimaryColorBg?: CssColorType
 		buttonSecondaryColor?: CssColorType
+		buttonSecondaryColorBg?: CssColorType
 		buttonActiveColor?: CssColorType
 		buttonDisabledColor?: CssColorType
 		buttonDisabledColorBg?: CssColorType

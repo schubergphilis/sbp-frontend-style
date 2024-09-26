@@ -42,7 +42,7 @@ const ActionButton = ({
 										)
 								)
 								.map((el) => <div>{el}</div>)
-					  )
+						)
 					: children}
 			</Content>
 		</Button>
@@ -69,7 +69,9 @@ export const ButtonStyle = css<ButtonStyleProps>`
 	border-radius: ${({ theme, $isRounded }) =>
 		$isRounded ? '2em' : `${theme.style.radius}px`};
 	background-color: ${({ $variant, theme }) =>
-		$variant === 'cta' ? theme.style.colorPrimary : theme.style.colorSecondary};
+		$variant === 'cta'
+			? theme.style.buttonPrimaryColorBg
+			: theme.style.buttonSecondaryColorBg};
 
 	${({ $variant, theme }) =>
 		$variant === 'ghost' &&

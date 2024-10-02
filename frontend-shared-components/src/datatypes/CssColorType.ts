@@ -17,3 +17,9 @@ export type CssColorType =
 	| HSLA
 	| VAR
 	| CssGlobals
+
+export type CssSizeType =
+	| `${number}px`
+	| `${number}em`
+	| `${number}rem`
+	| CssGlobals

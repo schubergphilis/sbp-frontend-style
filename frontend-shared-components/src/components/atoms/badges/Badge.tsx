@@ -12,8 +12,9 @@ const BadgeStyle = css<BadgeStyleProps>`
 
 	&::before {
 		opacity: ${({ $badge }) => (!$badge || $badge <= 0 ? 0 : 1)};
-		font-size: 1rem;
-		line-height: 1.5rem;
+		font-size: ${({ theme }) =>
+			theme.style.badgeSize ? theme.style.badgeSize : '1rem'};
+		line-height: 1.5em;
 		font-weight: bold;
 		text-align: center;
 		position: absolute;
@@ -22,10 +23,12 @@ const BadgeStyle = css<BadgeStyleProps>`
 		top: ${({ $isBadgeSmall }) => ($isBadgeSmall ? '-0.5em' : '-1.5em')};
 		min-width: ${({ $isBadgeSmall }) => ($isBadgeSmall ? '1em' : '2.5em')};
 		height: ${({ $isBadgeSmall }) => ($isBadgeSmall ? '1em' : '2.5em')};
-		padding: 0.5em ${({ $badge }) => ($badge && $badge > 99 ? '.75em' : '')};
-		border-radius: 1.25em;
-		color: inherit;
-		background-color: ${({ theme }) => theme.style.colorPrimary};
+		padding: 0.5em
+			${({ $badge, $isBadgeSmall }) =>
+				$badge && $badge > 99 && !$isBadgeSmall ? '.75em' : ''};
+		border-radius: 1.25rem;
+		color: ${({ theme }) => theme.style.badgeColor};
+		background-color: ${({ theme }) => theme.style.badgeColorBg};
 		box-shadow: 0 5px 5px ${({ theme }) => theme.style.shadow};
 		transform: scale(${({ $badge }) => (!$badge || $badge <= 0 ? 0 : 1)});
 		transition:

@@ -1,4 +1,4 @@
-import { CssColorType } from 'datatypes/CssColorType'
+import { CssColorType, CssSizeType } from 'datatypes/CssColorType'
 
 declare module 'styled-components' {
 	export interface DefaultFonts {
@@ -22,6 +22,9 @@ declare module 'styled-components' {
 		colorCta?: CssColorType
 		colorActive?: CssColorType
 		colorZebra?: CssColorType
+		badgeSize?: CssSizeType
+		badgeColor?: CssColorType
+		badgeColorBg?: CssColorType
 		borderColor?: CssColorType
 		buttonColor?: CssColorType
 		buttonPrimaryColor?: CssColorType

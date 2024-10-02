@@ -56,7 +56,7 @@ const Toggle = styled.div`
 	padding: 0.25em;
 	text-align: center;
 
-	> svg {
+	& > svg {
 		width: 100%;
 		height: 100%;
 		display: block;

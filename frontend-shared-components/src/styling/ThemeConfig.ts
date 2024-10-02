@@ -110,6 +110,8 @@ const lightStyle: DefaultStyle = {
 	colorCta: 'inherit',
 	colorActive: 'rgb(30, 128, 237)',
 	colorZebra: 'rgba(0, 0, 0, 0.05)',
+	badgeColor: 'rgb(255, 255, 255)',
+	badgeColorBg: 'rgb(30, 128, 237)',
 	borderColor: 'rgba(22, 12, 23, .15)',
 	buttonColor: 'rgb(255, 255, 255)',
 	buttonPrimaryColor: 'rgb(255, 255, 255)',

@@ -36,7 +36,7 @@ const AccordionComponentBox = () => {
 					{
 						title: 'Can AI popstars make it in the real world?',
 						content:
-							'They sing, they dance, they model, but they don\'t exist in real life - virtual influencers are trying to break out of the metaverse and into the charts. From Alvin and The Chipmunks to Gorillaz, and Hatsune Miku to Polar, the music industry is no stranger to virtual characters as popstars.'
+							'They sing, they dance, they model, but they do not exist in real life - virtual influencers are trying to break out of the metaverse and into the charts. From Alvin and The Chipmunks to Gorillaz, and Hatsune Miku to Polar, the music industry is no stranger to virtual characters as popstars.'
 					},
 					{
 						title: 'Is natural gas heavier or lighter than air?',

@@ -48,7 +48,9 @@ const CardHeader = ({
 				{...props}>
 				<TitleInfo>{children}</TitleInfo>
 				{onClick && !isRemove ? (
-					<CollapseIcon $isOpen={isOpen}>{icon}</CollapseIcon>
+					<CollapseIcon $isOpen={isOpen} $withIcon={Boolean(icon)}>
+						{icon}
+					</CollapseIcon>
 				) : null}
 				{onClick && isRemove ? (
 					<CloseButton
@@ -105,36 +107,42 @@ const CloseButton = styled.button`
 	cursor: pointer;
 `
 
-const CollapseIcon = styled.div<{ $isOpen?: boolean }>`
+const CollapseIcon = styled.div<{ $isOpen?: boolean; $withIcon?: boolean }>`
 	vertical-align: middle;
 	position: relative;
 	padding-right: 2em;
+	transition: rotate 0.2s ease-in-out;
 
-	&::after {
-		content: '';
-		display: block;
-		width: 0.5em;
-		height: 0.5em;
-		position: absolute;
-		right: 0.5em;
-		top: -0.25em;
-		font-size: 1.5em;
-		line-height: 1.25em;
-		text-align: center;
-		rotate: 0deg;
-		transition:
-			rotate 0.2s ease-in-out,
-			margin-top 0.2s ease-in-out;
+	${({ $withIcon }) =>
+		!$withIcon &&
+		`
+		&::after {
+			content: '';
+			display: block;
+			width: 0.5em;
+			height: 0.5em;
+			position: absolute;
+			right: 0.5em;
+			top: -0.25em;
+			font-size: 1.5em;
+			line-height: 1.25em;
+			text-align: center;
+			rotate: 0deg;
+			transition:
+				rotate 0.2s ease-in-out,
+				margin-top 0.2s ease-in-out;
 
-		margin-top: 0;
-		border-style: solid;
-		border-width: 0 2px 2px 0;
-		rotate: 45deg;
-	}
+			margin-top: 0;
+			border-style: solid;
+			border-width: 0 2px 2px 0;
+			rotate: 45deg;
+		}		
+	`}
 
 	${({ $isOpen }) =>
 		$isOpen &&
 		`
+		rotate: 90deg;
 		&::after {
 			rotate: 225deg;
 			margin-top: .2em;

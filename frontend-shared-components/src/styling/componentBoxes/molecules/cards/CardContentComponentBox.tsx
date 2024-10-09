@@ -46,6 +46,12 @@ const CardContentComponentBox = () => {
 			value: false
 		},
 		{
+			title: 'Loading Content',
+			name: 'isLoading',
+			type: 'boolean',
+			value: false
+		},
+		{
 			title: 'Align',
 			name: 'align',
 			type: 'select',

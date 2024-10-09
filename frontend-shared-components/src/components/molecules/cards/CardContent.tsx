@@ -1,9 +1,11 @@
+import LoaderStyle, { LoaderStyleProps } from 'components/atoms/loaders/Loader'
 import { AlignType } from 'datatypes/AlignType'
 import { HTMLAttributes, useEffect, useRef, useState } from 'react'
 import { styled } from 'styled-components'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
 	isOpen?: boolean
+	isLoading?: boolean
 	align?: AlignType
 	hasPadding?: boolean
 	refresh?: boolean
@@ -12,6 +14,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 
 const CardContent = ({
 	isOpen,
+	isLoading,
 	align = 'left',
 	hasPadding = true,
 	refresh = false,
@@ -46,6 +49,7 @@ const CardContent = ({
 			$align={align}
 			$hasPadding={hasPadding}
 			$isOpen={isOpen}
+			$isLoading={isLoading}
 			style={{ maxHeight: height }}
 			{...props}>
 			{children}
@@ -53,11 +57,14 @@ const CardContent = ({
 	)
 }
 
-const Container = styled.div<{
+interface ContainerStyleProps extends LoaderStyleProps {
 	$isOpen?: boolean
+	$isLoading?: boolean
 	$align: AlignType
 	$hasPadding: boolean
-}>`
+}
+
+const Container = styled.div<ContainerStyleProps>`
 	padding: ${({ $hasPadding }) => ($hasPadding ? '2em' : '0')};
 	overflow: hidden;
 	max-height: 100em;
@@ -75,6 +82,13 @@ const Container = styled.div<{
         padding-bottom: 0;
 
     `}
+
+	${({ $isLoading }) => ($isLoading ? LoaderStyle : '')}
+	
+	&::after {
+		right: initial;
+		left: calc(50% - 0.625em);
+	}
 `
 
 export default CardContent

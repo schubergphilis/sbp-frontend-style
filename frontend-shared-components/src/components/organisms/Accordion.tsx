@@ -1,23 +1,37 @@
 import Card from 'components/molecules/cards/Card'
 import CardContent from 'components/molecules/cards/CardContent'
 import CardHeader from 'components/molecules/cards/CardHeader'
-import { useCallback, useEffect, useState } from 'react'
+import {
+	HTMLAttributes,
+	ReactElement,
+	useCallback,
+	useEffect,
+	useState
+} from 'react'
 import styled from 'styled-components'
 
 interface AccordionModel {
 	title: string
-	content: string
+	content: string | ReactElement
 	date?: Date
 }
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
 	list: AccordionModel[]
 	expand?: number[]
 	isControlled?: boolean
 	showSelected?: boolean
+	icon?: ReactElement
 }
 
-const Accordion = ({ list, expand, showSelected, isControlled }: Props) => {
+const Accordion = ({
+	list,
+	expand,
+	showSelected,
+	isControlled,
+	icon,
+	...props
+}: Props) => {
 	const [openList, setOpenList] = useState<number[]>([2])
 
 	useEffect(() => {
@@ -48,15 +62,19 @@ const Accordion = ({ list, expand, showSelected, isControlled }: Props) => {
 		[openList]
 	)
 	return (
-		<Container>
+		<Container {...props}>
 			{list.map(({ title, content }, index) => (
 				<Card key={index} isSelected={showSelected ? challenge(index) : false}>
 					<CardHeader
+						data-title
 						isOpen={challenge(index)}
+						icon={icon}
 						onClick={() => handleOpenList(index)}>
 						{title}
 					</CardHeader>
-					<CardContent isOpen={challenge(index)}>{content}</CardContent>
+					<CardContent data-content isOpen={challenge(index)}>
+						{content}
+					</CardContent>
 				</Card>
 			))}
 		</Container>

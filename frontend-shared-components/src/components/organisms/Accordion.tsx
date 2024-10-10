@@ -66,12 +66,15 @@ const Accordion = ({
 			{list.map(({ title, content }, index) => (
 				<Card key={index} isSelected={showSelected ? challenge(index) : false}>
 					<CardHeader
+						data-title
 						isOpen={challenge(index)}
 						icon={icon}
 						onClick={() => handleOpenList(index)}>
 						{title}
 					</CardHeader>
-					<CardContent isOpen={challenge(index)}>{content}</CardContent>
+					<CardContent data-content isOpen={challenge(index)}>
+						{content}
+					</CardContent>
 				</Card>
 			))}
 		</Container>

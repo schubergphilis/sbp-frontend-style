@@ -45,7 +45,7 @@ export const TextLinkStyle = css<TextLinkStyleProps>`
 	display: inline-block;
 	line-height: 2em;
 	margin: 0 1em;
-	color: ${({ theme }) => theme.style.fontColor};
+	color: inherit;
 	border-bottom: 4px solid transparent;
 	cursor: pointer;
 

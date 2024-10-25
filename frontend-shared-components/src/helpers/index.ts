@@ -1,2 +1,2 @@
-export * from './ConditionalWrapperHelper'
+export { default as ConditionalWrapper } from './ConditionalWrapperHelper'
 export * from './DeviceHelper'

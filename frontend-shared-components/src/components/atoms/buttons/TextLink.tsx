@@ -29,7 +29,7 @@ const TextLink = ({
 										)
 								)
 								.map((el) => <div>{el}</div>)
-					  )
+						)
 					: children}
 			</Content>
 		</Container>

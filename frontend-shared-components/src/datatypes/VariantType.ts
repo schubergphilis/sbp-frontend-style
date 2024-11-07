@@ -1,1 +1,1 @@
-export type VariantType = 'ghost' | 'cta'
+export type VariantType = 'ghost' | 'cta' | null

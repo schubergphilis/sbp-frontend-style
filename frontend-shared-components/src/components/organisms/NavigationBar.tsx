@@ -9,7 +9,7 @@ const NavigationBar = ({ children, ...props }: Props) => {
 	return <NavBar {...props}>{children}</NavBar>
 }
 
-const NavBar = styled.div`
+const NavBar = styled.nav`
 	display: flex;
 	justify-content: space-between;
 	gap: 1em;

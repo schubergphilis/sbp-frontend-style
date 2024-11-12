@@ -11,6 +11,7 @@ import {
 import styled from 'styled-components'
 
 interface AccordionModel {
+	id?: string
 	title: string
 	content: string | ReactElement
 	date?: Date
@@ -61,10 +62,14 @@ const Accordion = ({
 		},
 		[openList]
 	)
+
 	return (
 		<Container {...props}>
-			{list.map(({ title, content }, index) => (
-				<Card key={index} isSelected={showSelected ? challenge(index) : false}>
+			{list.map(({ title, content, id }, index) => (
+				<Card
+					key={index}
+					isSelected={showSelected ? challenge(index) : false}
+					id={id ?? undefined}>
 					<CardHeader
 						data-title
 						isOpen={challenge(index)}

@@ -35,7 +35,11 @@ const ChipBadge = ({
 					{xchildren}
 				</Button>
 			)}>
-			<Chip $isRounded={true} $variant={isActive ? 'cta' : 'ghost'} {...props}>
+			<Chip
+				$isRounded={true}
+				$variant={isActive ? 'cta' : 'ghost'}
+				data-active={isActive ? true : undefined}
+				{...props}>
 				<Content>
 					{Array.isArray(children)
 						? Children.toArray(
@@ -49,7 +53,7 @@ const ChipBadge = ({
 											)
 									)
 									.map((el) => <div>{el}</div>)
-						  )
+							)
 						: children}
 				</Content>
 			</Chip>

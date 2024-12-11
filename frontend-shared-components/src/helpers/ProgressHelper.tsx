@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-interface Props {
+export interface ProgressCricleProps {
 	initial?: number
 	current?: number
 	color?: `#${string}`
@@ -9,11 +9,13 @@ interface Props {
 	size?: string
 	isRounded?: boolean
 	inverse?: boolean
+	centerInfo?: string
 }
 
 const ProgressCirlce = ({
 	color = '#FFFFFF',
 	fillColor,
+	centerInfo,
 	stroke = 10,
 	size = '100%',
 	initial = 100,
@@ -21,7 +23,7 @@ const ProgressCirlce = ({
 	isRounded = false,
 	inverse = false,
 	...props
-}: Props) => {
+}: ProgressCricleProps) => {
 	const [percent, setPercent] = useState<number>(0)
 
 	const circle = 50
@@ -43,6 +45,15 @@ const ProgressCirlce = ({
 	return (
 		<svg width={size} height={size} viewBox="0 0 100 100" {...props}>
 			<g>
+				{centerInfo && (
+					<text
+						x={circle}
+						y={circle}
+						dominantBaseline="middle"
+						textAnchor="middle">
+						{centerInfo}
+					</text>
+				)}
 				<circle
 					cx={circle}
 					cy={circle}

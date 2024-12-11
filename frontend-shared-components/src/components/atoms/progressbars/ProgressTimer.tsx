@@ -1,4 +1,4 @@
-import ProgressCirlce from 'helpers/ProgressHelper'
+import ProgressCircle from 'helpers/ProgressHelper'
 import { useEffect, useRef, useState } from 'react'
 import { styled } from 'styled-components'
 
@@ -41,8 +41,8 @@ const ProgressTimer: React.FC<Props> = ({
 	}, [trigger])
 
 	return (
-		<XProgressCirlce
-			initial={length}
+		<XProgressCircle
+			baseline={length}
 			current={inverse ? length : 0}
 			color={bgColor}
 			fillColor={fillColor}
@@ -55,13 +55,13 @@ const ProgressTimer: React.FC<Props> = ({
 	)
 }
 
-const XProgressCirlce = styled(ProgressCirlce)<{
-	initial: number
+const XProgressCircle = styled(ProgressCircle)<{
+	baseline: number
 	$restart: boolean
 	inverse: boolean
 }>`
 	& > g > circle:last-child {
-		animation-duration: ${({ initial }) => `${initial}s`};
+		animation-duration: ${({ baseline }) => `${baseline}s`};
 		animation-name: ${({ $restart }) => (!$restart ? 'dash' : 'none')};
 		animation-direction: ${({ inverse }) => (inverse ? 'reverse' : 'initial')};
 		animation-timing-function: linear;

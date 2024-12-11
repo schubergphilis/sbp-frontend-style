@@ -5,8 +5,8 @@ import ComponentBox from 'styling/elements/box/ComponentBox'
 const DonutChartComponentBox = () => {
 	const options: ComponentOptionModel[] = [
 		{
-			title: 'initial',
-			name: 'initial',
+			title: 'Baseline',
+			name: 'baseline',
 			type: 'number',
 			value: '100'
 		},

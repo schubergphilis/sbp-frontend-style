@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 export interface ProgressCricleProps {
-	baseline?: number
+	initial?: number
 	current?: number
 	color?: `#${string}`
 	fillColor?: `#${string}`
@@ -18,7 +18,7 @@ const ProgressCircle = ({
 	centerInfo,
 	stroke = 10,
 	size = '100%',
-	baseline = 100,
+	initial = 100,
 	current = 0,
 	isRounded = false,
 	inverse = false,
@@ -33,7 +33,7 @@ const ProgressCircle = ({
 
 	const calculatePercent = () => {
 		const result = -Math.round(
-			((inverse ? 1 : 0) - (baseline - current) / baseline) * circumference
+			((inverse ? 1 : 0) - (initial - current) / initial) * circumference
 		)
 		setPercent(result)
 	}

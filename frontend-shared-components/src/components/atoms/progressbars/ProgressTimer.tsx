@@ -42,7 +42,7 @@ const ProgressTimer: React.FC<Props> = ({
 
 	return (
 		<XProgressCircle
-			baseline={length}
+			initial={length}
 			current={inverse ? length : 0}
 			color={bgColor}
 			fillColor={fillColor}
@@ -56,12 +56,12 @@ const ProgressTimer: React.FC<Props> = ({
 }
 
 const XProgressCircle = styled(ProgressCircle)<{
-	baseline: number
+	initial: number
 	$restart: boolean
 	inverse: boolean
 }>`
 	& > g > circle:last-child {
-		animation-duration: ${({ baseline }) => `${baseline}s`};
+		animation-duration: ${({ initial }) => `${initial}s`};
 		animation-name: ${({ $restart }) => (!$restart ? 'dash' : 'none')};
 		animation-direction: ${({ inverse }) => (inverse ? 'reverse' : 'initial')};
 		animation-timing-function: linear;

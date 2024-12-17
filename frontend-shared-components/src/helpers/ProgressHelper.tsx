@@ -49,6 +49,7 @@ const ProgressCircle = ({
 					<text
 						x={circle}
 						y={circle}
+						fill="currentColor"
 						dominantBaseline="middle"
 						textAnchor="middle">
 						{centerInfo}

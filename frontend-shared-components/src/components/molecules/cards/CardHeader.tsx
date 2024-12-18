@@ -135,7 +135,7 @@ const CollapseIcon = styled.div<{ $isOpen?: boolean; $withIcon?: boolean }>`
 			margin-top: 0;
 			border-style: solid;
 			border-width: 0 2px 2px 0;
-			rotate: 45deg;
+			rotate: 315deg;
 		}		
 	`}
 
@@ -143,10 +143,6 @@ const CollapseIcon = styled.div<{ $isOpen?: boolean; $withIcon?: boolean }>`
 		$isOpen &&
 		`
 		rotate: 90deg;
-		&::after {
-			rotate: 225deg;
-			margin-top: .2em;
-		}
 	`}
 
 	&:has(> svg) {

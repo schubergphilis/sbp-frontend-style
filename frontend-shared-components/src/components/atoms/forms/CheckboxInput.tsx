@@ -18,7 +18,8 @@ const CheckboxInput = ({ label, ...props }: Props) => {
 }
 
 const Label = styled.label<{ $readOnly?: boolean }>`
-	display: inline-block;
+	display: flex;
+	gap: 0.5em;
 
 	${({ $readOnly }) =>
 		$readOnly &&
@@ -30,6 +31,7 @@ const Label = styled.label<{ $readOnly?: boolean }>`
 const Container = styled.div`
 	display: inline-block;
 	vertical-align: middle;
+	margin-top: 0.25em;
 `
 const Radio = styled.input`
 	display: block;
@@ -39,7 +41,6 @@ const Radio = styled.input`
 `
 const Title = styled.span<{ $disabled?: boolean }>`
 	vertical-align: middle;
-	margin-left: 0.5em;
 	color: ${({ $disabled, theme }) =>
 		$disabled ? theme.style.buttonDisabledColorBg : 'inherit'};
 `

@@ -4,7 +4,7 @@ import { Readable } from 'stream'
 import { finished } from 'stream/promises'
 
 const start = async () => {
-	const stream = fs.createWriteStream(`./src/component-list.json`)
+	const stream = fs.createWriteStream('./src/component-list.json')
 	const body = directoryTree('./src/components/', {
 		extensions: /\.tsx/,
 		exclude: /icons|debugger/

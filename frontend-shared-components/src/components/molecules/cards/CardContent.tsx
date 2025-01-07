@@ -1,7 +1,9 @@
-import LoaderStyle, { LoaderStyleProps } from 'components/atoms/loaders/Loader'
-import { AlignType } from 'datatypes/AlignType'
 import { HTMLAttributes, useEffect, useRef, useState } from 'react'
 import { styled } from 'styled-components'
+import LoaderStyle, {
+	LoaderStyleProps
+} from '../../../components/atoms/loaders/Loader'
+import { AlignType } from '../../../datatypes/AlignType'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
 	isOpen?: boolean
@@ -22,7 +24,7 @@ const CardContent = ({
 	...props
 }: Props) => {
 	const ref = useRef<HTMLDivElement>(null)
-	const timer = useRef<NodeJS.Timeout>()
+	const timer = useRef<NodeJS.Timeout>(undefined)
 
 	const [height, setHeight] = useState<number | undefined>(undefined)
 	const [refreshCycle, setRefreshCycle] = useState<number>(0)

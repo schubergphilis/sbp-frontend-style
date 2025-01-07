@@ -24,8 +24,8 @@ const ProgressTimer: React.FC<Props> = ({
 	onTimerFinish,
 	...props
 }) => {
-	const timerRef = useRef<NodeJS.Timeout>()
-	const finishRef = useRef<NodeJS.Timeout>()
+	const timerRef = useRef<NodeJS.Timeout>(undefined)
+	const finishRef = useRef<NodeJS.Timeout>(undefined)
 	const [trigger, setTrigger] = useState<boolean>(false)
 
 	useEffect(() => {

@@ -1,7 +1,9 @@
-import LoaderStyle, { LoaderStyleProps } from 'components/atoms/loaders/Loader'
-import { VariantType } from 'datatypes/VariantType'
 import { ButtonHTMLAttributes, Children } from 'react'
 import styled, { css } from 'styled-components'
+import LoaderStyle, {
+	LoaderStyleProps
+} from '../../../components/atoms/loaders/Loader'
+import { VariantType } from '../../../datatypes/VariantType'
 import BadgeStyle, { BadgeStyleProps } from '../badges/Badge'
 
 interface Props

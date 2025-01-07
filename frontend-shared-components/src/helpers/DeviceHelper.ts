@@ -1,4 +1,4 @@
-import DeviceSizeModel from 'models/DeviceSizeModel'
+import DeviceSizeModel from '../models/DeviceSizeModel'
 
 export const deviceSize: DeviceSizeModel = {
 	mobile: '360px',

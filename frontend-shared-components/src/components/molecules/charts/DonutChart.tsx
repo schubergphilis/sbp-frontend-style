@@ -1,4 +1,6 @@
-import ProgressCircle, { ProgressCricleProps } from 'helpers/ProgressHelper'
+import ProgressCircle, {
+	ProgressCricleProps
+} from '../../../helpers/ProgressHelper'
 
 const DonutChart = (props: ProgressCricleProps) => {
 	return <ProgressCircle {...props} />

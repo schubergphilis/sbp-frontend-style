@@ -1,5 +1,7 @@
 export * from './AlignType'
+export type { AlignType } from './AlignType'
 export * from './CssColorType'
+export type { CssColorType } from './CssColorType'
 export * from './NotificationType'
 export * from './OptionType'
 export * from './OrientationType'

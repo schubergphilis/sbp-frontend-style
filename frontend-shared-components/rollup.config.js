@@ -4,7 +4,7 @@ import typescript from '@rollup/plugin-typescript'
 import del from 'rollup-plugin-delete'
 import dts from 'rollup-plugin-dts'
 import external from 'rollup-plugin-peer-deps-external'
-//import sourcemaps from 'rollup-plugin-sourcemaps'
+// import sourcemaps from 'rollup-plugin-sourcemaps'
 import { terser } from 'rollup-plugin-terser'
 import tsConfigPaths from 'rollup-plugin-tsconfig-paths'
 import packageJson from './package.json'
@@ -30,7 +30,7 @@ export default [
 			resolve(),
 			commonjs(),
 			typescript({ tsconfig: './tsconfig.build.json' }),
-			//sourcemaps(),
+			// sourcemaps(),
 			terser()
 		],
 		external: ['react', 'react-dom', 'styled-components']

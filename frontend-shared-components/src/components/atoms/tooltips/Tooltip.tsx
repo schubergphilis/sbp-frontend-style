@@ -1,6 +1,6 @@
-import { OrientationType } from 'datatypes'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import styled, { CSSProperties, css } from 'styled-components'
+import { OrientationType } from '../../../datatypes/OrientationType'
 
 interface Props {
 	title: string

@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, Children } from 'react'
+import { ButtonHTMLAttributes, Children, JSX } from 'react'
 import styled, { css } from 'styled-components'
 import LoaderStyle, {
 	LoaderStyleProps

@@ -1,6 +1,6 @@
 import CloseIcon from 'components/icons/CloseIcon'
 import ConditionalWrapper from 'helpers/ConditionalWrapperHelper'
-import { HTMLAttributes, MouseEvent, useCallback } from 'react'
+import { HTMLAttributes, JSX, MouseEvent, useCallback } from 'react'
 import { styled } from 'styled-components'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {

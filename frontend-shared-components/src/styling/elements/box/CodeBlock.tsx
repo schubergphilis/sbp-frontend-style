@@ -1,3 +1,4 @@
+import { JSX } from 'react'
 import reactElementToJsxString from 'react-element-to-jsx-string'
 import xml from 'react-syntax-highlighter/dist/cjs/languages/hljs/xml'
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/cjs/light'

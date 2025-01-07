@@ -1,4 +1,4 @@
-import { HTMLAttributes, useEffect, useRef, useState } from 'react'
+import { HTMLAttributes, JSX, useEffect, useRef, useState } from 'react'
 import { styled } from 'styled-components'
 import LoaderStyle, {
 	LoaderStyleProps

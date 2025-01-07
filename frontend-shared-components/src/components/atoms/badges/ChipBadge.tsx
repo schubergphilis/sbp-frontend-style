@@ -1,5 +1,5 @@
 import ConditionalWrapper from 'helpers/ConditionalWrapperHelper'
-import { Children, MouseEvent, useCallback } from 'react'
+import { Children, JSX, MouseEvent, useCallback } from 'react'
 import styled from 'styled-components'
 import { ButtonStyle, ButtonStyleProps } from '../buttons/ActionButton'
 import { BadgeStyleProps } from './Badge'

@@ -1,6 +1,7 @@
 import ActionButton from 'components/atoms/buttons/ActionButton'
 import PageSize from 'components/atoms/debugger/PageSize'
 import ComponentOptionModel from 'models/ComponentOptionModel'
+import { JSX } from 'react'
 import styled from 'styled-components'
 
 import ComponentBox from 'styling/elements/box/ComponentBox'

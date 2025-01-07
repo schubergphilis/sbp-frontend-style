@@ -1,6 +1,6 @@
-import DragIcon from '.../../components/icons/DragIcon'
 import { ButtonHTMLAttributes } from 'react'
 import styled from 'styled-components'
+import DragIcon from '../../../components/icons/DragIcon'
 import { OrientationType } from '../../../datatypes/OrientationType'
 import BadgeStyle, { BadgeStyleProps } from '../badges/Badge'
 

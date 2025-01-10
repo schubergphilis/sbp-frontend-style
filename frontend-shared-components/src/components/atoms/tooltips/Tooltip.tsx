@@ -1,4 +1,4 @@
-import { JSX, useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import styled, { CSSProperties, css } from 'styled-components'
 import { OrientationType } from '../../../datatypes/OrientationType'
 

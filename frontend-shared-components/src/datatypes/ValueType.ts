@@ -1,4 +1,3 @@
-import { JSX } from 'react'
 import { DefaultStyle } from 'styled-components'
 
 export type ValueType =

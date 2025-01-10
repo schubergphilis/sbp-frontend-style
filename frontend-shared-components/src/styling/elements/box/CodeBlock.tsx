@@ -1,8 +1,7 @@
-import { JSX } from 'react'
 import reactElementToJsxString from 'react-element-to-jsx-string'
-import xml from 'react-syntax-highlighter/dist/cjs/languages/hljs/xml'
-import SyntaxHighlighter from 'react-syntax-highlighter/dist/cjs/light'
-import github from 'react-syntax-highlighter/dist/cjs/styles/hljs/atom-one-dark'
+import { Light as SyntaxHighlighter } from 'react-syntax-highlighter'
+import xml from 'react-syntax-highlighter/dist/esm/languages/hljs/xml'
+import github from 'react-syntax-highlighter/dist/esm/styles/hljs/atom-one-dark'
 
 SyntaxHighlighter.registerLanguage('xml', xml)
 

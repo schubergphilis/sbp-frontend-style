@@ -14,13 +14,13 @@ export default [
 		input: './src/build.ts',
 		output: [
 			{
-				file: packageJson.main,
+				file: packageJson.exports.require,
 				format: 'cjs',
 				sourcemap: false,
 				name: 'react-ts-lib'
 			},
 			{
-				file: packageJson.module,
+				file: packageJson.exports.import,
 				format: 'esm',
 				sourcemap: false
 			}

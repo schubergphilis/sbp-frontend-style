@@ -1,6 +1,5 @@
 import { Colorpicker } from 'helpers/ColorpickerHelper'
 import { AbbreviateName } from 'helpers/FunctionHelpers'
-import { JSX } from 'react'
 import styled from 'styled-components'
 import { BadgeStyle } from '../badges'
 import { BadgeStyleProps } from '../badges/Badge'

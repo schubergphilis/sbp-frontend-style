@@ -13,7 +13,8 @@ const Tooltip = ({
 	title,
 	placement = 'top',
 	children,
-	isActive = false
+	isActive = false,
+	...props
 }: Props) => {
 	const refMsg = useRef<HTMLDivElement>(null)
 	const refCnt = useRef<HTMLDivElement>(null)
@@ -86,7 +87,7 @@ const Tooltip = ({
 	}, [msgWidth, msgHeight, offsetHeight])
 
 	return (
-		<Container ref={refCnt} $isActive={isActive}>
+		<Container ref={refCnt} $isActive={isActive} {...props}>
 			{children}
 			<Message ref={refMsg} $placement={placement} style={alignment}>
 				{title}

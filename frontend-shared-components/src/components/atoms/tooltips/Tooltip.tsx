@@ -89,7 +89,11 @@ const Tooltip = ({
 	return (
 		<Container ref={refCnt} $isActive={isActive} {...props}>
 			{children}
-			<Message ref={refMsg} $placement={placement} style={alignment}>
+			<Message
+				ref={refMsg}
+				$placement={placement}
+				style={alignment}
+				data-message-size={[msgWidth, msgHeight]}>
 				{title}
 			</Message>
 		</Container>

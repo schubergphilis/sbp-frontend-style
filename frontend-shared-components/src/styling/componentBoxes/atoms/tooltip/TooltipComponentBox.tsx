@@ -22,6 +22,12 @@ const TooltipComponentBox = () => {
 				{ name: 'Right', value: 'right' }
 			],
 			value: ''
+		},
+		{
+			title: 'Alway Active',
+			name: 'isActive',
+			type: 'boolean',
+			value: false
 		}
 	]
 

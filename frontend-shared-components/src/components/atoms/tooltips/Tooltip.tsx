@@ -1,3 +1,4 @@
+import { parser } from 'helpers/HtmlHelper'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import styled, { CSSProperties, css } from 'styled-components'
 import { OrientationType } from '../../../datatypes/OrientationType'
@@ -94,7 +95,7 @@ const Tooltip = ({
 				$placement={placement}
 				style={alignment}
 				data-message-size={[msgWidth, msgHeight]}>
-				{title}
+				{parser(title.replace(/\\r\\n/gim, '<br/>'))}
 			</Message>
 		</Container>
 	)
@@ -130,6 +131,7 @@ export const TooltipStyle = css<{ $placement: OrientationType }>`
 	white-space: nowrap;
 	box-shadow: 4px 4px 4px ${({ theme }) => theme.style.shadow};
 	z-index: 10;
+	text-align: center;
 	font-size: 0.875em;
 
 	transform: translate3d(0, 10px, 0);

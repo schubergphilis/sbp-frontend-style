@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes } from 'react'
+import { ButtonHTMLAttributes, JSX } from 'react'
 import { styled } from 'styled-components'
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {

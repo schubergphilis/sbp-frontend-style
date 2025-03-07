@@ -22,6 +22,7 @@ import CardComponentBox from 'styling/componentBoxes/molecules/cards/CardCompone
 import CardContentComponentBox from 'styling/componentBoxes/molecules/cards/CardContentComponentBox'
 import CardFooterComponentBox from 'styling/componentBoxes/molecules/cards/CardFooterComponentBox'
 import CardHeaderComponentBox from 'styling/componentBoxes/molecules/cards/CardHeaderComponentBox'
+import DonutChartComponentBox from 'styling/componentBoxes/molecules/charts/DonutChartContentBox'
 import ModalComponentBox from 'styling/componentBoxes/molecules/modals/ModalComponentBox'
 import NotificationComponentBox from 'styling/componentBoxes/molecules/notifications/NotificationComponentBox'
 import AccordionComponentBox from 'styling/componentBoxes/organisms/accordion/AccordionComponentBox'
@@ -86,6 +87,8 @@ const App = () => {
 							<ProgressTimerComponentBox />
 
 							<TooltipComponentBox />
+
+							<DonutChartComponentBox />
 
 							<CardComponentBox />
 

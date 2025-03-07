@@ -1,4 +1,4 @@
-import ProgressCirlce from 'helpers/ProgressHelper'
+import ProgressCircle from 'helpers/ProgressHelper'
 import { useEffect, useRef, useState } from 'react'
 import { styled } from 'styled-components'
 
@@ -24,8 +24,8 @@ const ProgressTimer: React.FC<Props> = ({
 	onTimerFinish,
 	...props
 }) => {
-	const timerRef = useRef<NodeJS.Timeout>()
-	const finishRef = useRef<NodeJS.Timeout>()
+	const timerRef = useRef<NodeJS.Timeout>(undefined)
+	const finishRef = useRef<NodeJS.Timeout>(undefined)
 	const [trigger, setTrigger] = useState<boolean>(false)
 
 	useEffect(() => {
@@ -41,7 +41,7 @@ const ProgressTimer: React.FC<Props> = ({
 	}, [trigger])
 
 	return (
-		<XProgressCirlce
+		<XProgressCircle
 			initial={length}
 			current={inverse ? length : 0}
 			color={bgColor}
@@ -55,7 +55,7 @@ const ProgressTimer: React.FC<Props> = ({
 	)
 }
 
-const XProgressCirlce = styled(ProgressCirlce)<{
+const XProgressCircle = styled(ProgressCircle)<{
 	initial: number
 	$restart: boolean
 	inverse: boolean

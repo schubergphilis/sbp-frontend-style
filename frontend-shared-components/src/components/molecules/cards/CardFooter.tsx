@@ -1,6 +1,6 @@
-import { AlignType } from 'datatypes/AlignType'
-import { HTMLAttributes } from 'react'
+import { HTMLAttributes, JSX } from 'react'
 import { styled } from 'styled-components'
+import { AlignType } from '../../../datatypes/AlignType'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
 	align?: AlignType

@@ -4,7 +4,7 @@ import typescript from '@rollup/plugin-typescript'
 import del from 'rollup-plugin-delete'
 import dts from 'rollup-plugin-dts'
 import external from 'rollup-plugin-peer-deps-external'
-//import sourcemaps from 'rollup-plugin-sourcemaps'
+// import sourcemaps from 'rollup-plugin-sourcemaps'
 import { terser } from 'rollup-plugin-terser'
 import tsConfigPaths from 'rollup-plugin-tsconfig-paths'
 import packageJson from './package.json'
@@ -14,13 +14,13 @@ export default [
 		input: './src/build.ts',
 		output: [
 			{
-				file: packageJson.main,
+				file: packageJson.exports.require,
 				format: 'cjs',
 				sourcemap: false,
 				name: 'react-ts-lib'
 			},
 			{
-				file: packageJson.module,
+				file: packageJson.exports.import,
 				format: 'esm',
 				sourcemap: false
 			}
@@ -30,7 +30,7 @@ export default [
 			resolve(),
 			commonjs(),
 			typescript({ tsconfig: './tsconfig.build.json' }),
-			//sourcemaps(),
+			// sourcemaps(),
 			terser()
 		],
 		external: ['react', 'react-dom', 'styled-components']

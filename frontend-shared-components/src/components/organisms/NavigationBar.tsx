@@ -1,4 +1,4 @@
-import { HTMLAttributes } from 'react'
+import { HTMLAttributes, JSX } from 'react'
 import { styled } from 'styled-components'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {

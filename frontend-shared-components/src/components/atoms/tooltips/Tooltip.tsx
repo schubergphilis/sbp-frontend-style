@@ -1,14 +1,22 @@
-import { OrientationType } from 'datatypes'
+import { parser } from 'helpers/HtmlHelper'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import styled, { CSSProperties, css } from 'styled-components'
+import { OrientationType } from '../../../datatypes/OrientationType'
 
 interface Props {
 	title: string
 	placement?: OrientationType
+	isActive?: boolean
 	children: string | JSX.Element
 }
 
-const Tooltip = ({ title, placement = 'top', children }: Props) => {
+const Tooltip = ({
+	title,
+	placement = 'top',
+	children,
+	isActive = false,
+	...props
+}: Props) => {
 	const refMsg = useRef<HTMLDivElement>(null)
 	const refCnt = useRef<HTMLDivElement>(null)
 	const [msgWidth, setMsgWidth] = useState<number>(0)
@@ -80,16 +88,20 @@ const Tooltip = ({ title, placement = 'top', children }: Props) => {
 	}, [msgWidth, msgHeight, offsetHeight])
 
 	return (
-		<Container ref={refCnt}>
+		<Container ref={refCnt} $isActive={isActive} {...props}>
 			{children}
-			<Message ref={refMsg} $placement={placement} style={alignment}>
-				{title}
+			<Message
+				ref={refMsg}
+				$placement={placement}
+				style={alignment}
+				data-message-size={[msgWidth, msgHeight]}>
+				{parser(title.replace(/\\r\\n/gim, '<br/>'))}
 			</Message>
 		</Container>
 	)
 }
 
-const Container = styled.div`
+const Container = styled.div<{ $isActive: boolean }>`
 	display: inline;
 	border-bottom: 1px dotted ${({ theme }) => theme.style.colorActive};
 	position: relative;
@@ -98,6 +110,15 @@ const Container = styled.div`
 		opacity: 1;
 		transform: translate3d(0, 0, 0);
 	}
+
+	${({ $isActive }) =>
+		$isActive &&
+		`
+		> abbr {
+			opacity: 1;
+			transform: translate3d(0, 0, 0);
+		}
+	`}
 `
 export const TooltipStyle = css<{ $placement: OrientationType }>`
 	opacity: 0;
@@ -110,6 +131,7 @@ export const TooltipStyle = css<{ $placement: OrientationType }>`
 	white-space: nowrap;
 	box-shadow: 4px 4px 4px ${({ theme }) => theme.style.shadow};
 	z-index: 10;
+	text-align: center;
 	font-size: 0.875em;
 
 	transform: translate3d(0, 10px, 0);

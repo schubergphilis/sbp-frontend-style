@@ -1,4 +1,4 @@
-import { AnchorHTMLAttributes, Children } from 'react'
+import { AnchorHTMLAttributes, Children, JSX } from 'react'
 import styled, { css } from 'styled-components'
 import BadgeStyle, { BadgeStyleProps } from '../badges/Badge'
 

@@ -9,9 +9,9 @@ import {
 	CardFooter,
 	CardHeader
 } from 'components/molecules/cards'
-import { NotificationType } from 'datatypes/NotificationType'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { styled } from 'styled-components'
+import { NotificationType } from '../../../datatypes/NotificationType'
 
 interface Props {
 	title: string
@@ -37,7 +37,7 @@ const Notification = ({
 	onClose,
 	...props
 }: Props) => {
-	const timer = useRef<NodeJS.Timeout>()
+	const timer = useRef<NodeJS.Timeout>(undefined)
 	const [isOpen, setIsOpen] = useState<boolean>(false)
 	const [isRemove, setIsRemove] = useState<boolean>(false)
 
@@ -121,18 +121,18 @@ const NoticationCard = styled(Card)<{
 		$type === 'error'
 			? theme.style.notificationErrorColorBg
 			: $type === 'warning'
-			  ? theme.style.notificationWarningColorBg
-			  : $type === 'success'
-			    ? theme.style.notificationSuccessColorBg
-			    : theme.style.notificationInfoColorBg};
+				? theme.style.notificationWarningColorBg
+				: $type === 'success'
+					? theme.style.notificationSuccessColorBg
+					: theme.style.notificationInfoColorBg};
 	color: ${({ theme, $type }) =>
 		$type === 'error'
 			? theme.style.notificationErrorColor
 			: $type === 'warning'
-			  ? theme.style.notificationWarningColor
-			  : $type === 'success'
-			    ? theme.style.notificationSuccessColor
-			    : theme.style.notificationInfoColor};
+				? theme.style.notificationWarningColor
+				: $type === 'success'
+					? theme.style.notificationSuccessColor
+					: theme.style.notificationInfoColor};
 
 	opacity: 1;
 	transform: scale(${({ $isRemove }) => ($isRemove ? 0 : 1)});
@@ -195,14 +195,14 @@ const Counter = styled(ProgressTimer)<{ $type: NotificationType }>`
 						?.replace(/^rgb/i, 'rgba')
 						.replace(/\)/i, ', 0.5)')}`
 				: $type === 'warning'
-				  ? `${theme.style.notificationWarningColor
+					? `${theme.style.notificationWarningColor
 							?.replace(/^rgb/i, 'rgba')
 							.replace(/\)/i, ', 0.5)')}`
-				  : $type === 'success'
-				    ? `${theme.style.notificationSuccessColor
+					: $type === 'success'
+						? `${theme.style.notificationSuccessColor
 								?.replace(/^rgb/i, 'rgba')
 								.replace(/\)/i, ', 0.5)')}`
-				    : `${theme.style.notificationInfoColor
+						: `${theme.style.notificationInfoColor
 								?.replace(/^rgb/i, 'rgba')
 								.replace(/\)/i, ', 0.5)')}`};
 	}

@@ -1,5 +1,5 @@
-import { AlignType } from 'datatypes'
 import { css } from 'styled-components'
+import { AlignType } from '../../../datatypes/AlignType'
 
 export interface BadgeStyleProps {
 	$badge?: number

@@ -14,9 +14,10 @@ import ActionButton from 'components/atoms/buttons/ActionButton'
 import { AccumulateReturn, AccumulateState } from 'helpers/AccumulateHelper'
 import { useAppDispatch } from 'hooks/UseReduxStore'
 import StepsModel from 'models/StepsModel'
-import tsx from 'react-syntax-highlighter/dist/cjs/languages/hljs/typescript'
-import SyntaxHighlighter from 'react-syntax-highlighter/dist/cjs/light'
-import github from 'react-syntax-highlighter/dist/cjs/styles/hljs/atom-one-dark'
+import { Light as SyntaxHighlighter } from 'react-syntax-highlighter'
+import tsx from 'react-syntax-highlighter/dist/esm/languages/hljs/typescript'
+import github from 'react-syntax-highlighter/dist/esm/styles/hljs/atom-one-dark'
+
 import {
 	setDarkModeState,
 	setDarkStyleState,

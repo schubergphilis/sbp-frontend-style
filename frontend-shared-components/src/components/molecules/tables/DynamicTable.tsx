@@ -22,6 +22,7 @@ interface Props {
 	columns: ColumnModel[]
 	data?: TableRow[]
 	stripe?: boolean
+	idColumn?: number
 	onSort?: (selected: string, sort: SortType) => void
 	onRowClick?: (id: string) => void
 	noData?: string
@@ -37,6 +38,7 @@ const DynamicTable = ({
 	onSort,
 	onRowClick,
 	showMore,
+	idColumn = 0,
 	stripe = false,
 	noData = 'No data available',
 	showMoreTitle = 'Show more',
@@ -111,10 +113,10 @@ const DynamicTable = ({
 			<tbody>
 				{data?.map((row, index) => (
 					<tr
-						data-rowClick={onRowClick !== undefined}
+						data-rowClick={onRowClick !== null ? true : undefined}
 						key={`table_body_row_${index}`}
 						onClick={() =>
-							(onRowClick && onRowClick(row[0].toString())) ?? undefined
+							(onRowClick && onRowClick(row[idColumn].toString())) ?? undefined
 						}>
 						{row.map((cell, dataIndex) => (
 							<td

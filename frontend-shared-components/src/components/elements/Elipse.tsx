@@ -22,7 +22,7 @@ const Elipse = ({ index, children }: Props) => {
 		if (!ref.current) return
 
 		clearTimeout(timerRef.current)
-		timerRef.current = setTimeout(() => getWidth(), 10)
+		timerRef.current = setTimeout(() => getWidth(), 100)
 
 		return () => {
 			clearTimeout(timerRef.current)

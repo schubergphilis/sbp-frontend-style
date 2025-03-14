@@ -73,11 +73,11 @@ const DynamicTableComponentBox = () => {
 				// onRowClick={(id) => alert(`click ${id}`)}
 				// onShowMore={() => alert('show more!')}
 				columns={[
-					{ title: 'id', type: 'number', width: 10, order: true },
-					{ title: 'name', type: 'string', width: 100, order: true },
+					{ title: 'id', type: 'number', width: 80, order: true },
+					{ title: 'name', type: 'string', order: true },
 					{ title: 'missing', type: 'boolean' },
 					{ title: 'description', type: 'string', nobreak: true },
-					{ title: 'data', type: 'date', width: 100 }
+					{ title: 'data', type: 'date', width: 250 }
 				]}
 				data={[
 					[

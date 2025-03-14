@@ -1,4 +1,7 @@
 import ActionButton from 'components/atoms/buttons/ActionButton'
+import Elipse from 'components/elements/Elipse'
+import TableOrder from 'components/elements/TableOrder'
+import TimestampBar from 'components/elements/TimestampBar'
 import { SortType } from 'datatypes/SortType'
 import { TableRow } from 'datatypes/TableRow'
 import { useAppSelector } from 'hooks/UseReduxStore'
@@ -6,9 +9,6 @@ import ColumnModel from 'models/ColumnModel'
 import { useCallback, useState } from 'react'
 import { isDarkModeState } from 'store/SettingsSlice'
 import styled from 'styled-components'
-import Elipse from '../../elements/Elipse'
-import TableOrder from '../../elements/TableOrder'
-import TimestampBar from '../../elements/TimestampBar'
 
 interface Props {
 	title?: string
@@ -127,7 +127,7 @@ const DynamicTable = ({
 										showDays={showDays}
 									/>
 								) : columns[dataIndex].nobreak ? (
-									<Elipse>{cell.toLocaleString()}</Elipse>
+									<Elipse index={dataIndex}>{cell.toLocaleString()}</Elipse>
 								) : (
 									<div>
 										{typeof cell === 'boolean'
@@ -179,6 +179,7 @@ const Table = styled.table<{ $stripe: boolean; $isDarkMode: boolean }>`
 
 			user-select: none;
 			white-space: nowrap;
+
 			& span {
 				display: inline-block;
 			}
@@ -225,4 +226,5 @@ const Table = styled.table<{ $stripe: boolean; $isDarkMode: boolean }>`
 	}
 `
 const Th = styled.th<{ width: string }>``
+
 export default DynamicTable

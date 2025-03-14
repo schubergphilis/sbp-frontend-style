@@ -28,7 +28,7 @@ const TextLink = ({
 											(typeof el === 'string' && el === '')
 										)
 								)
-								.map((el) => <div>{el}</div>)
+								.map((el, index) => <div key={`text_link_${index}`}>{el}</div>)
 						)
 					: children}
 			</Content>

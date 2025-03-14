@@ -43,7 +43,9 @@ const ActionButton = ({
 											(typeof el === 'string' && el === '')
 										)
 								)
-								.map((el) => <div>{el}</div>)
+								.map((el, index) => (
+									<div key={`action_button_${index}`}>{el}</div>
+								))
 						)
 					: children}
 			</Content>
@@ -62,6 +64,7 @@ export const ButtonStyle = css<ButtonStyleProps>`
 	position: relative;
 	padding: 0.5em 1em;
 	cursor: pointer;
+	user-select: none;
 	display: ${({ $isBlock }) => ($isBlock ? 'block' : 'inline-block')};
 	width: ${({ $isBlock }) => ($isBlock ? '100%' : 'auto')};
 	color: ${({ $variant, theme }) =>

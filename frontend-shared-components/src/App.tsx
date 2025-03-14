@@ -25,6 +25,7 @@ import CardHeaderComponentBox from 'styling/componentBoxes/molecules/cards/CardH
 import DonutChartComponentBox from 'styling/componentBoxes/molecules/charts/DonutChartContentBox'
 import ModalComponentBox from 'styling/componentBoxes/molecules/modals/ModalComponentBox'
 import NotificationComponentBox from 'styling/componentBoxes/molecules/notifications/NotificationComponentBox'
+import DynamicTableComponentBox from 'styling/componentBoxes/molecules/tables/DynamicTableComponentBox'
 import AccordionComponentBox from 'styling/componentBoxes/organisms/accordion/AccordionComponentBox'
 import NavigationBarComponentBox from 'styling/componentBoxes/organisms/navigation/NavigationBarComponentBox'
 import TabBarComponentBox from 'styling/componentBoxes/organisms/tabbar/TabBarComponentBox'
@@ -67,6 +68,8 @@ const App = () => {
 							<DragButtonComponentBox />
 
 							<NotificationComponentBox />
+
+							<DynamicTableComponentBox />
 
 							<TextLinkComponentBox />
 

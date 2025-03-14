@@ -7,4 +7,6 @@ export type ValueType =
 	| number
 	| any[]
 	| VoidFunction
+	| ((id: string) => void)
+	| ((selected: string, sort: any) => void)
 	| DefaultStyle

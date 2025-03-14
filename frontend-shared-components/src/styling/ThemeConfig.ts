@@ -107,6 +107,7 @@ const lightStyle: DefaultStyle = {
 	fontColor: 'rgb(2, 12, 23)',
 	colorPrimary: 'rgb(30, 128, 237)',
 	colorSecondary: 'rgb(30, 232, 237)',
+	colorHighlight: 'rgba(0, 0, 0, 0.075)',
 	colorCta: 'inherit',
 	colorActive: 'rgb(30, 128, 237)',
 	colorZebra: 'rgba(0, 0, 0, 0.05)',

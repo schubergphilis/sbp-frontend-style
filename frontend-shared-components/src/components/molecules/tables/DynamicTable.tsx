@@ -1,0 +1,201 @@
+import { ActionButton } from 'build'
+import { SortType } from 'datatypes/SortType'
+import { useCallback, useState } from 'react'
+import styled from 'styled-components'
+import Elipse from './Elipse'
+import TableOrder from './TableOrder'
+import TimestampBar from './TimestampBar'
+
+type TableRow = (number | string | boolean | Date)[]
+
+type ColumnType = 'number' | 'string' | 'date' | 'boolean'
+
+interface ColumnModel {
+	title: string
+	type: ColumnType
+	order: boolean
+	nobreak?: boolean
+}
+
+interface Props {
+	columns: ColumnModel[]
+	data?: TableRow[]
+	stripe?: boolean
+	onSort?: (selected: string, sort: SortType) => void
+	onRowClick?: (id: string) => void
+	noData?: string
+	showMore?: boolean
+	showMoreTitle?: string
+	onShowMore?: VoidFunction
+}
+
+const DynamicTable = ({
+	data,
+	columns,
+	onSort,
+	onRowClick,
+	showMore,
+	stripe = false,
+	noData = 'No data available',
+	showMoreTitle = 'Show more',
+	onShowMore
+}: Props) => {
+	const alignList = ['date', 'number']
+	const [showDays, setShowDays] = useState<boolean>(false)
+	const [sort, setSort] = useState<SortType>('ASC')
+	const [selected, setSelected] = useState<string>('')
+	console.log(onRowClick, onSort)
+	const handleSortClick = useCallback(
+		(title: string) => {
+			const newSort =
+				title === selected ? (sort === 'ASC' ? 'DESC' : 'ASC') : 'ASC'
+			setSort(newSort)
+			setSelected(title)
+
+			if (onSort) onSort(title, newSort)
+		},
+		[selected, sort]
+	)
+
+	const handleShowDays = useCallback(
+		(ev: React.MouseEvent<HTMLButtonElement>) => {
+			ev.stopPropagation()
+			ev.preventDefault()
+
+			setShowDays(!showDays)
+		},
+		[showDays]
+	)
+
+	return (
+		<Table cellSpacing={0} $stripe={stripe}>
+			<thead>
+				<tr>
+					{columns.map(({ title, type, order }, dataIndex) => (
+						<th
+							key={`table_head_cell_${dataIndex}`}
+							align={alignList.indexOf(type) > -1 ? 'right' : 'left'}>
+							{order ? (
+								<TableOrder
+									title={title}
+									onClick={() => handleSortClick(title)}
+									sort={sort}
+									selected={selected}
+								/>
+							) : (
+								<span>{title}</span>
+							)}
+						</th>
+					))}
+				</tr>
+			</thead>
+			<tbody>
+				{data?.map((row, index) => (
+					<tr
+						data-rowClick={onRowClick !== undefined}
+						key={`table_body_row_${index}`}
+						onClick={() =>
+							(onRowClick && onRowClick(row[0].toString())) ?? undefined
+						}>
+						{row.map((cell, dataIndex) => (
+							<td
+								key={`table_body_row_${index}_cell_${dataIndex}`}
+								align={
+									alignList.indexOf(columns[dataIndex].type) > -1
+										? 'right'
+										: 'left'
+								}>
+								{columns[dataIndex].type === 'date' ? (
+									<TimestampBar
+										date={cell as string}
+										onClick={handleShowDays}
+										showDays={showDays}
+									/>
+								) : columns[dataIndex].nobreak ? (
+									<Elipse>{cell.toLocaleString()}</Elipse>
+								) : (
+									cell.toLocaleString()
+								)}
+							</td>
+						))}
+					</tr>
+				))}
+			</tbody>
+			{data?.length === 0 && (
+				<tfoot>
+					<tr>
+						<th align="center" colSpan={columns.length}>
+							{noData}
+						</th>
+					</tr>
+				</tfoot>
+			)}
+			{showMore && data && data?.length > 0 && (
+				<tfoot>
+					<tr>
+						<th align="right" colSpan={columns.length}>
+							<ActionButton type="button" onClick={onShowMore}>
+								{showMoreTitle}
+							</ActionButton>
+						</th>
+					</tr>
+				</tfoot>
+			)}
+		</Table>
+	)
+}
+
+const Table = styled.table<{ $stripe: boolean }>`
+	width: 100%;
+	border-collapse: collapse;
+
+	& thead th {
+		background-color: ${({ theme }) => theme.style.colorPrimary};
+		user-select: none;
+		white-space: nowrap;
+		& span {
+			display: inline-block;
+		}
+	}
+
+	${({ $stripe, theme }) =>
+		$stripe &&
+		`
+        & tr:nth-child(even) {
+            background-color: ${theme.style.colorZebra};
+        }
+    `}
+
+	& td,
+	& th {
+		padding: 1em 0.5em;
+		cursor: default;
+
+		&:first-child {
+			border-top-left-radius: ${({ theme }) => theme.style.radius}px;
+			border-bottom-left-radius: ${({ theme }) => theme.style.radius}px;
+		}
+
+		&:last-child {
+			border-top-right-radius: ${({ theme }) => theme.style.radius}px;
+			border-bottom-right-radius: ${({ theme }) => theme.style.radius}px;
+		}
+	}
+
+	& tbody {
+		& tr[data-rowClick] {
+			th,
+			td {
+				cursor: pointer;
+			}
+			&:hover {
+				th,
+				td {
+					background-color: ${({ theme }) => theme.style.colorHighlight};
+				}
+			}
+		}
+	}
+`
+
+export default DynamicTable

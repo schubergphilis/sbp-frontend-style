@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 
 interface Props {
@@ -7,15 +7,26 @@ interface Props {
 }
 
 const Elipse = ({ index, children }: Props) => {
+	const timerRef = useRef<NodeJS.Timeout>(undefined)
 	const ref = useRef<HTMLDivElement>(null)
 	const [width, setWidth] = useState<number>(0)
 
-	useEffect(() => {
-		if (!ref.current) return
+	const getWidth = useCallback(() => {
 		const element = ref.current
 			?.closest('table')
 			?.querySelector(`thead tr th:nth-child(${index + 1})`)
 		setWidth(Math.round(element?.getBoundingClientRect().width ?? 0))
+	}, [ref])
+
+	useEffect(() => {
+		if (!ref.current) return
+
+		clearTimeout(timerRef.current)
+		timerRef.current = setTimeout(() => getWidth(), 10)
+
+		return () => {
+			clearTimeout(timerRef.current)
+		}
 	}, [ref])
 	return (
 		<Container

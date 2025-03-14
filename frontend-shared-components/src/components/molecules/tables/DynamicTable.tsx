@@ -2,7 +2,9 @@ import ActionButton from 'components/atoms/buttons/ActionButton'
 import { ColumnType } from 'datatypes/ColumnType'
 import { SortType } from 'datatypes/SortType'
 import { TableRow } from 'datatypes/TableRow'
+import { useAppSelector } from 'hooks/UseReduxStore'
 import { useCallback, useState } from 'react'
+import { isDarkModeState } from 'store/SettingsSlice'
 import styled from 'styled-components'
 import Elipse from './Elipse'
 import TableOrder from './TableOrder'
@@ -38,13 +40,17 @@ const DynamicTable = ({
 	stripe = false,
 	noData = 'No data available',
 	showMoreTitle = 'Show more',
-	onShowMore
+	onShowMore,
+	...props
 }: Props) => {
 	const alignList = ['date', 'number']
+
+	const isDarkTheme = useAppSelector<boolean>(isDarkModeState)
+
 	const [showDays, setShowDays] = useState<boolean>(false)
 	const [sort, setSort] = useState<SortType>('ASC')
 	const [selected, setSelected] = useState<string>('')
-	console.log(onRowClick, onSort)
+
 	const handleSortClick = useCallback(
 		(title: string) => {
 			const newSort =
@@ -68,7 +74,11 @@ const DynamicTable = ({
 	)
 
 	return (
-		<Table cellSpacing={0} $stripe={stripe}>
+		<Table
+			cellSpacing={0}
+			$stripe={stripe}
+			$isDarkMode={isDarkTheme}
+			{...props}>
 			{title && (
 				<thead>
 					<tr>
@@ -154,16 +164,24 @@ const DynamicTable = ({
 	)
 }
 
-const Table = styled.table<{ $stripe: boolean }>`
+const Table = styled.table<{ $stripe: boolean; $isDarkMode: boolean }>`
 	width: 100%;
 	border-collapse: collapse;
 
-	& thead th {
-		background-color: ${({ theme }) => theme.style.colorPrimary};
-		user-select: none;
-		white-space: nowrap;
-		& span {
-			display: inline-block;
+	& thead {
+		& td {
+			text-align: left;
+		}
+		& th {
+			background-color: ${({ theme }) => theme.style.colorPrimary};
+			color: ${({ $isDarkMode, theme }) =>
+				$isDarkMode ? theme.style.colorBg : theme.style.fontColor};
+
+			user-select: none;
+			white-space: nowrap;
+			& span {
+				display: inline-block;
+			}
 		}
 	}
 

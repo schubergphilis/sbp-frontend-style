@@ -1,1 +1,1 @@
-export type TableRow = (number | string | boolean | Date)[]
+export type TableRow = (number | string | boolean | Date | JSX.Element)[]

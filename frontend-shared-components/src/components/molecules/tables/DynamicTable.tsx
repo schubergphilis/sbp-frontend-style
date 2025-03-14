@@ -1,19 +1,17 @@
 import ActionButton from 'components/atoms/buttons/ActionButton'
+import { ColumnType } from 'datatypes/ColumnType'
 import { SortType } from 'datatypes/SortType'
+import { TableRow } from 'datatypes/TableRow'
 import { useCallback, useState } from 'react'
 import styled from 'styled-components'
 import Elipse from './Elipse'
 import TableOrder from './TableOrder'
 import TimestampBar from './TimestampBar'
 
-type TableRow = (number | string | boolean | Date)[]
-
-type ColumnType = 'number' | 'string' | 'date' | 'boolean'
-
 interface ColumnModel {
 	title: string
 	type: ColumnType
-	order: boolean
+	order?: boolean
 	nobreak?: boolean
 }
 

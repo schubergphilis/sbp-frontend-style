@@ -1,21 +1,14 @@
 import ActionButton from 'components/atoms/buttons/ActionButton'
-import { ColumnType } from 'datatypes/ColumnType'
 import { SortType } from 'datatypes/SortType'
 import { TableRow } from 'datatypes/TableRow'
 import { useAppSelector } from 'hooks/UseReduxStore'
+import ColumnModel from 'models/ColumnModel'
 import { useCallback, useState } from 'react'
 import { isDarkModeState } from 'store/SettingsSlice'
 import styled from 'styled-components'
-import Elipse from './Elipse'
-import TableOrder from './TableOrder'
-import TimestampBar from './TimestampBar'
-
-interface ColumnModel {
-	title: string
-	type: ColumnType
-	order?: boolean
-	nobreak?: boolean
-}
+import Elipse from '../../elements/Elipse'
+import TableOrder from '../../elements/TableOrder'
+import TimestampBar from '../../elements/TimestampBar'
 
 interface Props {
 	title?: string
@@ -92,8 +85,9 @@ const DynamicTable = ({
 			)}
 			<thead>
 				<tr>
-					{columns.map(({ title, type, order }, dataIndex) => (
+					{columns.map(({ title, type, order, width }, dataIndex) => (
 						<th
+							style={{ minWidth: width ? `${width}em` : 'auto' }}
 							key={`table_head_cell_${dataIndex}`}
 							align={alignList.indexOf(type) > -1 ? 'right' : 'left'}>
 							{order ? (
@@ -113,7 +107,7 @@ const DynamicTable = ({
 			<tbody>
 				{data?.map((row, index) => (
 					<tr
-						data-rowClick={onRowClick !== null ? true : undefined}
+						data-rowclick={onRowClick !== null ? true : undefined}
 						key={`table_body_row_${index}`}
 						onClick={() =>
 							(onRowClick && onRowClick(row[idColumn].toString())) ?? undefined
@@ -135,7 +129,11 @@ const DynamicTable = ({
 								) : columns[dataIndex].nobreak ? (
 									<Elipse>{cell.toLocaleString()}</Elipse>
 								) : (
-									(cell as any)
+									<div>
+										{typeof cell === 'boolean'
+											? cell.toString()
+											: (cell as any)}
+									</div>
 								)}
 							</td>
 						))}
@@ -197,7 +195,7 @@ const Table = styled.table<{ $stripe: boolean; $isDarkMode: boolean }>`
 
 	& td,
 	& th {
-		padding: 1em 0.5em;
+		padding: 0.5em 1em;
 		cursor: default;
 
 		&:first-child {
@@ -212,7 +210,7 @@ const Table = styled.table<{ $stripe: boolean; $isDarkMode: boolean }>`
 	}
 
 	& tbody {
-		& tr[data-rowClick] {
+		& tr[data-rowclick] {
 			th,
 			td {
 				cursor: pointer;

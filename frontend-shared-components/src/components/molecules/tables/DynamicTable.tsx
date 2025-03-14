@@ -74,7 +74,7 @@ const DynamicTable = ({
 			$stripe={stripe}
 			$isDarkMode={isDarkTheme}
 			{...props}>
-			{title && (
+			{title && title !== '' && (
 				<thead>
 					<tr>
 						<td colSpan={columns.length}>
@@ -86,8 +86,8 @@ const DynamicTable = ({
 			<thead>
 				<tr>
 					{columns.map(({ title, type, order, width }, dataIndex) => (
-						<th
-							style={{ minWidth: width ? `${width}em` : 'auto' }}
+						<Th
+							width={width ? `${width}` : '*'}
 							key={`table_head_cell_${dataIndex}`}
 							align={alignList.indexOf(type) > -1 ? 'right' : 'left'}>
 							{order ? (
@@ -100,7 +100,7 @@ const DynamicTable = ({
 							) : (
 								<span>{title}</span>
 							)}
-						</th>
+						</Th>
 					))}
 				</tr>
 			</thead>
@@ -224,5 +224,5 @@ const Table = styled.table<{ $stripe: boolean; $isDarkMode: boolean }>`
 		}
 	}
 `
-
+const Th = styled.th<{ width: string }>``
 export default DynamicTable

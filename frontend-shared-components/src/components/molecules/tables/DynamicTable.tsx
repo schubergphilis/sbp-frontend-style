@@ -18,6 +18,7 @@ interface ColumnModel {
 }
 
 interface Props {
+	title?: string
 	columns: ColumnModel[]
 	data?: TableRow[]
 	stripe?: boolean
@@ -30,6 +31,7 @@ interface Props {
 }
 
 const DynamicTable = ({
+	title,
 	data,
 	columns,
 	onSort,
@@ -69,6 +71,15 @@ const DynamicTable = ({
 
 	return (
 		<Table cellSpacing={0} $stripe={stripe}>
+			{title && (
+				<thead>
+					<tr>
+						<td colSpan={columns.length}>
+							<h3>{title}</h3>
+						</td>
+					</tr>
+				</thead>
+			)}
 			<thead>
 				<tr>
 					{columns.map(({ title, type, order }, dataIndex) => (

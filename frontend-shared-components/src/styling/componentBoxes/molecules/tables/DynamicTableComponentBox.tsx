@@ -5,6 +5,12 @@ import ComponentBox from 'styling/elements/box/ComponentBox'
 const DynamicTableComponentBox = () => {
 	const options: ComponentOptionModel[] = [
 		{
+			title: 'Title',
+			name: 'title',
+			type: 'text',
+			value: 'Missing persons'
+		},
+		{
 			title: 'Show More title',
 			name: 'showMoreTitle',
 			type: 'text',

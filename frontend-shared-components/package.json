@@ -1,6 +1,6 @@
 {
 	"name": "@gmtdi/frontend-shared-components",
-	"version": "1.0.1-95",
+	"version": "1.0.1-96",
 	"license": "MIT",
 	"type": "module",
 	"types": "./dist/index.d.ts",

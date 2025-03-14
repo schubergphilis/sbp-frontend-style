@@ -1,4 +1,4 @@
-import { ActionButton } from 'build'
+import ActionButton from 'components/atoms/buttons/ActionButton'
 import { SortType } from 'datatypes/SortType'
 import { useCallback, useState } from 'react'
 import styled from 'styled-components'

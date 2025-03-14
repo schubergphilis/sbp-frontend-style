@@ -135,7 +135,7 @@ const DynamicTable = ({
 								) : columns[dataIndex].nobreak ? (
 									<Elipse>{cell.toLocaleString()}</Elipse>
 								) : (
-									cell.toLocaleString()
+									(cell as any)
 								)}
 							</td>
 						))}
@@ -155,7 +155,7 @@ const DynamicTable = ({
 				<tfoot>
 					<tr>
 						<th align="right" colSpan={columns.length}>
-							<ActionButton type="button" onClick={onShowMore}>
+							<ActionButton type="button" onClick={onShowMore} variant="cta">
 								{showMoreTitle}
 							</ActionButton>
 						</th>

@@ -6,7 +6,7 @@ import { SortType } from 'datatypes/SortType'
 import { TableRow } from 'datatypes/TableRow'
 import { useAppSelector } from 'hooks/UseReduxStore'
 import ColumnModel from 'models/ColumnModel'
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { isDarkModeState } from 'store/SettingsSlice'
 import styled from 'styled-components'
 
@@ -40,11 +40,14 @@ const DynamicTable = ({
 }: Props) => {
 	const alignList = ['date', 'number']
 
+	const ref = useRef<HTMLTableElement>(null)
+
 	const isDarkTheme = useAppSelector<boolean>(isDarkModeState)
 
 	const [showDays, setShowDays] = useState<boolean>(false)
 	const [sort, setSort] = useState<SortType>('ASC')
 	const [selected, setSelected] = useState<string>('')
+	const [refresh, setRefresh] = useState<number>(0)
 
 	const handleSortClick = useCallback(
 		(title: string) => {
@@ -68,8 +71,23 @@ const DynamicTable = ({
 		[showDays]
 	)
 
+	const handleResize = useCallback(() => {
+		setRefresh(Math.random())
+	}, [])
+
+	useEffect(() => {
+		if (!ref.current) return
+
+		const observer = new ResizeObserver(handleResize)
+
+		observer.observe(ref.current)
+
+		return () => observer.disconnect()
+	}, [ref])
+
 	return (
 		<Table
+			ref={ref}
 			cellSpacing={0}
 			$stripe={stripe}
 			$isDarkMode={isDarkTheme}
@@ -127,7 +145,7 @@ const DynamicTable = ({
 										showDays={showDays}
 									/>
 								) : columns[dataIndex].nobreak ? (
-									<Elipse index={dataIndex}>{cell.toLocaleString()}</Elipse>
+									<Elipse update={refresh}>{cell.toLocaleString()}</Elipse>
 								) : (
 									<div>
 										{typeof cell === 'boolean'

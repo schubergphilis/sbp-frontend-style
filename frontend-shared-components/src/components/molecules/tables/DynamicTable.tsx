@@ -103,23 +103,25 @@ const DynamicTable = ({
 			)}
 			<thead>
 				<tr>
-					{columns.map(({ title, type, order, width }, dataIndex) => (
-						<Th
-							width={width ? `${width}` : '*'}
-							key={`table_head_cell_${dataIndex}`}
-							align={alignList.indexOf(type) > -1 ? 'right' : 'left'}>
-							{order ? (
-								<TableOrder
-									title={title}
-									onClick={() => handleSortClick(title)}
-									sort={sort}
-									selected={selected}
-								/>
-							) : (
-								<span>{title}</span>
-							)}
-						</Th>
-					))}
+					{columns.map(
+						({ title, type = 'string', order, width }, dataIndex) => (
+							<Th
+								width={width ? `${width}` : '*'}
+								key={`table_head_cell_${dataIndex}`}
+								align={alignList.indexOf(type) > -1 ? 'right' : 'left'}>
+								{order ? (
+									<TableOrder
+										title={title}
+										onClick={() => handleSortClick(title)}
+										sort={sort}
+										selected={selected}
+									/>
+								) : (
+									<span>{title}</span>
+								)}
+							</Th>
+						)
+					)}
 				</tr>
 			</thead>
 			<tbody>
@@ -136,7 +138,7 @@ const DynamicTable = ({
 							<td
 								key={`table_body_row_${index}_cell_${dataIndex}`}
 								align={
-									alignList.indexOf(columns[dataIndex].type) > -1
+									alignList.indexOf(columns[dataIndex]?.type ?? 'string') > -1
 										? 'right'
 										: 'left'
 								}>

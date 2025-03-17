@@ -6,6 +6,12 @@ import { act, render, screen } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
 import App from '../src/App'
 
+global.ResizeObserver = jest.fn().mockImplementation(() => ({
+	observe: jest.fn(),
+	unobserve: jest.fn(),
+	disconnect: jest.fn()
+}))
+
 describe('App', () => {
 	it('should render the app', async () => {
 		await act(async () => {

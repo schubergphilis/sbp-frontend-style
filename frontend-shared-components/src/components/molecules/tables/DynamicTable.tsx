@@ -125,7 +125,9 @@ const DynamicTable = ({
 			<tbody>
 				{data?.map((row, index) => (
 					<tr
-						data-rowclick={onRowClick !== null ? true : undefined}
+						data-rowclick={
+							onRowClick !== null && onRowClick !== undefined ? true : undefined
+						}
 						key={`table_body_row_${index}`}
 						onClick={() =>
 							(onRowClick && onRowClick(row[idColumn].toString())) ?? undefined

@@ -247,6 +247,6 @@ const Table = styled.table<{ $stripe: boolean; $isDarkMode: boolean }>`
 		}
 	}
 `
-const Th = styled.th<{ width: string }>``
+const Th = styled.th<{ width: string; align: string }>``
 
 export default DynamicTable

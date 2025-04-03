@@ -39,7 +39,7 @@ const Elipse = ({ update, children }: Props) => {
 
 	return (
 		<Container
-			style={{ width: width }}
+			style={{ maxWidth: width }}
 			ref={ref}
 			title={typeof children === 'string' ? children : undefined}>
 			{children}

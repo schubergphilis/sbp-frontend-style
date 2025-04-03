@@ -21,7 +21,8 @@ interface Props {
 	noData?: string
 	showMore?: boolean
 	showMoreTitle?: string
-	onShowMore?: VoidFunction
+	onShowMore?: (ev: any) => void
+	isSticky?: boolean
 }
 
 const DynamicTable = ({
@@ -36,6 +37,7 @@ const DynamicTable = ({
 	noData = 'No data available',
 	showMoreTitle = 'Show more',
 	onShowMore,
+	isSticky = false,
 	...props
 }: Props) => {
 	const alignList = ['date', 'number']
@@ -91,6 +93,7 @@ const DynamicTable = ({
 			cellSpacing={0}
 			$stripe={stripe}
 			$isDarkMode={isDarkTheme}
+			$isSticky={isSticky}
 			{...props}>
 			{title && title !== '' && (
 				<thead>
@@ -186,11 +189,18 @@ const DynamicTable = ({
 	)
 }
 
-const Table = styled.table<{ $stripe: boolean; $isDarkMode: boolean }>`
+const Table = styled.table<{
+	$stripe: boolean
+	$isDarkMode: boolean
+	$isSticky: boolean
+}>`
 	width: 100%;
+	table-layout: fixed;
 	border-collapse: collapse;
 
 	& thead {
+		position: relative;
+
 		& td {
 			text-align: left;
 		}
@@ -246,6 +256,38 @@ const Table = styled.table<{ $stripe: boolean; $isDarkMode: boolean }>`
 			}
 		}
 	}
+
+	${({ $isSticky }) =>
+		$isSticky &&
+		`
+		& thead {
+			&:first-child {
+				& td,
+				& th {
+					position: sticky;
+					top: 0px;
+					z-index: 1;
+				}
+			}
+
+			& td,
+			& th {
+				position: sticky;
+				top: calc(3em - 2px);
+				z-index: 1;
+			}
+		}
+
+		& tfoot {
+			& td,
+			& th {
+				position: sticky;
+				bottom: 0;
+				z-index: 1;
+			}
+		}
+
+	`}
 `
 const Th = styled.th<{ width: string; align: string }>``
 

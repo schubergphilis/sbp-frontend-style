@@ -31,9 +31,9 @@ const TimestampBar = ({ date, showDays = false, ...props }: Props) => {
 					: ''
 		const textMinutes =
 			minutes === 1
-				? `, ${minutes} minute`
+				? `${hours > 0 ? ',' : ''} ${minutes} minute`
 				: minutes > 1
-					? `, ${minutes} minutes`
+					? `${hours > 0 ? ',' : ''} ${minutes} minutes`
 					: ''
 
 		// Format the result

@@ -166,13 +166,13 @@ const DynamicTable = ({
 				))}
 			</tbody>
 			{data?.length === 0 && (
-				<tfoot>
+				<tbody>
 					<tr>
 						<th align="center" colSpan={columns.length}>
 							{noData}
 						</th>
 					</tr>
-				</tfoot>
+				</tbody>
 			)}
 			{showMore && data && data?.length > 0 && (
 				<tfoot>

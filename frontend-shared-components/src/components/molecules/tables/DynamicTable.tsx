@@ -18,7 +18,7 @@ interface Props {
 	stripe?: boolean
 	idColumn?: number
 	onSort?: (selected: string, sort: SortType) => void
-	onRowClick?: (id: string) => void
+	onRowClick?: (data: string | TableRow) => void
 	noData?: string
 	showMore?: boolean
 	showMoreTitle?: string
@@ -147,7 +147,9 @@ const DynamicTable = ({
 						}
 						key={`table_body_row_${index}`}
 						onClick={() =>
-							(onRowClick && onRowClick(row[idColumn].toString())) ?? undefined
+							(onRowClick &&
+								onRowClick(idColumn === -1 ? row : row[idColumn].toString())) ??
+							undefined
 						}>
 						{row.map((cell, dataIndex) => (
 							<td

@@ -18,7 +18,10 @@ interface Props {
 	stripe?: boolean
 	idColumn?: number
 	onSort?: (selected: string, sort: SortType) => void
-	onRowClick?: (data: string | TableRow) => void
+	onRowClick?: (
+		ev: React.MouseEvent<HTMLTableRowElement>,
+		data: string | TableRow
+	) => void
 	noData?: string
 	showMore?: boolean
 	showMoreTitle?: string
@@ -146,9 +149,12 @@ const DynamicTable = ({
 							onRowClick !== null && onRowClick !== undefined ? true : undefined
 						}
 						key={`table_body_row_${index}`}
-						onClick={() =>
+						onClick={(ev) =>
 							(onRowClick &&
-								onRowClick(idColumn === -1 ? row : row[idColumn].toString())) ??
+								onRowClick(
+									ev,
+									idColumn === -1 ? row : row[idColumn].toString()
+								)) ??
 							undefined
 						}>
 						{row.map((cell, dataIndex) => (
@@ -200,9 +206,8 @@ const DynamicTable = ({
 									: undefined
 							}
 							key={`table_foot_row_${index}`}
-							onClick={() =>
-								(onRowClick && onRowClick(row[idColumn].toString())) ??
-								undefined
+							onClick={(ev) =>
+								(onRowClick && onRowClick(ev, row)) ?? undefined
 							}>
 							{row.map((cell, dataIndex) => (
 								<td

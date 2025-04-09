@@ -53,6 +53,16 @@ const DynamicTable = ({
 	const [selected, setSelected] = useState<string>('')
 	const [refresh, setRefresh] = useState<number>(0)
 
+	const calculateColspan = useCallback(
+		(index: number) => {
+			const total = columns.length
+			const footTotal = foot?.length ?? 0
+
+			return index === footTotal - 1 ? total - footTotal : undefined
+		},
+		[columns, foot]
+	)
+
 	const handleSortClick = useCallback(
 		(title: string) => {
 			const newSort =
@@ -193,7 +203,9 @@ const DynamicTable = ({
 								undefined
 							}>
 							{row.map((cell, dataIndex) => (
-								<td key={`table_foot_row_${index}_cell_${dataIndex}`}>
+								<td
+									key={`table_foot_row_${index}_cell_${dataIndex}`}
+									colSpan={calculateColspan(dataIndex)}>
 									<div>
 										{typeof cell === 'boolean'
 											? cell.toString()

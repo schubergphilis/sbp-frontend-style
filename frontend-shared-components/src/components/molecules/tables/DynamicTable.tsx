@@ -14,6 +14,7 @@ interface Props {
 	title?: string
 	columns: ColumnModel[]
 	data?: TableRow[]
+	foot?: TableRow[]
 	stripe?: boolean
 	idColumn?: number
 	onSort?: (selected: string, sort: SortType) => void
@@ -29,6 +30,7 @@ const DynamicTable = ({
 	title,
 	data,
 	columns,
+	foot,
 	onSort,
 	onRowClick,
 	showMore,
@@ -140,6 +142,7 @@ const DynamicTable = ({
 						{row.map((cell, dataIndex) => (
 							<td
 								key={`table_body_row_${index}_cell_${dataIndex}`}
+								data-empty={!cell || cell === '' ? true : undefined}
 								align={
 									alignList.indexOf(columns[dataIndex]?.type ?? 'string') > -1
 										? 'right'
@@ -174,6 +177,35 @@ const DynamicTable = ({
 					</tr>
 				</tbody>
 			)}
+
+			{foot && (
+				<tfoot>
+					{foot?.map((row, index) => (
+						<tr
+							data-rowclick={
+								onRowClick !== null && onRowClick !== undefined
+									? true
+									: undefined
+							}
+							key={`table_foot_row_${index}`}
+							onClick={() =>
+								(onRowClick && onRowClick(row[idColumn].toString())) ??
+								undefined
+							}>
+							{row.map((cell, dataIndex) => (
+								<td key={`table_foot_row_${index}_cell_${dataIndex}`}>
+									<div>
+										{typeof cell === 'boolean'
+											? cell.toString()
+											: (cell as any)}
+									</div>
+								</td>
+							))}
+						</tr>
+					))}
+				</tfoot>
+			)}
+
 			{showMore && data && data?.length > 0 && (
 				<tfoot>
 					<tr>

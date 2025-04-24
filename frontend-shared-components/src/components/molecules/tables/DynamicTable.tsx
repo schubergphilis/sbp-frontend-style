@@ -172,7 +172,7 @@ const DynamicTable = ({
 										onClick={handleShowDays}
 										showDays={showDays}
 									/>
-								) : columns[dataIndex].nobreak ? (
+								) : columns[dataIndex].nobreak && typeof cell === 'string' ? (
 									<Elipse update={refresh}>{cell.toLocaleString()}</Elipse>
 								) : (
 									<div>

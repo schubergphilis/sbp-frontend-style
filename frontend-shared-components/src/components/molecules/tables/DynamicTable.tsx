@@ -167,7 +167,7 @@ const DynamicTable = ({
 										: 'left'
 								}>
 								{columns[dataIndex].type === 'date' ||
-								(!parseInt(cell.toLocaleString()) &&
+								(isNaN(parseInt(cell.toLocaleString())) &&
 									!isNaN(new Date(cell.toLocaleString()).getTime())) ? (
 									<TimestampBar
 										date={cell as string}

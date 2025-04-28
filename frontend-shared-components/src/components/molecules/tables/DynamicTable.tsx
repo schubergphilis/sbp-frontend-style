@@ -4,6 +4,7 @@ import TableOrder from 'components/elements/TableOrder'
 import TimestampBar from 'components/elements/TimestampBar'
 import { SortType } from 'datatypes/SortType'
 import { TableRow } from 'datatypes/TableRow'
+import { IsValidDateString } from 'helpers/FunctionHelpers'
 import { useAppSelector } from 'hooks/UseReduxStore'
 import ColumnModel from 'models/ColumnModel'
 import { useCallback, useEffect, useRef, useState } from 'react'
@@ -167,8 +168,7 @@ const DynamicTable = ({
 										: 'left'
 								}>
 								{columns[dataIndex].type === 'date' ||
-								(isNaN(Number(cell)) &&
-									!isNaN(new Date(cell.toLocaleString()).getTime())) ? (
+								(isNaN(Number(cell)) && IsValidDateString(cell)) ? (
 									<TimestampBar
 										date={cell as string}
 										onClick={handleShowDays}

@@ -30,8 +30,9 @@ const Modal = ({
 				$isActive={isOpen}
 				onClick={toggle}
 				className="dackdrop"
+				data-backdrop
 				{...props}>
-				<ModalBox onClick={stopPropagation}>
+				<ModalBox onClick={stopPropagation} data-modal>
 					{isCustom ? (
 						children
 					) : (

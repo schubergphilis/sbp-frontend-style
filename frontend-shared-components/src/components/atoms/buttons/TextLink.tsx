@@ -15,7 +15,11 @@ const TextLink = ({
 	...props
 }: Props) => {
 	return (
-		<Container $isActive={isActive} $disabled={disabled} {...props}>
+		<Container
+			$isActive={isActive}
+			$disabled={disabled}
+			{...props}
+			data-active={isActive ?? undefined}>
 			<Content>
 				{Array.isArray(children)
 					? Children.toArray(

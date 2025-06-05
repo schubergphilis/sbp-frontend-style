@@ -4,7 +4,7 @@ import {
 	CustomMiddlewareAPI,
 	localStorageMiddleware,
 	reHydrateStore
-} from 'middleware/LocalStorageMiddleware'
+} from '../middleware/LocalStorageMiddleware'
 import { dynamicTableSlice } from './DynamicTableSlice'
 import { settingsSlice } from './SettingsSlice'
 

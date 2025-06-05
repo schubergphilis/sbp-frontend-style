@@ -7,11 +7,6 @@ import { SortType } from 'datatypes/SortType'
 import { TableRow } from 'datatypes/TableRow'
 import { IsValidDateString } from 'helpers/FunctionHelpers'
 import { useAppSelector } from 'hooks/UseReduxStore'
-import {
-	CustomMiddlewareAPI,
-	localStorageMiddleware,
-	reHydrateStore
-} from 'middleware/LocalStorageMiddleware'
 import ColumnModel from 'models/ColumnModel'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Provider } from 'react-redux'
@@ -20,6 +15,11 @@ import {
 	getColumnSizeListState
 } from 'store/DynamicTableSlice'
 import styled from 'styled-components'
+import {
+	CustomMiddlewareAPI,
+	localStorageMiddleware,
+	reHydrateStore
+} from '../../../middleware/LocalStorageMiddleware'
 import ColumnResize from './ColumnResize'
 
 interface Props {
@@ -51,7 +51,7 @@ const DynamicTable = (props: Props) => {
 
 	const tableStore = configureStore({
 		reducer: reducers,
-		devTools: !import.meta.env.PROD,
+		devTools: false,
 		preloadedState: reHydrateStore(props.id),
 		middleware: (getDefaultMiddleware) =>
 			getDefaultMiddleware().concat((x: CustomMiddlewareAPI) => {

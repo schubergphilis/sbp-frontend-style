@@ -1,4 +1,3 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import ActionButton from 'components/atoms/buttons/ActionButton'
 import Elipse from 'components/elements/Elipse'
 import TableOrder from 'components/elements/TableOrder'
@@ -6,24 +5,12 @@ import TimestampBar from 'components/elements/TimestampBar'
 import { SortType } from 'datatypes/SortType'
 import { TableRow } from 'datatypes/TableRow'
 import { IsValidDateString } from 'helpers/FunctionHelpers'
-import { useAppSelector } from 'hooks/UseReduxStore'
 import ColumnModel from 'models/ColumnModel'
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { Provider } from 'react-redux'
-import {
-	dynamicTableSlice,
-	getColumnSizeListState
-} from 'store/DynamicTableSlice'
 import styled from 'styled-components'
-import {
-	CustomMiddlewareAPI,
-	localStorageMiddleware,
-	reHydrateStore
-} from '../../../middleware/LocalStorageMiddleware'
 import ColumnResize from './ColumnResize'
 
 interface Props {
-	id: string
 	title?: string
 	columns: ColumnModel[]
 	data?: TableRow[]
@@ -40,35 +27,11 @@ interface Props {
 	showMoreTitle?: string
 	onShowMore?: (ev: any) => void
 	isSticky?: boolean
+	columnSizeList?: number[]
+	changeColumnSize?: (sizes: number[]) => void
 }
 
-const DynamicTable = (props: Props) => {
-	const reducers = combineReducers({
-		[dynamicTableSlice.name]: dynamicTableSlice.reducer
-	})
-
-	const blockList = ['test']
-
-	const tableStore = configureStore({
-		reducer: reducers,
-		devTools: false,
-		preloadedState: reHydrateStore(props.id),
-		middleware: (getDefaultMiddleware) =>
-			getDefaultMiddleware().concat((x: CustomMiddlewareAPI) => {
-				x.blockList = blockList
-				x.name = props.id
-				return localStorageMiddleware(x)
-			})
-	})
-
-	return (
-		<Provider store={tableStore}>
-			<XDynamicTable {...props} />
-		</Provider>
-	)
-}
-
-const XDynamicTable = ({
+const DynamicTable = ({
 	title,
 	data,
 	columns,
@@ -82,6 +45,8 @@ const XDynamicTable = ({
 	showMoreTitle = 'Show more',
 	onShowMore,
 	isSticky = false,
+	columnSizeList,
+	changeColumnSize,
 	...props
 }: Props) => {
 	const alignList = ['date', 'number']
@@ -89,9 +54,6 @@ const XDynamicTable = ({
 	const ref = useRef<HTMLTableElement>(null)
 
 	// const isDarkTheme = useAppSelector<boolean>(isDarkModeState)
-	const columnSizeList = useAppSelector<number[] | undefined>(
-		getColumnSizeListState
-	)
 
 	const [showDays, setShowDays] = useState<boolean>(false)
 	const [sort, setSort] = useState<SortType>('ASC')
@@ -181,7 +143,9 @@ const XDynamicTable = ({
 									<span>{title}</span>
 								)}
 
-								<ColumnResize />
+								{changeColumnSize && (
+									<ColumnResize onChange={changeColumnSize} />
+								)}
 							</Th>
 						)
 					)}

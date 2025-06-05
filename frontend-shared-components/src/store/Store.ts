@@ -5,12 +5,10 @@ import {
 	localStorageMiddleware,
 	reHydrateStore
 } from '../middleware/LocalStorageMiddleware'
-import { dynamicTableSlice } from './DynamicTableSlice'
 import { settingsSlice } from './SettingsSlice'
 
 export const reducers = combineReducers({
-	[settingsSlice.name]: settingsSlice.reducer,
-	[dynamicTableSlice.name]: dynamicTableSlice.reducer
+	[settingsSlice.name]: settingsSlice.reducer
 })
 
 const blockList = ['test']

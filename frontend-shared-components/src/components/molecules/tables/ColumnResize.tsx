@@ -1,11 +1,11 @@
-import { useAppDispatch } from 'hooks/UseReduxStore'
 import { useCallback, useRef } from 'react'
-import { setColumnSizeListState } from 'store/DynamicTableSlice'
 import styled from 'styled-components'
 
-const ColumnResize = () => {
-	const dispatch = useAppDispatch()
+interface Props {
+	onChange: (sizes: number[]) => void
+}
 
+const ColumnResize = ({ onChange }: Props) => {
 	const columnOffsetRef = useRef(0)
 	const columnSizeRef = useRef(0)
 	const columnTargetRef = useRef<HTMLTableCellElement | null>(null)
@@ -73,7 +73,7 @@ const ColumnResize = () => {
 			...(columnTargetRef.current?.closest('tr')?.querySelectorAll('th') ?? [])
 		].map((item) => Number(item.getAttribute('width')) ?? 0)
 
-		dispatch(setColumnSizeListState(sizes))
+		onChange(sizes)
 
 		document.removeEventListener('mousemove', startColumnResize)
 		document.removeEventListener('mouseup', stopColumnResize)

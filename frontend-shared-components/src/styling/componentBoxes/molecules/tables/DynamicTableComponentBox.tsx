@@ -72,6 +72,7 @@ const DynamicTableComponentBox = () => {
 				// onSort={(selected, sort) => alert(`sorting ${selected} => ${sort}`)}
 				// onRowClick={(id) => alert(`click ${id}`)}
 				// onShowMore={() => alert('show more!')}
+				changeColumnSize={console.log}
 				columns={[
 					{ title: 'id', type: 'number', width: 50, order: true },
 					{ title: 'name', type: 'string', order: true },

@@ -14,6 +14,9 @@ const ColumnResize = ({ onChange }: Props) => {
 
 	const startColumnResize = useCallback(
 		(ev: MouseEvent) => {
+			ev.stopPropagation()
+			ev.preventDefault()
+
 			const offset = ev.clientX - columnOffsetRef.current
 
 			const width = Math.round(
@@ -30,6 +33,9 @@ const ColumnResize = ({ onChange }: Props) => {
 
 	const handleColumnResize = useCallback(
 		(ev: React.MouseEvent<HTMLDivElement>) => {
+			ev.stopPropagation()
+			ev.preventDefault()
+
 			const target = ev.target as HTMLDivElement
 
 			columnOffsetRef.current = ev.clientX

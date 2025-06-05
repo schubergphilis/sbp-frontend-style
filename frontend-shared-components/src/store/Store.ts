@@ -17,7 +17,7 @@ const blockList = ['test']
 
 export const store = configureStore({
 	reducer: reducers,
-	devTools: !import.meta.env.PROD,
+	devTools: false,
 	preloadedState: reHydrateStore(),
 	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware().concat((x: CustomMiddlewareAPI) => {

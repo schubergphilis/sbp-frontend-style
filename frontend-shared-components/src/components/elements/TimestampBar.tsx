@@ -34,7 +34,7 @@ const TimestampBar = ({ date, showDays = false, ...props }: Props) => {
 				? `${hours > 0 ? ',' : ''} ${minutes} minute`
 				: minutes > 1
 					? `${hours > 0 ? ',' : ''} ${minutes} minutes`
-					: ''
+					: 'now'
 
 		// Format the result
 		return days === 0

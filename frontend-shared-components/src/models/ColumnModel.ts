@@ -5,5 +5,4 @@ export default interface ColumnModel {
 	type?: ColumnType
 	width?: number
 	order?: boolean
-	nobreak?: boolean
 }

@@ -72,13 +72,15 @@ const DynamicTableComponentBox = () => {
 				// onSort={(selected, sort) => alert(`sorting ${selected} => ${sort}`)}
 				// onRowClick={(id) => alert(`click ${id}`)}
 				// onShowMore={() => alert('show more!')}
+				id="dynamic-table"
 				columns={[
-					{ title: 'id', type: 'number', width: 80, order: true },
+					{ title: 'id', type: 'number', width: 50, order: true },
 					{ title: 'name', type: 'string', order: true },
 					{ title: 'missing', type: 'boolean' },
-					{ title: 'description', type: 'string', nobreak: true },
-					{ title: 'data', type: 'date', width: 250 }
+					{ title: 'description', type: 'string' },
+					{ title: 'data', type: 'date', width: 100 }
 				]}
+				foot={[['test', 'test']]}
 				data={[
 					[
 						1, // <div key={'test_sdsd'}>test</div>,
@@ -88,7 +90,7 @@ const DynamicTableComponentBox = () => {
 						new Date('2025-03-13')
 					],
 					[
-						2,
+						200000,
 						'Jane Smith',
 						false,
 						'ServicedeskAanpassen Services onder beheer Servicedesk',

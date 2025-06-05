@@ -1,3 +1,4 @@
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import ActionButton from 'components/atoms/buttons/ActionButton'
 import Elipse from 'components/elements/Elipse'
 import TableOrder from 'components/elements/TableOrder'
@@ -6,12 +7,23 @@ import { SortType } from 'datatypes/SortType'
 import { TableRow } from 'datatypes/TableRow'
 import { IsValidDateString } from 'helpers/FunctionHelpers'
 import { useAppSelector } from 'hooks/UseReduxStore'
+import {
+	CustomMiddlewareAPI,
+	localStorageMiddleware,
+	reHydrateStore
+} from 'middleware/LocalStorageMiddleware'
 import ColumnModel from 'models/ColumnModel'
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { isDarkModeState } from 'store/SettingsSlice'
+import { Provider } from 'react-redux'
+import {
+	dynamicTableSlice,
+	getColumnSizeListState
+} from 'store/DynamicTableSlice'
 import styled from 'styled-components'
+import ColumnResize from './ColumnResize'
 
 interface Props {
+	id: string
 	title?: string
 	columns: ColumnModel[]
 	data?: TableRow[]
@@ -30,7 +42,33 @@ interface Props {
 	isSticky?: boolean
 }
 
-const DynamicTable = ({
+const DynamicTable = (props: Props) => {
+	const reducers = combineReducers({
+		[dynamicTableSlice.name]: dynamicTableSlice.reducer
+	})
+
+	const blockList = ['test']
+
+	const tableStore = configureStore({
+		reducer: reducers,
+		devTools: !import.meta.env.PROD,
+		preloadedState: reHydrateStore(props.id),
+		middleware: (getDefaultMiddleware) =>
+			getDefaultMiddleware().concat((x: CustomMiddlewareAPI) => {
+				x.blockList = blockList
+				x.name = props.id
+				return localStorageMiddleware(x)
+			})
+	})
+
+	return (
+		<Provider store={tableStore}>
+			<XDynamicTable {...props} />
+		</Provider>
+	)
+}
+
+const XDynamicTable = ({
 	title,
 	data,
 	columns,
@@ -50,7 +88,10 @@ const DynamicTable = ({
 
 	const ref = useRef<HTMLTableElement>(null)
 
-	const isDarkTheme = useAppSelector<boolean>(isDarkModeState)
+	// const isDarkTheme = useAppSelector<boolean>(isDarkModeState)
+	const columnSizeList = useAppSelector<number[] | undefined>(
+		getColumnSizeListState
+	)
 
 	const [showDays, setShowDays] = useState<boolean>(false)
 	const [sort, setSort] = useState<SortType>('ASC')
@@ -108,7 +149,7 @@ const DynamicTable = ({
 			ref={ref}
 			cellSpacing={0}
 			$stripe={stripe}
-			$isDarkMode={isDarkTheme}
+			$isDarkMode={false}
 			$isSticky={isSticky}
 			{...props}>
 			{title && title !== '' && (
@@ -125,7 +166,8 @@ const DynamicTable = ({
 					{columns.map(
 						({ title, type = 'string', order, width }, dataIndex) => (
 							<Th
-								width={width ? `${width}` : '*'}
+								width={`${columnSizeList?.[dataIndex] || '*'}`}
+								style={width ? { minWidth: width } : undefined}
 								key={`table_head_cell_${dataIndex}`}
 								align={alignList.indexOf(type) > -1 ? 'right' : 'left'}>
 								{order ? (
@@ -138,6 +180,8 @@ const DynamicTable = ({
 								) : (
 									<span>{title}</span>
 								)}
+
+								<ColumnResize />
 							</Th>
 						)
 					)}
@@ -174,14 +218,14 @@ const DynamicTable = ({
 										onClick={handleShowDays}
 										showDays={showDays}
 									/>
-								) : columns[dataIndex].nobreak && typeof cell === 'string' ? (
+								) : typeof cell === 'string' ? (
 									<Elipse update={refresh}>{cell.toLocaleString()}</Elipse>
 								) : (
-									<div>
+									<Elipse update={refresh}>
 										{typeof cell === 'boolean'
 											? cell.toString()
 											: (cell as any)}
-									</div>
+									</Elipse>
 								)}
 							</td>
 						))}
@@ -248,8 +292,6 @@ const Table = styled.table<{
 	$isSticky: boolean
 }>`
 	width: 100%;
-	table-layout: fixed;
-	border-collapse: collapse;
 
 	& thead {
 		position: relative;
@@ -276,6 +318,7 @@ const Table = styled.table<{
 		`
         & tr:nth-child(even) {
             background-color: ${theme.style.colorZebra};
+
         }
     `}
 
@@ -300,6 +343,8 @@ const Table = styled.table<{
 			th,
 			td {
 				cursor: pointer;
+				background-color: transparent;
+				transition: background-color 0.25s ease-in-out;
 			}
 			&:hover {
 				th,
@@ -342,6 +387,9 @@ const Table = styled.table<{
 
 	`}
 `
-const Th = styled.th<{ width: string; align: string }>``
+const Th = styled.th<{ width: string; align: string }>`
+	position: relative;
+	overflow: visible;
+`
 
 export default DynamicTable

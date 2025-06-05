@@ -4,15 +4,19 @@ import { AppState } from './Store'
 
 // Type for our state
 export interface SettingsState {
-	isDarkMode?: boolean
-	isLargeMode?: boolean
-	isMenuOpen?: boolean
+	isDarkMode: boolean
+	isLargeMode: boolean
+	isMenuOpen: boolean
 	lightStyle?: DefaultStyle
 	darkStyle?: DefaultStyle
 }
 
 // Initial state
-const initialState: SettingsState = {}
+const initialState: SettingsState = {
+	isDarkMode: false,
+	isLargeMode: false,
+	isMenuOpen: false
+}
 
 // Actual Slice
 export const settingsSlice = createSlice({
@@ -43,9 +47,11 @@ export const settingsSlice = createSlice({
 	}
 })
 
-export const isDarkModeState = (state: AppState) => state.settings.isDarkMode
+export const isDarkModeState = (state: AppState): boolean =>
+	state.settings.isDarkMode
 
-export const isLargeModeState = (state: AppState) => state.settings.isLargeMode
+export const isLargeModeState = (state: AppState): boolean =>
+	state.settings.isLargeMode
 
 export const isMenuOpenState = (state: AppState) => state.settings.isMenuOpen
 

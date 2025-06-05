@@ -62,5 +62,7 @@ const TimestampBar = ({ date, showDays = false, ...props }: Props) => {
 const Button = styled.button`
 	cursor: pointer;
 	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 `
 export default TimestampBar

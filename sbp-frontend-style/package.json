@@ -1,5 +1,5 @@
 {
-	"name": "@gmtdi/frontend-shared-components",
+	"name": "@schubergphilis/sbp-frontend-style",
 	"version": "1.0.1-122",
 	"license": "MIT",
 	"type": "module",
@@ -16,7 +16,7 @@
 		"registry": "https://npm.pkg.github.com"
 	},
 	"repository": {
-		"url": "git://github.com/gmtdi/frontend-shared-components.git"
+		"url": "git://github.com/schubergphilis/sbp-frontend-style.git"
 	},
 	"scripts": {
 		"predev": "yarn prebuild",

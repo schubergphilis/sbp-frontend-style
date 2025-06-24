@@ -39,31 +39,31 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Install dependencies
-        working-directory: frontend-shared-components
+        working-directory: sbp-frontend-style
         run: yarn install
             
       - name: Build component list
-        working-directory: frontend-shared-components
+        working-directory: sbp-frontend-style
         run: yarn prebuild
 
       - name: Run Tests
-        working-directory: frontend-shared-components
+        working-directory: sbp-frontend-style
         run: yarn test
 
       - name: Build project
-        working-directory: frontend-shared-components
+        working-directory: sbp-frontend-style
         run: yarn build
         env:
           GENERATE_SOURCEMAP: "false"
       
       - name: Create release version
-        working-directory: frontend-shared-components
+        working-directory: sbp-frontend-style
         run: yarn version --minor
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Package project
-        working-directory: frontend-shared-components
+        working-directory: sbp-frontend-style
         run: yarn pack && yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -19,6 +19,7 @@ declare module 'styled-components' {
 		colorBg?: CssColorType
 		colorPrimary?: CssColorType
 		colorSecondary?: CssColorType
+		colorHighlight?: CssColorType
 		colorCta?: CssColorType
 		colorActive?: CssColorType
 		colorZebra?: CssColorType

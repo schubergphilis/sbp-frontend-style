@@ -40,3 +40,14 @@ export const AbbreviateName = (name: string): string => {
 		return item.slice(0, 2).toUpperCase()
 	}
 }
+
+export const IsValidDateString = (cell: any) => {
+	const date = new Date(cell)
+
+	return (
+		!isNaN(date.getTime()) &&
+		typeof cell === 'string' &&
+		cell.trim().length > 0 &&
+		/^[\d/\-.\s:]+$/.test(cell) // Only numbers, / - . : and spaces
+	)
+}

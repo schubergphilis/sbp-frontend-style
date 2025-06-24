@@ -7,7 +7,7 @@ const start = async () => {
 	const stream = fs.createWriteStream('./src/component-list.json')
 	const body = directoryTree('./src/components/', {
 		extensions: /\.tsx/,
-		exclude: /icons|debugger/
+		exclude: /icons|debugger|elements/
 	})
 	const data = JSON.stringify(body)
 	await finished(Readable.from(data).pipe(stream))

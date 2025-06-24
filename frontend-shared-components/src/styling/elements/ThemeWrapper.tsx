@@ -15,8 +15,8 @@ interface Props {
 const ThemeWrapper = ({ children }: Props) => {
 	const isDarkMode = useAppSelector<boolean>(isDarkModeState)
 	const isLargeMode = useAppSelector<boolean>(isLargeModeState)
-	const lightStyle = useAppSelector<DefaultStyle>(lightStyleState)
-	const darkStyle = useAppSelector<DefaultStyle>(darkStyleState)
+	const lightStyle = useAppSelector<DefaultStyle | undefined>(lightStyleState)
+	const darkStyle = useAppSelector<DefaultStyle | undefined>(darkStyleState)
 
 	return (
 		<CloudStyle

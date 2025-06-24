@@ -1,6 +1,5 @@
-import { device, deviceSize } from 'helpers/DeviceHelper'
 import { Provider } from 'react-redux'
-import { makeStore } from 'store/Store'
+import { store } from 'store/Store'
 import { styled } from 'styled-components'
 import CloudStyleComponentBox from 'styling/componentBoxes/CloudStyleComponentBox'
 import AvatarComponentBox from 'styling/componentBoxes/atoms/avatars/AvatarComponentBox'
@@ -25,6 +24,7 @@ import CardHeaderComponentBox from 'styling/componentBoxes/molecules/cards/CardH
 import DonutChartComponentBox from 'styling/componentBoxes/molecules/charts/DonutChartContentBox'
 import ModalComponentBox from 'styling/componentBoxes/molecules/modals/ModalComponentBox'
 import NotificationComponentBox from 'styling/componentBoxes/molecules/notifications/NotificationComponentBox'
+import DynamicTableComponentBox from 'styling/componentBoxes/molecules/tables/DynamicTableComponentBox'
 import AccordionComponentBox from 'styling/componentBoxes/organisms/accordion/AccordionComponentBox'
 import NavigationBarComponentBox from 'styling/componentBoxes/organisms/navigation/NavigationBarComponentBox'
 import TabBarComponentBox from 'styling/componentBoxes/organisms/tabbar/TabBarComponentBox'
@@ -37,7 +37,7 @@ import LogoIcon from 'styling/icons/LogoIcon'
 
 const App = () => {
 	return (
-		<Provider store={makeStore()}>
+		<Provider store={store}>
 			<ThemeWrapper>
 				<MainContainer>
 					<Header>
@@ -67,6 +67,8 @@ const App = () => {
 							<DragButtonComponentBox />
 
 							<NotificationComponentBox />
+
+							<DynamicTableComponentBox />
 
 							<TextLinkComponentBox />
 
@@ -127,10 +129,6 @@ const MainContainer = styled.div`
 	flex-direction: column;
 
 	text-align: center;
-
-	@media ${device.desktop} {
-		max-width: ${deviceSize.desktop};
-	}
 `
 const Content = styled.div`
 	display: flex;
@@ -148,7 +146,7 @@ const Main = styled.main`
 	gap: 1em;
 `
 const Menu = styled.menu`
-	flex: 0 0 30%;
+	flex: 0 0 25%;
 `
 const Footer = styled.footer`
 	flex: 0 0 auto;

@@ -125,6 +125,7 @@ export const TooltipStyle = css<{ $placement: OrientationType }>`
 	pointer-events: none;
 	position: absolute;
 	padding: 1rem 0.5rem;
+	user-select: none;
 	background-color: ${({ theme }) => theme.style.tooltipColorBg};
 	color: ${({ theme }) => theme.style.tooltipColor};
 	border-radius: ${({ theme }) => theme.style.radius}px;

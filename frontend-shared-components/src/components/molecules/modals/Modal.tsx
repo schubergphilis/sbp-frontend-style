@@ -25,24 +25,27 @@ const Modal = ({
 	}
 
 	return (
-		<Backdrop
-			$isActive={isOpen}
-			onClick={toggle}
-			className="dackdrop"
-			{...props}>
-			<ModalBox onClick={stopPropagation}>
-				{isCustom ? (
-					children
-				) : (
-					<Card>
-						<CardHeader isRemove onClick={toggle} isOpen={title !== ''}>
-							<h1>{title}</h1>
-						</CardHeader>
-						<CardContent>{children}</CardContent>
-					</Card>
-				)}
-			</ModalBox>
-		</Backdrop>
+		<div onClick={stopPropagation}>
+			<Backdrop
+				$isActive={isOpen}
+				onClick={toggle}
+				className="dackdrop"
+				data-backdrop
+				{...props}>
+				<ModalBox onClick={stopPropagation} data-modal>
+					{isCustom ? (
+						children
+					) : (
+						<Card>
+							<CardHeader isRemove onClick={toggle} isOpen={title !== ''}>
+								<h1>{title}</h1>
+							</CardHeader>
+							<CardContent>{children}</CardContent>
+						</Card>
+					)}
+				</ModalBox>
+			</Backdrop>
+		</div>
 	)
 }
 

@@ -52,7 +52,9 @@ const ChipBadge = ({
 												(typeof el === 'string' && el === '')
 											)
 									)
-									.map((el) => <div>{el}</div>)
+									.map((el, index) => (
+										<div key={`chip_badge_${index}`}>{el}</div>
+									))
 							)
 						: children}
 				</Content>

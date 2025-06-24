@@ -1,9 +1,10 @@
 ---
-name: Package Pre-release CI
+name: Deploy Frontend
 
 on:
-  workflow_dispatch:
-  pull_request:
+  push:
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -11,7 +12,7 @@ permissions:
 
 jobs:
   frontend-ci:
-    environment: dev
+    environment: prod
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -19,9 +20,6 @@ jobs:
       pull-requests: write  
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{github.head_ref}} 
-
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -31,36 +29,45 @@ jobs:
           scope: '@schubergphilis'
           registry-url: 'https://npm.pkg.github.com'
           token: ${{ secrets.GITHUB_TOKEN }}
-
+    
+      - uses: release-drafter/release-drafter@v6
+        # (Optional) specify config name to use, relative to .github/. Default: release-drafter.yml
+        # with:
+        #   config-name: my-config.yml
+        #   disable-autolabeler: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
       - name: Install dependencies
         working-directory: sbp-frontend-style
         run: yarn install
-
+            
       - name: Build component list
         working-directory: sbp-frontend-style
         run: yarn prebuild
 
       - name: Run Tests
         working-directory: sbp-frontend-style
-        run: yarn test  
+        run: yarn test
 
       - name: Build project
         working-directory: sbp-frontend-style
         run: yarn build
         env:
           GENERATE_SOURCEMAP: "false"
-
-      - name: Create pre-release version
+      
+      - name: Create release version
         working-directory: sbp-frontend-style
-        run: yarn version --prerelease --no-git-tag-version
+        run: yarn version --minor
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
+          
       - name: Package project
         working-directory: sbp-frontend-style
         run: yarn pack && yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: ${{ steps.release.outputs.release_created }}
       
       - name: "Setup git user"
         run: |
@@ -72,5 +79,3 @@ jobs:
           git add .
           git commit -m "chore: bump version [skip ci]"
           git push
-
-

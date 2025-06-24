@@ -88,7 +88,7 @@ const ActionButtonComponentBox = () => {
 		<ComponentBox
 			title="Action button"
 			description="Action button can be used to trigger events within the page.<br/> When you use different Elements like <b>next/link</b> the buttonstyle can be imported:"
-			descriptionCode="import { Link } from 'next/link'\r\nimport { ButtonStyle, ButtonStyleProps } from '@frontent-shared-components/buttons/ActionButton'\r\n\r\nconst StyledLink = styled(Link)<ButtonStyleProps>`\r\n\t${ButtonStyle}\r\n`"
+			descriptionCode="import { Link } from 'next/link'\r\nimport { ButtonStyle, ButtonStyleProps } from '@schubergphilis/sbp-frontend-style/buttons/ActionButton'\r\n\r\nconst StyledLink = styled(Link)<ButtonStyleProps>`\r\n\t${ButtonStyle}\r\n`"
 			options={options}>
 			<ActionButton children={undefined} />
 		</ComponentBox>

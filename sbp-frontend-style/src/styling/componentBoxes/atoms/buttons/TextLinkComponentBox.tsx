@@ -65,7 +65,7 @@ const TextLinkComponentBox = () => {
 		<ComponentBox
 			title="Text link"
 			description="Text link can be used to trigger events within the page."
-			descriptionCode="import { Link } from 'next/link'\r\nimport { TextLinkStyle, TextLinkStyleProps } from '@frontent-shared-components/buttons/TextLink'\r\n\r\nconst StyledLink = styled(Link)<TextLinkStyleProps>`\r\n\t${TextLinkStyle}\r\n`"
+			descriptionCode="import { Link } from 'next/link'\r\nimport { TextLinkStyle, TextLinkStyleProps } from '@schubergphilis/sbp-frontend-style/buttons/TextLink'\r\n\r\nconst StyledLink = styled(Link)<TextLinkStyleProps>`\r\n\t${TextLinkStyle}\r\n`"
 			options={options}>
 			<TextLink children={undefined} />
 		</ComponentBox>

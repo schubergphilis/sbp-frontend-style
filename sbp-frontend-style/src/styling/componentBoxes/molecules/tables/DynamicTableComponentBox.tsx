@@ -67,6 +67,7 @@ const DynamicTableComponentBox = () => {
 			description="Dynamic Table"
 			options={options}>
 			<DynamicTable
+				isSticky
 				// stripe
 				// showMore
 				// onSort={(selected, sort) => alert(`sorting ${selected} => ${sort}`)}

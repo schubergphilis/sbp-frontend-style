@@ -29,7 +29,12 @@ jobs:
           scope: '@schubergphilis'
           registry-url: 'https://npm.pkg.github.com'
           token: ${{ secrets.GITHUB_TOKEN }}
-    
+      
+      - name: "Setup git user"
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "<>"
+          
       - uses: release-drafter/release-drafter@v6
         # (Optional) specify config name to use, relative to .github/. Default: release-drafter.yml
         # with:
@@ -68,11 +73,6 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         if: ${{ steps.release.outputs.release_created }}
-      
-      - name: "Setup git user"
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "<>"
 
       - name: Check-in new version
         run: |

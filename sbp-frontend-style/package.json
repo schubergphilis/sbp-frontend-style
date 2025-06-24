@@ -1,6 +1,6 @@
 {
 	"name": "@schubergphilis/sbp-frontend-style",
-	"version": "1.0.1-123",
+	"version": "1.0.1-124",
 	"license": "MIT",
 	"type": "module",
 	"types": "./dist/index.d.ts",

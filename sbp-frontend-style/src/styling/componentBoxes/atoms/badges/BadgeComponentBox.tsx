@@ -34,7 +34,7 @@ const BadgeComponentBox = () => {
 		<ComponentBox
 			title="Badge"
 			description="Badges show notifications, counts, or status information on navigation items and icons. This functionality is automatically enabled on <b>ActionButton</b>, <b>ClipBadge</b>, <b>Avatar</b> and <b>TextLink</b>. If you want to enable it to a custom component use code below:"
-			descriptionCode="import { BadgeStyle, BadgeStyleProps } from '@frontent-shared-components/badge/badge'\r\n\r\nconst StyledBadge = styled.div<BadgeStyleProps>`\r\n\t${BadgeStyle}\r\n`"
+			descriptionCode="import { BadgeStyle, BadgeStyleProps } from '@schubergphilis/sbp-frontend-style/badge/badge'\r\n\r\nconst StyledBadge = styled.div<BadgeStyleProps>`\r\n\t${BadgeStyle}\r\n`"
 			options={options}>
 			<DummyBadgeContainer />
 		</ComponentBox>

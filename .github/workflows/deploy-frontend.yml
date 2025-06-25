@@ -68,17 +68,25 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
+      - name: Check-in new version
+        run: |
+          git add .
+          git commit -m "chore: bump version [skip ci]"
+          git push
+
+      - name: Extract version from package.json
+        id: pkg
+        run: echo "version=$(jq -r .version package.json)" >> $GITHUB_OUTPUT
+
       - uses: release-drafter/release-drafter@v6
         # (Optional) specify config name to use, relative to .github/. Default: release-drafter.yml
-        # with:
+        with:
+          tag: v${{ steps.pkg.outputs.version }}
+          name: v${{ steps.pkg.outputs.version }}
+          version: ${{ steps.pkg.outputs.version }}
+          publish: true
         #   config-name: my-config.yml
         #   disable-autolabeler: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # - name: Check-in new version
-      #   run: |
-      #     git status
-      #     git add .
-      #     git commit -m "chore: bump version [skip ci]"
-      #     git push

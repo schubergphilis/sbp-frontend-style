@@ -21,7 +21,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-            ref: ${{github.head_ref}} 
+            ref: ${{github.head_ref}}
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -36,14 +37,6 @@ jobs:
         run: |
           git config user.name "GitHub Actions"
           git config user.email "<>"
-          
-      - uses: release-drafter/release-drafter@v6
-        # (Optional) specify config name to use, relative to .github/. Default: release-drafter.yml
-        # with:
-        #   config-name: my-config.yml
-        #   disable-autolabeler: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Install dependencies
         working-directory: sbp-frontend-style
@@ -75,9 +68,17 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
-      - name: Check-in new version
-        run: |
-          git status
-          git add .
-          git commit -m "chore: bump version [skip ci]"
-          git push
+      - uses: release-drafter/release-drafter@v6
+        # (Optional) specify config name to use, relative to .github/. Default: release-drafter.yml
+        # with:
+        #   config-name: my-config.yml
+        #   disable-autolabeler: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # - name: Check-in new version
+      #   run: |
+      #     git status
+      #     git add .
+      #     git commit -m "chore: bump version [skip ci]"
+      #     git push

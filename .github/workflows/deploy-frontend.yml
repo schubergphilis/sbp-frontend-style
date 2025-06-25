@@ -63,6 +63,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Extract version from package.json
+        working-directory: sbp-frontend-style
         id: pkg
         run: echo "version=$(jq -r .version package.json)" >> $GITHUB_OUTPUT
         

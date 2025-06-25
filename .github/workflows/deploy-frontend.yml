@@ -74,10 +74,10 @@ jobs:
         run: yarn pack && yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        if: ${{ steps.release.outputs.release_created }}
-
+      
       - name: Check-in new version
         run: |
+          git status
           git add .
           git commit -m "chore: bump version [skip ci]"
           git push

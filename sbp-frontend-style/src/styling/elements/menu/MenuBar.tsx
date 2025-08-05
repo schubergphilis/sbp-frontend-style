@@ -1,4 +1,4 @@
-import structure from 'component-list.json'
+import structure from 'component-list.json' with { type: 'json' }
 import Card from 'components/molecules/cards/Card'
 import CardContent from 'components/molecules/cards/CardContent'
 import CardHeader from 'components/molecules/cards/CardHeader'

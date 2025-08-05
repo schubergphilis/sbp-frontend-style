@@ -77,7 +77,7 @@ const ColumnResize = ({ onChange }: Props) => {
 	const stopColumnResize = useCallback(() => {
 		const sizes = [
 			...(columnTargetRef.current?.closest('tr')?.querySelectorAll('th') ?? [])
-		].map((item) => Number(item.getAttribute('width')) ?? 0)
+		].map((item) => Number(item.getAttribute('width')))
 
 		onChange(sizes)
 

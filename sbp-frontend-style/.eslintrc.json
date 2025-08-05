@@ -16,7 +16,7 @@
 		"sourceType": "module"
 	},
 	"plugins": ["@typescript-eslint", "react", "react-hooks", "prettier"],
-	"ignorePatterns": ["*.mock.json", "vite-env.d.ts"],
+	"ignorePatterns": ["*.mock.json", "vite-env.d.ts", "dist"],
 	"rules": {
 		"react/no-children-prop": "off",
 		"react/react-in-jsx-scope": "off",

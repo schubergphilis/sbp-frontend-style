@@ -7,7 +7,7 @@ import external from 'rollup-plugin-peer-deps-external'
 // import sourcemaps from 'rollup-plugin-sourcemaps'
 import { terser } from 'rollup-plugin-terser'
 import tsConfigPaths from 'rollup-plugin-tsconfig-paths'
-import packageJson from './package.json'
+import packageJson from './package.json' with { type: 'json' }
 
 export default [
 	{
@@ -40,7 +40,7 @@ export default [
 		output: [{ file: 'dist/index.d.ts', format: 'esm' }],
 		plugins: [
 			tsConfigPaths('./tsconfig.build.json'),
-			dts.default(),
+			dts(),
 			del({
 				targets: ['./dist/cjs/types', './dist/esm/types'],
 				hook: 'buildEnd'

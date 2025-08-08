@@ -44,7 +44,17 @@ const ProgressCircle = ({
 
 	return (
 		<svg width={size} height={size} viewBox="0 0 100 100" {...props}>
-			<g>
+			<defs>
+				<filter id="dropShadow">
+					<feDropShadow
+						dx="-1"
+						dy="0"
+						stdDeviation="1"
+						floodColor="rgba(0,0,0,0.25)"
+					/>
+				</filter>
+			</defs>
+			<g transform={'scale(.96) translate(2,2)'}>
 				{centerInfo && (
 					<text
 						x={circle}
@@ -74,6 +84,7 @@ const ProgressCircle = ({
 					strokeDasharray={circumference}
 					strokeDashoffset={percent}
 					transform={`rotate(-90 ${circle} ${circle})`}
+					style={{ filter: 'url(#dropShadow)' }}
 				/>
 			</g>
 		</svg>

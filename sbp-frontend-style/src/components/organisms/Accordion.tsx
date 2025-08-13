@@ -69,13 +69,14 @@ const Accordion = ({
 				<Card
 					key={index}
 					isSelected={showSelected ? challenge(index) : false}
+					aria-expanded={challenge(index)}
 					id={id ?? undefined}>
 					<CardHeader
 						data-title
 						isOpen={challenge(index)}
 						icon={icon}
 						onClick={() => handleOpenList(index)}>
-						{title}
+						<h3>{title}</h3>
 					</CardHeader>
 					<CardContent data-content isOpen={challenge(index)}>
 						{content}

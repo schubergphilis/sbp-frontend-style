@@ -9,7 +9,8 @@ import {
 	CardFooter,
 	CardHeader
 } from 'components/molecules/cards'
-import { parser } from 'helpers'
+
+import { parser } from 'helpers/HtmlHelper'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { styled } from 'styled-components'
 import { NotificationType } from '../../../datatypes/NotificationType'

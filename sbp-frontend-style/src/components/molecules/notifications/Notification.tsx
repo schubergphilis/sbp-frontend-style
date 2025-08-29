@@ -9,6 +9,7 @@ import {
 	CardFooter,
 	CardHeader
 } from 'components/molecules/cards'
+import { parser } from 'helpers'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { styled } from 'styled-components'
 import { NotificationType } from '../../../datatypes/NotificationType'
@@ -101,7 +102,7 @@ const Notification = ({
 			</NotificationHeader>
 			{description && description !== '' ? (
 				<Collapse $isOpen={showMore ? isOpen : true}>
-					<NotificationContent>{description}</NotificationContent>
+					<NotificationContent>{parser(description)}</NotificationContent>
 					{date && (
 						<NotificationFooter hasPadding>
 							<DateInfo>{new Date(date).toLocaleString()}</DateInfo>

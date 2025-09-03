@@ -25,7 +25,10 @@ const CardHeader = ({
 }: Props) => {
 	const handleOnClick = useCallback(
 		(e: MouseEvent<HTMLButtonElement>): void => {
-			if (onClick) onClick(e)
+			if (onClick) {
+				onClick(e)
+				return
+			}
 			e.stopPropagation()
 		},
 		[onClick]

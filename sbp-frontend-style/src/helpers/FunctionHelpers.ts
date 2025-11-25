@@ -48,6 +48,6 @@ export const IsValidDateString = (cell: any) => {
 		!isNaN(date.getTime()) &&
 		typeof cell === 'string' &&
 		cell.trim().length > 0 &&
-		/^[\d/\-.\s:TZ]+$/.test(cell) // Only numbers, / - . : and spaces
+		/^[\d\\/\-.\s:TZ\\+]+$/.test(cell) // Only numbers, / - . : + and spaces
 	)
 }

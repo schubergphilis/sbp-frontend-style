@@ -26,7 +26,7 @@ const Size = styled.div`
 	position: sticky;
 	bottom: 0;
 	left: 0;
-	z-index: 2;
+	z-index: 1000;
 	opacity: 0.8;
 	cursor: pointer;
 	width: 5em;

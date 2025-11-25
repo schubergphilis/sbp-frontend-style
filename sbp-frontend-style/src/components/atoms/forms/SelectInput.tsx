@@ -20,7 +20,7 @@ const SelectInput = ({ children, ...props }: Props) => {
 }
 
 const SelectInputElement = styled.select<{ readOnly?: boolean }>`
-	border: 1px solid ${({ theme }) => theme.style.borderColor};
+	border: 1px solid ${({ theme }) => theme.style.inputBorderColor};
 	border-radius: ${({ theme }) => theme.style.radius}px;
 	background-color: ${({ theme }) => theme.style.inputColorBg};
 	padding: 0.5em;

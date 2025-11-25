@@ -46,6 +46,7 @@ declare module 'styled-components' {
 		notificationErrorColor?: CssColorType
 		notificationErrorColorBg?: CssColorType
 		cardColorBg?: CssColorType
+		inputBorderColor?: CssColorType
 		inputColorActive?: CssColorType
 		inputColorBg?: CssColorType
 		inputPlaceholder?: CssColorType

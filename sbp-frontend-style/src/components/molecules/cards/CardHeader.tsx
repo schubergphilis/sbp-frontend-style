@@ -5,7 +5,7 @@ import { styled } from 'styled-components'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
 	isOpen?: boolean
-	onClick?: VoidFunction
+	onClick?: VoidFunction | ((ev: React.MouseEvent<HTMLElement>) => void)
 	icon?: JSX.Element
 	disabled?: boolean
 	isRemove?: boolean
@@ -25,7 +25,10 @@ const CardHeader = ({
 }: Props) => {
 	const handleOnClick = useCallback(
 		(e: MouseEvent<HTMLButtonElement>): void => {
-			if (onClick) onClick()
+			if (onClick) {
+				onClick(e)
+				return
+			}
 			e.stopPropagation()
 		},
 		[onClick]

@@ -1,7 +1,7 @@
 import { styled } from 'styled-components'
 
 const TextInput = styled.input`
-	border: 1px solid ${({ theme }) => theme.style.borderColor};
+	border: 1px solid ${({ theme }) => theme.style.inputBorderColor};
 	border-radius: ${({ theme }) => theme.style.radius}px;
 	background-color: ${({ theme }) => theme.style.inputColorBg};
 	padding: 0.5em;

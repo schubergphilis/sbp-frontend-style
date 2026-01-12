@@ -12,10 +12,6 @@ import {
 } from 'styling/ThemeConfig'
 import PageSize from './atoms/debugger/PageSize'
 
-const GlobalStyle = () => {
-	return <GlobalStyles />
-}
-
 interface Props {
 	isDarkMode?: boolean
 	isLargeMode?: boolean
@@ -75,7 +71,7 @@ const CloudStyle = ({
 						? customLargeLightTheme
 						: customLightTheme
 			}>
-			<GlobalStyle />
+			<GlobalStyles />
 			{children}
 			{isDebug ? <PageSize /> : null}
 		</ThemeProvider>

@@ -59,7 +59,7 @@ jobs:
 
       - name: Create pre-release version
         working-directory: sbp-frontend-style
-        run: pnpm version --prerelease --no-git-tag-version
+        run: npm version --prerelease --no-git-tag-version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       

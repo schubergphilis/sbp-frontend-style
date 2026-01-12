@@ -60,7 +60,7 @@ jobs:
       
       - name: Create release version
         working-directory: sbp-frontend-style
-        run: pnpm version --minor --no-git-tag-version
+        run: npm version --minor --no-git-tag-version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       

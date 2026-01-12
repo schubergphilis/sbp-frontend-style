@@ -17,12 +17,14 @@ export default [
 				file: packageJson.exports.require,
 				format: 'cjs',
 				sourcemap: false,
-				name: 'react-ts-lib'
+				name: 'react-ts-lib',
+				interop: 'compat'
 			},
 			{
 				file: packageJson.exports.import,
 				format: 'esm',
-				sourcemap: false
+				sourcemap: false,
+				interop: 'compat'
 			}
 		],
 		plugins: [

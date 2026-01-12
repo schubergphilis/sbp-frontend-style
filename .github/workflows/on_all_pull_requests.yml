@@ -25,8 +25,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: "yarn"
-          cache-dependency-path: "**/yarn.lock"
+          cache: "pnpm"
+          cache-dependency-path: "**/pnpm-lock.yaml"
           always-auth: true
           scope: '@schubergphilis'
           registry-url: 'https://npm.pkg.github.com'
@@ -39,31 +39,31 @@ jobs:
 
       - name: Install dependencies
         working-directory: sbp-frontend-style
-        run: yarn install
+        run: pnpm install
 
       - name: Build component list
         working-directory: sbp-frontend-style
-        run: yarn prebuild
+        run: pnpm prebuild
 
       - name: Run Tests
         working-directory: sbp-frontend-style
-        run: yarn test  
+        run: pnpm test  
 
       - name: Build project
         working-directory: sbp-frontend-style
-        run: yarn build
+        run: pnpm build
         env:
           GENERATE_SOURCEMAP: "false"
 
       - name: Create pre-release version
         working-directory: sbp-frontend-style
-        run: yarn version --prerelease --no-git-tag-version
+        run: pnpm version --prerelease --no-git-tag-version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Package project
         working-directory: sbp-frontend-style
-        run: yarn pack && yarn publish
+        run: pnpm pack && pnpm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

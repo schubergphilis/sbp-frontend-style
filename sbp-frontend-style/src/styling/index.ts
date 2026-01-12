@@ -1,1 +1,1 @@
-export { GlobalStyles } from './ThemeConfig'
+export * from './ThemeConfig'

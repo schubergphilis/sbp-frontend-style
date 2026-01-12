@@ -65,7 +65,7 @@ jobs:
       
       - name: Package project
         working-directory: sbp-frontend-style
-        run: pnpm pack && pnpm publish
+        run: pnpm pack && pnpm publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

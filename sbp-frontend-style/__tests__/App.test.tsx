@@ -12,6 +12,29 @@ global.ResizeObserver = jest.fn().mockImplementation(() => ({
 	disconnect: jest.fn()
 }))
 
+jest.mock('react-syntax-highlighter', () => {
+	const MockLight = jest.fn(({ children, language }) => (
+		<div data-testid="syntax-highlighter" data-language={language}>
+			{children}
+		</div>
+	)) as any
+	MockLight.registerLanguage = jest.fn()
+
+	return {
+		Light: MockLight
+	}
+})
+
+jest.mock(
+	'react-syntax-highlighter/dist/esm/languages/hljs/typescript',
+	() => ({})
+)
+jest.mock('react-syntax-highlighter/dist/esm/languages/hljs/xml', () => ({}))
+jest.mock(
+	'react-syntax-highlighter/dist/esm/styles/hljs/atom-one-dark',
+	() => ({})
+)
+
 describe('App', () => {
 	it('should render the app', async () => {
 		await act(async () => {

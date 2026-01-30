@@ -31,7 +31,8 @@ const ChipBadge = ({
 			wrapper={(xchildren) => (
 				<Button
 					onClick={(e: MouseEvent<HTMLButtonElement>) => handleOnClick(e)}
-					disabled={disabled}>
+					disabled={disabled}
+					{...props}>
 					{xchildren}
 				</Button>
 			)}>

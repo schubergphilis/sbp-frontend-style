@@ -71,7 +71,7 @@ const CloudStyle = ({
 						? customLargeLightTheme
 						: customLightTheme
 			}>
-			<GlobalStyles />
+			<GlobalStyles key="frontend-style-global" />
 			{children}
 			{isDebug ? <PageSize /> : null}
 		</ThemeProvider>

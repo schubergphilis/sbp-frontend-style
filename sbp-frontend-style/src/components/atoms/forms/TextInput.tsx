@@ -20,4 +20,5 @@ const TextInput = styled.input`
 		pointer-events: none;
 	}
 `
+
 export default TextInput

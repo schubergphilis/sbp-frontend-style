@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       styled-components:
-        specifier: ^6.3.5
+        specifier: 6.3.5
         version: 6.3.5(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
     devDependencies:
       '@eslint/compat':

@@ -69,16 +69,21 @@ const Accordion = ({
 				<Card
 					key={index}
 					isSelected={showSelected ? challenge(index) : false}
-					aria-expanded={challenge(index)}
 					id={id ?? undefined}>
 					<CardHeader
+						aria-expanded={challenge(index)}
+						aria-controls={`accordion${title.replace(/["_-\s\W]/gim, '')}${index}`}
 						data-title
 						isOpen={challenge(index)}
 						icon={icon}
 						onClick={() => handleOpenList(index)}>
 						<h3>{title}</h3>
 					</CardHeader>
-					<CardContent data-content isOpen={challenge(index)}>
+					<CardContent
+						data-content
+						isOpen={challenge(index)}
+						aria-hidden={!challenge(index)}
+						id={`accordion${title.replace(/["_-\s\W]/gim, '')}${index}`}>
 						{content}
 					</CardContent>
 				</Card>

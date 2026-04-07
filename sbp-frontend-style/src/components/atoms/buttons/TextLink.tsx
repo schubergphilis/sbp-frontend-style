@@ -50,18 +50,27 @@ export const TextLinkStyle = css<TextLinkStyleProps>`
 	line-height: 2em;
 	margin: 0 1em;
 	color: inherit;
-	border-bottom: 4px solid transparent;
 	cursor: pointer;
+	border-radius: ${({ theme }) => `${theme.style.radius}px`};
 
-	${({ $isActive, theme }) =>
-		$isActive &&
-		`
-		font-weight: bold;
-		border-bottom-color: ${theme.style.colorActive};
-	`}
+	& > div {
+		border-bottom: 4px solid transparent;
+
+		${({ $isActive, theme }) =>
+			$isActive &&
+			`
+			font-weight: bold;
+			border-bottom-color: ${theme.style.colorActive};
+		`}
+	}
 
 	&:hover {
 		filter: hue-rotate(2deg) brightness(105%);
+	}
+
+	&:focus {
+		outline: 2px solid ${({ theme: { style } }) => style.colorHighlight};
+		outline-offset: 2px;
 	}
 
 	${({ $disabled, $isActive }) =>
@@ -71,6 +80,14 @@ export const TextLinkStyle = css<TextLinkStyleProps>`
 		cursor: default;
 		opacity: 0.75;
 		pointer-events: none;
+
+		&:hover {
+			filter: unset;
+		}
+
+		&:focus {
+			outline: unset;
+		}
 	`}
 
 	${BadgeStyle}

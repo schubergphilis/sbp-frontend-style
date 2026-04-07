@@ -148,6 +148,7 @@ const darkStyle: DefaultStyle = {
 		fontColor: 'rgb(232, 242, 253)',
 		shadow: 'rgba(232, 242, 253, 0.1)',
 		colorBg: 'rgb(2, 12, 23)',
+		colorHighlight: 'rgba(255, 255, 255, 0.95)',
 		borderColor: 'rgba(232, 242, 253, .75)',
 		buttonActiveColor: 'rgba(232, 242, 253, .75)',
 		buttonDisabledColor: 'rgba(232, 242, 253, .75)',

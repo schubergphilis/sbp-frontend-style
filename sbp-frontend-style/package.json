@@ -1,6 +1,6 @@
 {
 	"name": "@schubergphilis/sbp-frontend-style",
-	"version": "1.12.0",
+	"version": "1.12.1-0",
 	"license": "MIT",
 	"type": "module",
 	"types": "./dist/index.d.ts",
@@ -34,11 +34,12 @@
 		"test:clear": "jest --clearCache"
 	},
 	"peerDependencies": {
-		"react": "^19.2.3",
-		"react-dom": "^19.2.3"
+		"react": "^19.2.4",
+		"react-dom": "^19.2.4"
 	},
 	"dependencies": {
-		"styled-components": "6.3.5"
+		"@rollup/plugin-terser": "^1.0.0",
+		"styled-components": "6.3.12"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^2.0.1",
@@ -86,16 +87,15 @@
 		"react-router-dom": "^7.12.0",
 		"react-syntax-highlighter": "^16.1.0",
 		"rimraf": "^6.1.2",
-		"rollup": "^4.55.1",
+		"rollup": "^4.60.1",
 		"rollup-plugin-delete": "^3.0.2",
 		"rollup-plugin-dts": "^6.3.0",
 		"rollup-plugin-peer-deps-external": "^2.2.4",
-		"rollup-plugin-terser": "^7.0.2",
 		"rollup-plugin-tsconfig-paths": "^1.5.2",
 		"standard-version": "^9.5.0",
 		"ts-jest": "^29.4.6",
 		"typescript": "5.9.3",
-		"vite": "^7.3.1",
+		"vite": "^7.3.2",
 		"vite-tsconfig-paths": "^6.0.4",
 		"web-vitals": "^5.1.0"
 	},

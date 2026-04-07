@@ -38,10 +38,23 @@ const Button = styled.button<{ $isActive: boolean }>`
 		filter: hue-rotate(2deg) brightness(105%);
 	}
 
+	&:focus {
+		outline: 2px solid ${({ theme: { style } }) => style.colorHighlight};
+		outline-offset: 2px;
+	}
+
 	&[disabled] {
 		cursor: default;
 		opacity: 0.75;
 		pointer-events: none;
+
+		&:hover {
+			filter: unset;
+		}
+
+		&:focus {
+			outline: unset;
+		}
 	}
 `
 

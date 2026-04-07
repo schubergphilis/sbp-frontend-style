@@ -5,8 +5,7 @@ import { OrientationType } from '../../../datatypes/OrientationType'
 import BadgeStyle, { BadgeStyleProps } from '../badges/Badge'
 
 interface Props
-	extends ButtonHTMLAttributes<HTMLButtonElement>,
-		BadgeStyleProps {
+	extends ButtonHTMLAttributes<HTMLButtonElement>, BadgeStyleProps {
 	orientation?: OrientationType
 }
 
@@ -64,12 +63,25 @@ const Button = styled.button<DragStyleProps>`
 		box-shadow: 0px 0px 2px 0px ${({ theme }) => theme.style.shadow};
 	}
 
+	&:focus {
+		outline: 2px solid ${({ theme: { style } }) => style.colorHighlight};
+		outline-offset: 2px;
+	}
+
 	&[disabled] {
 		color: ${({ theme }) => theme.style.buttonDisabledColor};
 		background-color: ${({ theme }) => theme.style.buttonDisabledColorBg};
 		cursor: default;
 		opacity: 0.75;
 		pointer-events: none;
+
+		&:hover {
+			filter: unset;
+		}
+
+		&:focus {
+			outline: unset;
+		}
 	}
 
 	& > svg {

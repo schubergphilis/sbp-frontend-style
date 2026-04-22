@@ -7,7 +7,7 @@ interface Props {
 }
 
 const Elipse = ({ update, children }: Props) => {
-	const timerRef = useRef<NodeJS.Timeout>(undefined)
+	const timerRef = useRef<ReturnType<typeof setTimeout>>(undefined)
 	const ref = useRef<HTMLDivElement>(null)
 	const [width, setWidth] = useState<number>(0)
 

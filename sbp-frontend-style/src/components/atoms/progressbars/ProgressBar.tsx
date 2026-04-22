@@ -24,7 +24,7 @@ const ProgressBar: React.FC<Props> = ({
 	const START_PROGRESS = inverse ? 100 : 0
 	const END_PROGRESS = inverse ? 0 : 100
 
-	const timerRef = useRef<NodeJS.Timeout>(undefined)
+	const timerRef = useRef<ReturnType<typeof setTimeout>>(undefined)
 	const progressRef = useRef<number>(START_PROGRESS)
 	const [progress, setProgress] = useState<number>(START_PROGRESS)
 

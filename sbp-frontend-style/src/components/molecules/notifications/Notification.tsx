@@ -39,7 +39,7 @@ const Notification = ({
 	onClose,
 	...props
 }: Props) => {
-	const timer = useRef<NodeJS.Timeout>(undefined)
+	const timer = useRef<ReturnType<typeof setTimeout>>(undefined)
 	const [isOpen, setIsOpen] = useState<boolean>(false)
 	const [isRemove, setIsRemove] = useState<boolean>(false)
 

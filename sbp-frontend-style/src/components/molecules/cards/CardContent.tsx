@@ -24,7 +24,7 @@ const CardContent = ({
 	...props
 }: Props) => {
 	const ref = useRef<HTMLDivElement>(null)
-	const timer = useRef<NodeJS.Timeout>(undefined)
+	const timer = useRef<ReturnType<typeof setTimeout>>(undefined)
 
 	const [height, setHeight] = useState<number | undefined>(undefined)
 	const [refreshCycle, setRefreshCycle] = useState<number>(0)

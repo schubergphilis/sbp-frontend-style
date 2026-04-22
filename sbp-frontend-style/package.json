@@ -145,7 +145,7 @@
 			"^styling/(.*)": "<rootDir>/src/styling/$1"
 		},
 		"transformIgnorePatterns": [
-			"<rootDir>/node_modules/(?!variables|react-syntax-highlighter)"
+			"node_modules/(?!(variables|react-syntax-highlighter)/)"
 		]
 	}
 }

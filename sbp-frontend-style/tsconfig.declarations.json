@@ -2,12 +2,13 @@
 	"extends": "./tsconfig.json",
 	"compilerOptions": {
 		"declaration": true,
-		"sourceMap": false,
-		"outDir": "dist",
-		"rootDir": "./",
+		"declarationDir": "./dist/types",
+		"emitDeclarationOnly": true,
+		"rootDir": "./src",
 		"allowImportingTsExtensions": false,
 		"noEmit": false,
 		"baseUrl": "./src",
 		"ignoreDeprecations": "6.0"
-	}
+	},
+	"include": ["src"]
 }

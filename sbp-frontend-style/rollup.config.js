@@ -31,20 +31,23 @@ export default [
 			external(),
 			resolve(),
 			commonjs(),
-			typescript({ tsconfig: './tsconfig.build.json' }),
+			typescript({
+				tsconfig: './tsconfig.build.json',
+				declaration: false
+			}),
 			// sourcemaps(),
 			terser()
 		],
 		external: ['react', 'react-dom', 'styled-components']
 	},
 	{
-		input: 'dist/esm/types/src/build.d.ts',
+		input: 'dist/types/build.d.ts',
 		output: [{ file: 'dist/index.d.ts', format: 'esm' }],
 		plugins: [
 			tsConfigPaths('./tsconfig.build.json'),
 			dts(),
 			del({
-				targets: ['./dist/cjs/types', './dist/esm/types'],
+				targets: ['./dist/types'],
 				hook: 'buildEnd'
 			})
 		],

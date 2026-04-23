@@ -1,4 +1,4 @@
-import reactElementToJsxString from 'react-element-to-jsx-string'
+import reactElementToJsxStringPkg from 'react-element-to-jsx-string'
 import { Light as SyntaxHighlighter } from 'react-syntax-highlighter'
 import xml from 'react-syntax-highlighter/dist/esm/languages/hljs/xml'
 import github from 'react-syntax-highlighter/dist/esm/styles/hljs/atom-one-dark'
@@ -10,6 +10,9 @@ interface Props {
 }
 
 const CodeBlock = ({ children }: Props) => {
+	// @ts-expect-error - package export structure issue
+	const reactElementToJsxString = reactElementToJsxStringPkg.default || reactElementToJsxStringPkg
+
 	return (
 		<SyntaxHighlighter language="xml" style={github} showLineNumbers={true}>
 			{reactElementToJsxString(children)

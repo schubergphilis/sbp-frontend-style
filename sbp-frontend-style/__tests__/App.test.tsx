@@ -6,6 +6,11 @@ import { act, render, screen } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
 import App from '../src/App'
 
+jest.mock('html-react-parser', () => ({
+	__esModule: true,
+	default: (html: string) => html
+}))
+
 global.ResizeObserver = jest.fn().mockImplementation(() => ({
 	observe: jest.fn(),
 	unobserve: jest.fn(),

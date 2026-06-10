@@ -275,6 +275,13 @@ const Table = styled.table<{
 				display: inline-block;
 			}
 		}
+
+		& td,
+		& th {
+			&[align='right'] {
+				text-align: right;
+			}
+		}
 	}
 
 	${({ $stripe, theme }) =>

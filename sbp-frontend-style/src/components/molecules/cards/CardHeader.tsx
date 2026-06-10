@@ -81,6 +81,8 @@ const Container = styled.div<{
 	align-items: center;
 	gap: 0.5em;
 	text-align: left;
+	color: ${({ theme: { style } }) => style.cardHeaderColor};
+	background-color: ${({ theme: { style } }) => style.cardHeaderColorBg};
 
 	transition: border-bottom 0.4s step-end;
 

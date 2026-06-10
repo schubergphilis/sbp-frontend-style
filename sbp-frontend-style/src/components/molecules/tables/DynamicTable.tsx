@@ -10,7 +10,7 @@ import { TableRow } from '../../../datatypes/TableRow'
 import ColumnModel from '../../../models/ColumnModel'
 import ColumnResize from './ColumnResize'
 
-interface Props {
+export interface DynamicTableProps {
 	title?: string
 	columns: ColumnModel[]
 	data?: TableRow[]
@@ -48,7 +48,7 @@ const DynamicTable = ({
 	columnSizeList,
 	changeColumnSize,
 	...props
-}: Props) => {
+}: DynamicTableProps) => {
 	const alignList = ['date', 'number']
 
 	const ref = useRef<HTMLTableElement>(null)

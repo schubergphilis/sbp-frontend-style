@@ -53,8 +53,6 @@ const DynamicTable = ({
 
 	const ref = useRef<HTMLTableElement>(null)
 
-	// const isDarkTheme = useAppSelector<boolean>(isDarkModeState)
-
 	const [showDays, setShowDays] = useState<boolean>(false)
 	const [sort, setSort] = useState<SortType>('ASC')
 	const [selected, setSelected] = useState<string>('')
@@ -111,7 +109,6 @@ const DynamicTable = ({
 			ref={ref}
 			cellSpacing={0}
 			$stripe={stripe}
-			$isDarkMode={false}
 			$isSticky={isSticky}
 			{...props}>
 			{title && title !== '' && (
@@ -252,7 +249,6 @@ const DynamicTable = ({
 
 const Table = styled.table<{
 	$stripe: boolean
-	$isDarkMode: boolean
 	$isSticky: boolean
 }>`
 	width: 100%;
@@ -264,9 +260,8 @@ const Table = styled.table<{
 			text-align: left;
 		}
 		& th {
-			background-color: ${({ theme }) => theme.style.colorPrimary};
-			color: ${({ $isDarkMode, theme }) =>
-				$isDarkMode ? theme.style.colorBg : theme.style.fontColor};
+			background-color: ${({ theme: { style } }) => style.tableHeaderColorBg};
+			color: ${({ theme: { style } }) => style.tableHeaderColor};
 
 			user-select: none;
 			white-space: nowrap;

@@ -53,6 +53,8 @@ declare module 'styled-components' {
 		notificationWarningColorBg?: CssColorType
 		radius?: number
 		shadow?: CssColorType
+		tableHeaderColor?: CssColorType
+		tableHeaderColorBg?: CssColorType
 		tooltipColor?: CssColorType
 		tooltipColorBg?: CssColorType
 	}

@@ -140,6 +140,8 @@ const lightStyle: DefaultStyle = {
 	notificationWarningColorBg: 'rgba(255 204 0 / 1)',
 	radius: 8,
 	shadow: 'rgba(2 12 23 / 0.25)',
+	tableHeaderColor: 'rgba(255 255 255 / 1)',
+	tableHeaderColorBg: 'rgba(30 128 237 / .95)',
 	tooltipColor: 'rgba(255 255 255 / 1)',
 	tooltipColorBg: 'rgba(2 12 23 / 0.95)'
 }

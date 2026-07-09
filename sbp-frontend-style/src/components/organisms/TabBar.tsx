@@ -46,6 +46,8 @@ const TabBar = ({
 const Container = styled(CardHeader)`
 	padding-bottom: 0;
 	height: 4.625em;
+	color: inherit;
+	background-color: transparent;
 
 	& > div {
 		display: flex;
@@ -60,6 +62,7 @@ const MenuButton = styled(ActionButton)<{
 	border-bottom-right-radius: 0;
 	border-bottom-color: transparent;
 	border-bottom-width: 3px;
+	border-bottom-style: solid;
 
 	${({ $isActive, theme }) =>
 		$isActive &&
@@ -69,6 +72,24 @@ const MenuButton = styled(ActionButton)<{
 `
 const MenuLink = styled.button<{ $isActive: boolean; $disabled?: boolean }>`
 	padding: 0.25em 0;
+
+	border-bottom-left-radius: 0 !important;
+	border-bottom-right-radius: 0 !important;
+	border-bottom-color: transparent;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+
+	${({ $isActive, theme }) =>
+		$isActive &&
+		`
+		font-weight:bold;
+		border-bottom-color: ${theme.style.buttonActiveColor};
+    `}
+
+	&:focus {
+		border-radius: ${({ theme }) => theme.style.radius}px!important;
+	}
+
 	${TextLinkStyle}
 `
 export default TabBar

@@ -66,6 +66,7 @@ const StyledCardHeader = styled(CardHeader)`
 		content: 'header box';
 		display: block;
 		font-size: 0.75em;
+		color: ${({ theme: { style } }) => style.fontColor};
 		padding: 0 0.25em;
 		border: 1px dashed ${({ theme }) => theme.style.notificationErrorColorBg};
 		position: absolute;

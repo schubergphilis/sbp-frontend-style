@@ -39,6 +39,7 @@ const CardHeader = ({
 			condition={typeof onClick === 'function' && !isRemove}
 			wrapper={(children) => (
 				<CollapseButton
+					type="button"
 					onClick={(e: MouseEvent<HTMLButtonElement>) => handleOnClick(e)}
 					disabled={disabled}>
 					{children}
@@ -81,6 +82,8 @@ const Container = styled.div<{
 	align-items: center;
 	gap: 0.5em;
 	text-align: left;
+	color: ${({ theme: { style } }) => style.cardHeaderColor};
+	background-color: ${({ theme: { style } }) => style.cardHeaderColorBg};
 
 	transition: border-bottom 0.4s step-end;
 

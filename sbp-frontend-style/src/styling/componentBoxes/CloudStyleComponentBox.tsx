@@ -27,7 +27,7 @@ const CloudStyleComponentBox = () => {
 			title: 'Light style',
 			name: 'lightStyle',
 			type: 'element',
-			defaultValue: { colorSecondary: '#ff6600' },
+			defaultValue: { buttonSecondaryColorBg: '#ff6600' },
 			value: null,
 			global: true
 		},
@@ -35,7 +35,7 @@ const CloudStyleComponentBox = () => {
 			title: 'Dark style',
 			name: 'darkStyle',
 			type: 'element',
-			defaultValue: { colorSecondary: '#8cd600' },
+			defaultValue: { buttonSecondaryColorBg: '#8cd600' },
 			value: null,
 			global: true
 		},
@@ -78,7 +78,7 @@ const CloudStyle = ({
 
 const Container = styled.div`
 	position: relative;
-	border: 1px solid ${({ theme }) => theme.style.borderColor};
+	border: 1px dashed red;
 
 	> button {
 		margin: 4em;

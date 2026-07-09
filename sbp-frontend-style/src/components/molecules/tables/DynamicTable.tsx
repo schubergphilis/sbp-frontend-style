@@ -7,13 +7,17 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { SortType } from '../../../datatypes/SortType'
 import { TableRow } from '../../../datatypes/TableRow'
+import { ColSpanRow, TableSection } from '../../../datatypes/TableSection'
 import ColumnModel from '../../../models/ColumnModel'
 import ColumnResize from './ColumnResize'
+
+const isTableSectionArray = (d: TableRow[] | TableSection[]): d is TableSection[] =>
+	d.length > 0 && !Array.isArray(d[0]) && 'rows' in (d[0] as object)
 
 export interface DynamicTableProps {
 	title?: string
 	columns: ColumnModel[]
-	data?: TableRow[]
+	data?: TableRow[] | TableSection[]
 	foot?: TableRow[]
 	stripe?: boolean
 	idColumn?: number
@@ -57,6 +61,13 @@ const DynamicTable = ({
 	const [sort, setSort] = useState<SortType>('ASC')
 	const [selected, setSelected] = useState<string>('')
 	const [refresh, setRefresh] = useState<number>(0)
+
+	const resolvedSections: TableSection[] =
+		data != null
+			? isTableSectionArray(data)
+				? data
+				: [{ rows: data as TableRow[] }]
+			: []
 
 	const calculateColspan = useCallback(
 		(index: number) => {
@@ -104,6 +115,49 @@ const DynamicTable = ({
 		return () => observer.disconnect()
 	}, [ref])
 
+	const renderCell = (cell: TableRow[0], dataIndex: number, keyPrefix: string) => (
+		<td
+			key={`${keyPrefix}_cell_${dataIndex}`}
+			data-empty={!cell || cell === '' ? true : undefined}
+			align={
+				alignList.indexOf(columns[dataIndex]?.type ?? 'string') > -1
+					? 'right'
+					: 'left'
+			}>
+			{columns[dataIndex].type === 'date' ||
+			(isNaN(Number(cell)) && IsValidDateString(cell)) ? (
+				<TimestampBar
+					date={cell as string}
+					onClick={handleShowDays}
+					showDays={showDays}
+				/>
+			) : typeof cell === 'string' ? (
+				<Elipse update={refresh}>{cell.toLocaleString()}</Elipse>
+			) : (
+				<Elipse update={refresh}>
+					{typeof cell === 'boolean' ? cell.toString() : (cell as any)}
+				</Elipse>
+			)}
+		</td>
+	)
+
+	const renderSpanRows = (spanRows: ColSpanRow[], keyPrefix: string) =>
+		spanRows.map((spanRow, rowIndex) => (
+			<tr key={`${keyPrefix}_span_${rowIndex}`}>
+				{spanRow.map((cell, cellIndex) => (
+					<td
+						key={`${keyPrefix}_span_${rowIndex}_cell_${cellIndex}`}
+						colSpan={cell.colSpan}>
+						{typeof cell.content === 'boolean'
+							? cell.content.toString()
+							: (cell.content as any)}
+					</td>
+				))}
+			</tr>
+		))
+
+	const totalRows = resolvedSections.reduce((sum, s) => sum + s.rows.length, 0)
+
 	return (
 		<Table
 			ref={ref}
@@ -148,52 +202,48 @@ const DynamicTable = ({
 					)}
 				</tr>
 			</thead>
-			<tbody>
-				{data?.map((row, index) => (
-					<tr
-						data-rowclick={
-							onRowClick !== null && onRowClick !== undefined ? true : undefined
-						}
-						key={`table_body_row_${index}`}
-						onClick={(ev) =>
-							(onRowClick &&
-								onRowClick(
-									ev,
-									idColumn === -1 ? row : row[idColumn].toString()
-								)) ??
-							undefined
-						}>
-						{row.map((cell, dataIndex) => (
-							<td
-								key={`table_body_row_${index}_cell_${dataIndex}`}
-								data-empty={!cell || cell === '' ? true : undefined}
-								align={
-									alignList.indexOf(columns[dataIndex]?.type ?? 'string') > -1
-										? 'right'
-										: 'left'
-								}>
-								{columns[dataIndex].type === 'date' ||
-								(isNaN(Number(cell)) && IsValidDateString(cell)) ? (
-									<TimestampBar
-										date={cell as string}
-										onClick={handleShowDays}
-										showDays={showDays}
-									/>
-								) : typeof cell === 'string' ? (
-									<Elipse update={refresh}>{cell.toLocaleString()}</Elipse>
-								) : (
-									<Elipse update={refresh}>
-										{typeof cell === 'boolean'
-											? cell.toString()
-											: (cell as any)}
-									</Elipse>
-								)}
-							</td>
-						))}
-					</tr>
-				))}
-			</tbody>
-			{data?.length === 0 && (
+
+			{resolvedSections.map((section, sectionIndex) => (
+				<tbody key={`table_section_${sectionIndex}`}>
+					{section.spanRowsTop &&
+						renderSpanRows(
+							section.spanRowsTop,
+							`section_${sectionIndex}_top`
+						)}
+					{section.rows.map((row, index) => (
+						<tr
+							data-rowclick={
+								onRowClick !== null && onRowClick !== undefined
+									? true
+									: undefined
+							}
+							key={`table_section_${sectionIndex}_row_${index}`}
+							onClick={(ev) =>
+								(onRowClick &&
+									onRowClick(
+										ev,
+										idColumn === -1 ? row : row[idColumn].toString()
+									)) ??
+								undefined
+							}>
+							{row.map((cell, dataIndex) =>
+								renderCell(
+									cell,
+									dataIndex,
+									`table_section_${sectionIndex}_row_${index}`
+								)
+							)}
+						</tr>
+					))}
+					{section.spanRowsBottom &&
+						renderSpanRows(
+							section.spanRowsBottom,
+							`section_${sectionIndex}_bottom`
+						)}
+				</tbody>
+			))}
+
+			{totalRows === 0 && (
 				<tbody>
 					<tr>
 						<th align="center" colSpan={columns.length}>
@@ -232,7 +282,7 @@ const DynamicTable = ({
 				</tfoot>
 			)}
 
-			{showMore && data && data?.length > 0 && (
+			{showMore && totalRows > 0 && (
 				<tfoot>
 					<tr>
 						<th align="right" colSpan={columns.length}>

@@ -39,6 +39,7 @@ const CardHeader = ({
 			condition={typeof onClick === 'function' && !isRemove}
 			wrapper={(children) => (
 				<CollapseButton
+					type="button"
 					onClick={(e: MouseEvent<HTMLButtonElement>) => handleOnClick(e)}
 					disabled={disabled}>
 					{children}

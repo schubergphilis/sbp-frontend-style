@@ -195,7 +195,10 @@ const DynamicTable = ({
 								)}
 
 								{changeColumnSize && (
-									<ColumnResize onChange={changeColumnSize} />
+									<ColumnResize
+										onChange={changeColumnSize}
+										columnCount={columns.length}
+									/>
 								)}
 							</Th>
 						)

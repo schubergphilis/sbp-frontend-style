@@ -3,10 +3,9 @@ import styled from 'styled-components'
 
 interface Props {
 	onChange: (sizes: number[]) => void
-	columnCount: number
 }
 
-const ColumnResize = ({ onChange, columnCount }: Props) => {
+const ColumnResize = ({ onChange }: Props) => {
 	const columnOffsetRef = useRef(0)
 	const columnSizeRef = useRef(0)
 	const columnTargetRef = useRef<HTMLTableCellElement | null>(null)
@@ -55,6 +54,8 @@ const ColumnResize = ({ onChange, columnCount }: Props) => {
 			)
 
 			const index = columnTargetRef.current?.cellIndex ?? 0
+			const columnCount =
+				columnTargetRef.current?.closest('tr')?.querySelectorAll('th').length ?? 0
 			columnChildrenRef.current = [
 				...(columnTargetRef.current
 					?.closest('table')

@@ -10,7 +10,7 @@ export const AccumulateReturn = (
 
 	let xvalue = key && !prev ? [] : prev
 
-	if (Array.isArray(xvalue)) {
+	if (key !== undefined && Array.isArray(xvalue)) {
 		xvalue[Number(key)] = value
 	} else {
 		xvalue = value
@@ -25,7 +25,7 @@ export const AccumulateState = (
 ): ValueType | null => {
 	const { key, prev } = sliceInfo(accumulator, name)
 
-	return Array.isArray(prev) ? prev[Number(key)] : prev
+	return key !== undefined && Array.isArray(prev) ? prev[Number(key)] : prev
 }
 
 interface InfoModel {

@@ -151,6 +151,8 @@ const NoticationCard = styled(Card)<{
 const NotificationHeader = styled(CardHeader)`
 	padding-top: 1em;
 	padding-bottom: 1em;
+	color: inherit;
+	background-color: transparent;
 
 	& > div {
 		display: flex;

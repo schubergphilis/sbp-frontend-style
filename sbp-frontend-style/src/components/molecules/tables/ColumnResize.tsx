@@ -54,13 +54,17 @@ const ColumnResize = ({ onChange }: Props) => {
 			)
 
 			const index = columnTargetRef.current?.cellIndex ?? 0
+			const columnCount =
+				columnTargetRef.current?.closest('tr')?.querySelectorAll('th').length ?? 0
 			columnChildrenRef.current = [
 				...(columnTargetRef.current
 					?.closest('table')
-					?.querySelectorAll<HTMLDivElement>(
-						`tbody tr td:nth-child(${index + 1}) div, tbody tr td:nth-child(${index + 1}) button`
-					) ?? [])
+					?.querySelectorAll<HTMLTableRowElement>('tbody tr') ?? [])
 			]
+				.filter((row) => row.cells.length === columnCount)
+				.flatMap((row) => [
+					...row.cells[index].querySelectorAll<HTMLDivElement>('div, button')
+				])
 
 			// clear last column's width to avoid resizing all columns
 			target

@@ -38,3 +38,6 @@ build
 component-list.json
 *.tgz
 .npmrc
+
+#Unzipped packages
+package*

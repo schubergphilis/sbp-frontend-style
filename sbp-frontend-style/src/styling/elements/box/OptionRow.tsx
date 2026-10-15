@@ -80,6 +80,21 @@ const OptionRow = ({
 							</option>
 						))}
 					</SelectInput>
+				) : type === 'dataset' ? (
+					<SelectInput
+						value={
+							options.find((o) => (o.payload ?? o.value) === state)?.value ?? ''
+						}
+						onChange={(event: ChangeEvent<HTMLSelectElement>) => {
+							const opt = options.find((o) => o.value === event.target.value)
+							handleEvent(name, opt?.payload !== undefined ? opt.payload : opt?.value ?? null)
+						}}>
+						{options.map(({ name, value }, index) => (
+							<option key={index} value={value}>
+								{name}
+							</option>
+						))}
+					</SelectInput>
 				) : type === 'color' ? (
 					<TextInput
 						type="color"

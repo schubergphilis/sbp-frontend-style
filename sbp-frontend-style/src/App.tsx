@@ -51,7 +51,7 @@ const App = () => {
 						<Main>
 							<InfoBox>
 								<LogoIcon width={200} height={200} />
-								<h1>Welcome to Shared Components</h1>
+								<h1>Welcome to SBP Frontend Style</h1>
 							</InfoBox>
 
 							<CloudStyleComponentBox />

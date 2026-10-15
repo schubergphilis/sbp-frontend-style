@@ -12,45 +12,49 @@ declare module 'styled-components' {
 	}
 
 	export interface DefaultStyle {
-		radius?: number
-		fontSize?: number
-		shadow?: CssColorType
-		fontColor?: CssColorType
-		colorBg?: CssColorType
-		colorPrimary?: CssColorType
-		colorSecondary?: CssColorType
-		colorHighlight?: CssColorType
-		colorCta?: CssColorType
-		colorActive?: CssColorType
-		colorZebra?: CssColorType
-		badgeSize?: CssSizeType
 		badgeColor?: CssColorType
 		badgeColorBg?: CssColorType
+		badgeSize?: CssSizeType
 		borderColor?: CssColorType
-		buttonColor?: CssColorType
-		buttonPrimaryColor?: CssColorType
-		buttonPrimaryColorBg?: CssColorType
-		buttonSecondaryColor?: CssColorType
-		buttonSecondaryColorBg?: CssColorType
 		buttonActiveColor?: CssColorType
+		buttonColor?: CssColorType
 		buttonDisabledColor?: CssColorType
 		buttonDisabledColorBg?: CssColorType
 		buttonDragColor?: CssColorType
 		buttonDragColorBg?: CssColorType
-		notificationInfoColor?: CssColorType
-		notificationInfoColorBg?: CssColorType
-		notificationWarningColor?: CssColorType
-		notificationWarningColorBg?: CssColorType
-		notificationSuccessColor?: CssColorType
-		notificationSuccessColorBg?: CssColorType
-		notificationErrorColor?: CssColorType
-		notificationErrorColorBg?: CssColorType
+		buttonPrimaryColor?: CssColorType
+		buttonPrimaryColorBg?: CssColorType
+		buttonSecondaryColor?: CssColorType
+		buttonSecondaryColorBg?: CssColorType
 		cardColorBg?: CssColorType
+		cardHeaderColor?: CssColorType
+		cardHeaderColorBg?: CssColorType
+		colorActive?: CssColorType
+		colorBg?: CssColorType
+		colorCta?: CssColorType
+		colorHighlight?: CssColorType
+		colorPrimary?: CssColorType
+		colorSecondary?: CssColorType
+		colorZebra?: CssColorType
+		fontColor?: CssColorType
+		fontSize?: number
 		inputBorderColor?: CssColorType
 		inputColorActive?: CssColorType
 		inputColorBg?: CssColorType
 		inputPlaceholder?: CssColorType
 		navigationColorBg?: CssColorType
+		notificationErrorColor?: CssColorType
+		notificationErrorColorBg?: CssColorType
+		notificationInfoColor?: CssColorType
+		notificationInfoColorBg?: CssColorType
+		notificationSuccessColor?: CssColorType
+		notificationSuccessColorBg?: CssColorType
+		notificationWarningColor?: CssColorType
+		notificationWarningColorBg?: CssColorType
+		radius?: number
+		shadow?: CssColorType
+		tableHeaderColor?: CssColorType
+		tableHeaderColorBg?: CssColorType
 		tooltipColor?: CssColorType
 		tooltipColorBg?: CssColorType
 	}

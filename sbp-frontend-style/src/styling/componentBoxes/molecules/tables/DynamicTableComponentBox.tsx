@@ -1,6 +1,72 @@
 import DynamicTable from 'components/molecules/tables/DynamicTable'
+import { TableRow } from 'datatypes/TableRow'
+import { TableSection } from 'datatypes/TableSection'
 import ComponentOptionModel from 'models/ComponentOptionModel'
 import ComponentBox from 'styling/elements/box/ComponentBox'
+
+const flatData: TableRow[] = [
+	[
+		1,
+		'John Doe',
+		true,
+		'ServicedeskAanpassen Services onder beheer Servicedesk',
+		new Date('2025-03-13')
+	],
+	[
+		200000,
+		'Jane Smith',
+		false,
+		'ServicedeskAanpassen Services onder beheer Servicedesk',
+		new Date('2024-12-01')
+	],
+	[
+		3,
+		'Alice Johnson',
+		true,
+		'ServicedeskAanpassen Services onder beheer Servicedesk',
+		new Date('2023-07-20')
+	]
+]
+
+const sectionsData: TableSection[] = [
+	{
+		spanRowsTop: [[{ colSpan: 5, content: 'Group: Active cases' }]],
+		rows: [
+			[
+				1,
+				'John Doe',
+				true,
+				'ServicedeskAanpassen Services onder beheer Servicedesk',
+				new Date('2025-03-13')
+			],
+			[
+				200000,
+				'Jane Smith',
+				false,
+				'ServicedeskAanpassen Services onder beheer Servicedesk',
+				new Date('2024-12-01')
+			]
+		],
+		spanRowsBottom: [
+			[
+				{ colSpan: 3, content: 'Subtotal active' },
+				{ colSpan: 2, content: '2 records' }
+			]
+		]
+	},
+	{
+		spanRowsTop: [[{ colSpan: 5, content: 'Group: Resolved cases' }]],
+		rows: [
+			[
+				3,
+				'Alice Johnson',
+				true,
+				'ServicedeskAanpassen Services onder beheer Servicedesk',
+				new Date('2023-07-20')
+			]
+		]
+	}
+]
 
 const DynamicTableComponentBox = () => {
 	const options: ComponentOptionModel[] = [
@@ -23,6 +89,17 @@ const DynamicTableComponentBox = () => {
 			value: 'No data found'
 		},
 		{
+			title: 'Data',
+			name: 'data',
+			type: 'dataset',
+			options: [
+				{ name: 'Flat data', value: 'flat', payload: flatData },
+				{ name: 'Sections data', value: 'sections', payload: sectionsData }
+			],
+			defaultValue: flatData,
+			value: flatData
+		},
+		{
 			title: 'Show More',
 			name: 'showMore',
 			type: 'boolean',
@@ -36,6 +113,7 @@ const DynamicTableComponentBox = () => {
 			defaultValue: false,
 			value: null
 		},
+
 		{
 			title: 'Show More Action',
 			name: 'onShowMore',
@@ -61,6 +139,7 @@ const DynamicTableComponentBox = () => {
 			value: null
 		}
 	]
+
 	return (
 		<ComponentBox
 			title="Dynamic Table"
@@ -68,11 +147,6 @@ const DynamicTableComponentBox = () => {
 			options={options}>
 			<DynamicTable
 				isSticky
-				// stripe
-				// showMore
-				// onSort={(selected, sort) => alert(`sorting ${selected} => ${sort}`)}
-				// onRowClick={(id) => alert(`click ${id}`)}
-				// onShowMore={() => alert('show more!')}
 				changeColumnSize={console.log}
 				columns={[
 					{ title: 'id', type: 'number', width: 50, order: true },
@@ -82,29 +156,6 @@ const DynamicTableComponentBox = () => {
 					{ title: 'data', type: 'date', width: 100 }
 				]}
 				foot={[['test', 'test']]}
-				data={[
-					[
-						1, // <div key={'test_sdsd'}>test</div>,
-						'John Doe',
-						true,
-						' ServicedeskAanpassen Services onder beheer Servicedesk',
-						new Date('2025-03-13')
-					],
-					[
-						200000,
-						'Jane Smith',
-						false,
-						'ServicedeskAanpassen Services onder beheer Servicedesk',
-						new Date('2024-12-01')
-					],
-					[
-						3,
-						'Alice Johnson',
-						true,
-						'ServicedeskAanpassen Services onder beheer Servicedesk',
-						new Date('2023-07-20')
-					]
-				]}
 			/>
 		</ComponentBox>
 	)
